@@ -6,7 +6,7 @@ const apiUrl = axios.create({
   baseURL:
     import.meta.env.MODE === "development"
       ? "http://localhost:4000"
-      : "https://edu-flex-backend.onrender.com",
+      : "https://vaschoolserver.vercel.app/",
 });
 
 console.log("import.meta.env.MODE :>> ", import.meta.env.MODE);
