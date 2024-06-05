@@ -22,7 +22,7 @@ function* addCourse(action) {
     console.log("createCourse :>> ", course);
     if (course) {
       yield put({ type: ADD_COURSE_SUCCESS, course });
-    } else throw new Error("error in fetchlogin");
+    } else throw new Error("error in addCourse");
   } catch (e) {
     yield put({ type: ADD_COURSE_FAIL, message: e.message });
   }
@@ -40,7 +40,7 @@ function* fetchInstructorCourses(action) {
         type: INSTRUCTOR_COURSES_SUCCESS,
         instructorCourses: courses.data,
       });
-    } else throw new Error("error in fetchlogin");
+    } else throw new Error("error in fetchInstructorCourses");
   } catch (e) {
     yield put({ type: INSTRUCTOR_COURSES_FAIL, message: e.message });
   }
@@ -57,7 +57,7 @@ function* fetchAllCourses(action) {
         type: ALL_COURSES_SUCCESS,
         allCourses: courses.data,
       });
-    } else throw new Error("error in fetchlogin");
+    } else throw new Error("error in fetchAllCourses");
   } catch (e) {
     yield put({ type: ALL_COURSES_FAIL, message: e.message });
   }
@@ -74,7 +74,7 @@ function* fetchCourseById(action) {
         type: COURSE_BY_ID_SUCCESS,
         course: course.data,
       });
-    } else throw new Error("error in fetchlogin");
+    } else throw new Error("error in fetchCourseById");
   } catch (e) {
     yield put({ type: COURSE_BY_ID_FAIL, message: e.message });
   }

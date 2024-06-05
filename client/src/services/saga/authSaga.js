@@ -48,7 +48,7 @@ function* signInUser(action) {
       });
       localStorage.setItem("userLogin", true);
       localStorage.removeItem("encryptedCartData", true);
-    } else throw new Error("error in fetchlogin");
+    } else throw new Error("error in signInUser");
   } catch (e) {
     yield put({ type: USER_SIGN_IN_FAIL, message: e.message });
     yield put({ type: ADD_CART_INFO_FAIL, message: e.message });
