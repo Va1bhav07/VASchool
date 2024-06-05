@@ -15,7 +15,7 @@ function CourseListing() {
   useEffect(() => {
     !allCourses?.length && dispatch(getAllCoursesAction());
     filterData(location);
-  }, [location, allCourses]);
+  }, [location, allCourses?.length]);
   async function filterData(location) {
     const { language, difficulty, courselength } = location;
     setCourses(allCourses);

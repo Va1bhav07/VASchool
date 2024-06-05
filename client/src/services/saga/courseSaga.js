@@ -52,7 +52,7 @@ function* fetchAllCourses(action) {
     const url = `/api/getCourses`;
     const courses = yield call(apiAxios.get, url);
     console.log("courses :>> ", courses);
-    if (courses?.data?.length) {
+    if (courses?.success) {
       yield put({
         type: ALL_COURSES_SUCCESS,
         allCourses: courses.data,
