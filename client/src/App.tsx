@@ -19,6 +19,7 @@ import Checkout from "./pages/Checkout";
 function App() {
   return (
     <Routes>
+      {/* make a route file and set it there */}
       {/* PersistentCart will only work for guest users */}
       <Route element={<PersistentCart />}>
         <Route element={<PersistentLogin />}>
