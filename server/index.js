@@ -13,7 +13,7 @@ app.use(express.json()); //body parser
 app.use(
   cors({
     credentials: true, // this is needed to set jwt in cokkies and make sure axios withCredentials = true
-    origin: ["http://localhost:3000", "https://edu-flex-frontend.onrender.com"],
+    origin: ["http://localhost:5173", "https://edu-flex-frontend.onrender.com"],
   })
 ); // allow cors
 app.use("/", express.static("images"));

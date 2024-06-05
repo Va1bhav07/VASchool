@@ -1,0 +1,27 @@
+.order-summary-checkout {
+    background-color: #acb9bd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.course-details-checkout {
+    background-color: #dbdfe5;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.content-body{
+    background-color: #dbdfe5;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.content-background {
+    background-color: #acb9bd;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    color: #333;
+}

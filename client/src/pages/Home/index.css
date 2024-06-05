@@ -1,0 +1,71 @@
+.italic{
+    font-style: italic;
+}
+
+.card-comp-width{
+    width: 60%;
+}
+
+.latest-courses {
+    background-color: #acb9bd;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.col-new-courses {
+    background-color: #dbdfe5;
+    border-radius: 20px;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+    color: #716d6d;
+    margin-left: 45px;
+}
+
+.col-testimonial {
+    background-color: #dbdfe5;
+    border-radius: 20px;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+    color: #716d6d;
+    margin: 25px;
+}
+
+.row-heading {
+    background-color: #acb9bd;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.col-heading {
+    background-color: #dbdfe5;
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px rgba(244, 242, 242, 0.2);
+    color: #716d6d;
+    margin: 25px;
+    padding: 5px;
+}
+
+.headings-homepage{
+    color:#1a313f;
+}
+
+.carousel-margin{
+    margin: 0 50px 0 50px;
+}
+
+/* size xs */
+@media (max-width: 575px) {
+    .col-new-courses {
+        margin-left: 0px;
+    }
+    .col-testimonial{
+        margin: 10px;
+    }
+}
+
+/* size sm */
+@media (min-width: 576px) and (max-width: 767px) {
+    .col-new-courses {
+        margin-left: 25px;
+    }
+}

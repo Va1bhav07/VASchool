@@ -1,0 +1,35 @@
+.course-details-cart-row {
+    background-color:#acb9bd;
+    border-radius: 20px;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+    color: #333;
+    padding:1.5rem;
+}
+
+.course-details-cart-col{
+    background-color: #dbdfe5;
+    border-radius: 20px;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+    color: #333;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.course-details-cart-col-img{
+    background-color: #dbdfe5;
+    border-radius: 20px;    
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+    color: #333;
+    padding: 0.3rem;
+}
+.button-remove{
+    padding: 0;
+}
+
+.button-remove-col{
+    background-color: #dbdfe5;
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+    padding-bottom: 0.75rem;
+    padding-top: 0.75rem;
+}
