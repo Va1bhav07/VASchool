@@ -15,10 +15,13 @@ import PersistentLogin from "./components/PersistentLogin";
 import PersistentCart from "./components/PeristentCart";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Particle from './components/Particle/test'
 
 function App() {
   return (
     <Routes>
+          <Route path="/test" element={<Particle />} />
+
       {/* make a route file and set it there */}
       {/* PersistentCart will only work for guest users */}
       <Route element={<PersistentCart />}>
