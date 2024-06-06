@@ -1,7 +1,9 @@
 const express = require("express");
 const cookieParse = require("cookie-parser");
 const dotenv = require("dotenv");
-dotenv.config(); // Load environment variables from .env file
+dotenv.config({ path: `.env.${process.env.NODE_ENV || "local"}` }); // Load environment variables from .env file
+console.log("Loaded Environment:", process.env.NODE_ENV);
+
 const connectDB = require("./db");
 const route = require("./routes");
 const cors = require("cors");
