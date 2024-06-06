@@ -1,254 +1,101 @@
-import React from "react";
-import Particles from "@tsparticles/react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim"; // Importing the slim package
 
-import htmlIcon from "../../assets/svg/html-icon.svg";
-import cssIcon from "../../assets/svg/css-icon.svg";
-import sassIcon from "../../assets/svg/sass-icon.svg";
-import jsIcon from "../../assets/svg/js-icon.svg";
-import nodeIcon from "../../assets/svg/node-icon.svg";
-import reactIcon from "../../assets/svg/react-icon.svg";
-import typescriptIcon from "../../assets/svg/typescript-icon.svg";
-import vueIcon from "../../assets/svg/vue-icon.svg";
-import boostrapIcon from "../../assets/svg/bootstrap-icon.svg";
+import "./particle.css";
 
-function ParticleComp() {
-  return (
-    <Particles
-      id="tsparticles"
-      options={{
-        fullScreen: {
+const Part = () => {
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine); // Load the slim package
+      // await loadFull(engine); // Load the slim package
+    }).then(() => {
+      setInit(true); // Set init to true once the engine is initialized
+    });
+  }, []);
+
+  const particlesLoaded = useCallback((container) => {
+    console.log("particlesLoaded", container);
+  }, []);
+
+  const options = useMemo(
+    () => ({
+      detectRetina: true,
+      fpsLimit: 120,
+      fullScreen: {
+        enable: false,
+        // zIndex: 1,
+      },
+      particles: {
+        shape: {
+          type: "circle",
+        },
+        number: {
+          // density: {
+          //   enable: true,
+          //   area: 1,
+          // },
+          limit: 200,
+          value: 150,
+        },
+        move: {
           enable: true,
-          zIndex: 1,
+          speed: { min: 1, max: 2 },
         },
-        detectRetina: true,
-        fpsLimit: 60,
-        interactivity: {
-          events: {
-            onClick: {
-              enable: true,
-              mode: "push",
-            },
-            onDiv: {
-              elementId: "repulse-div",
-              enable: false,
-              mode: "repulse",
-            },
-            onHover: {
-              enable: true,
-              mode: "bubble",
-              parallax: {
-                enable: false,
-                force: 60,
-                smooth: 10,
-              },
-            },
-            resize: true,
-          },
-          modes: {
-            bubble: {
-              distance: 400,
-              duration: 2,
-              opacity: 0.8,
-              size: 2,
-            },
-            connect: {
-              distance: 80,
-              lineLinked: {
-                opacity: 0.5,
-              },
-              radius: 60,
-            },
-            grab: {
-              distance: 400,
-              lineLinked: {
-                opacity: 1,
-              },
-            },
-            push: {
-              quantity: 2,
-            },
-            remove: {
-              quantity: 2,
-            },
-            repulse: {
-              distance: 200,
-              duration: 0.4,
-            },
-          },
+        links: {
+          enable: true,
+          distance: 40,
+          opacity: 0.5,
+          width: 1,
         },
-        particles: {
-          color: {
-            value: "#ffffff",
-          },
-          lineLinked: {
-            blink: false,
-            color: "#000",
-            consent: false,
-            distance: 150,
-            enable: false,
-            opacity: 0.4,
-            width: 1,
-          },
-          move: {
-            attract: {
-              enable: false,
-              rotate: {
-                x: 600,
-                y: 1200,
-              },
-            },
-            bounce: false,
-            direction: "none",
+        size: {
+          value: { min: 1, max: 3 },
+        },
+        opacity: {
+          value: { min: 0.3, max: 0.7 },
+        },
+      },
+      interactivity: {
+        events: {
+          onClick: {
             enable: true,
-            outMode: "out",
-            random: false,
-            speed: 2,
-            straight: false,
+            mode: "push",
           },
-          number: {
-            density: {
-              enable: true,
-              area: 800,
-            },
-            limit: 20,
-            value: 15,
+          onHover: {
+            enable: true,
+            mode: "repulse",
           },
-          opacity: {
-            animation: {
-              enable: true,
-              minimumValue: 0.2,
-              speed: 1,
-              sync: false,
-            },
-            random: true,
-            value: 1,
+          resize: true,
+        },
+        modes: {
+          push: {
+            quantity: 10,
           },
-          rotate: {
-            animation: {
-              enable: true,
-              speed: 5,
-              sync: false,
-            },
-            direction: "random",
-            random: true,
-            value: 0,
-          },
-          shape: {
-            character: {
-              fill: false,
-              font: "Verdana",
-              style: "",
-              value: "*",
-              weight: "400",
-            },
-            image: [
-              {
-                src: boostrapIcon,
-                width: 20,
-                height: 20,
-              },
-              {
-                src: cssIcon,
-                width: 20,
-                height: 20,
-              },
-              // {
-              //   "src": wordpress,
-              //   "width": 20,
-              //   "height": 20
-              // },
-              // {
-              //   "src": shopify,
-              //   "width": 20,
-              //   "height": 20
-              // },
-              {
-                src: htmlIcon,
-                width: 20,
-                height: 20,
-              },
-              {
-                src: jsIcon,
-                width: 20,
-                height: 20,
-              },
-              // {
-              //   "src": mysqlIcon,
-              //   "width": 20,
-              //   "height": 20
-              // },
-              {
-                src: nodeIcon,
-                width: 20,
-                height: 20,
-              },
-              {
-                src: reactIcon,
-                width: 20,
-                height: 20,
-              },
-              {
-                src: sassIcon,
-                width: 20,
-                height: 20,
-              },
-              {
-                src: typescriptIcon,
-                width: 20,
-                height: 20,
-              },
-              // {
-              //   "src": vscodeIcon,
-              //   "width": 20,
-              //   "height": 20
-              // },
-              {
-                src: vueIcon,
-                width: 20,
-                height: 20,
-              },
-            ],
-            polygon: {
-              sides: 5,
-            },
-            stroke: {
-              color: "#000000",
-              width: 0,
-            },
-            type: "image",
-          },
-          size: {
-            animation: {
-              enable: false,
-              minimumValue: 0.1,
-              speed: 40,
-              sync: false,
-            },
-            random: false,
-            value: 16,
+          repulse: {
+            distance: 100,
+            duration: 0.4,
           },
         },
-        polygon: {
-          draw: {
-            enable: false,
-            lineColor: "#ffffff",
-            lineWidth: 0.5,
-          },
-          move: {
-            radius: 10,
-          },
-          scale: 1,
-          url: "",
-        },
-        background: {
-          image: "",
-          position: "50% 50%",
-          repeat: "no-repeat",
-          size: "cover",
-        },
-      }}
-    />
-  );
-}
+      },
 
-export default ParticleComp;
+      // collisions: {
+      //   enable: true,
+      // },
+    }),
+    []
+  );
+  return (
+    init && (
+      <Particles
+        id={"tsparticles"}
+        className="w-100 h-100 bg-brand-background"
+        init={particlesLoaded}
+        options={options}
+      />
+    )
+  );
+};
+
+export default Part;

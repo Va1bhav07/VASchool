@@ -5,11 +5,16 @@ import { Image } from "react-bootstrap";
 import Navlinks from "./Navlinks";
 import { Link } from "react-router-dom";
 import logoImage from "./../../../assets/img/EduFlex.jpg";
-import "../../../pages/Home/index.css";
+// import "../../../pages/Home/index.css";
 
 function NavbarComp() {
   return (
-    <Navbar expand="lg" bg="dark" data-bs-theme="dark">
+    <Navbar
+      expand="lg"
+      bg="dark"
+      data-bs-theme="dark"
+      className="border-bottom"
+    >
       <Container>
         <Navbar.Brand to="/" as={Link}>
           <Image

@@ -1,11 +1,10 @@
-import React from "react";
+import Banner from "./Banner";
 // import ParticleComp from "../../components/Particle/test";
 
 function Home() {
   return (
-    <div className="banner">
-      Home test
-      {/* <ParticleComp /> */}
+    <div>
+      <Banner />
     </div>
   );
 }
