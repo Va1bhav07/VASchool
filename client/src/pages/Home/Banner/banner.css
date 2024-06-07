@@ -1,9 +1,18 @@
 .banner {
     height: 240px;
 }
+.banner .translate-center{
+    transform: translate(-50%, -50%);
+}
+.banner .type-writer{
+    font-size: 32px;
+}
 /* .banner  */
 @media (min-width: 768px) {
     .banner {
         height: 480px;
+    }
+    .banner .type-writer{
+        font-size: 56px;
     }
 }

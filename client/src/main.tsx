@@ -9,6 +9,8 @@ import { ToastContainer } from "react-toastify";
 import { Provider } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import { store } from "./services/store";
+import './index.css'
+
 const App = React.lazy(() => import("./App.jsx"));
 
 

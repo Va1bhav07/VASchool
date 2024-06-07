@@ -1,11 +1,13 @@
 import Banner from "./Banner";
-// import ParticleComp from "../../components/Particle/test";
-
+import BestCourses from "./BestCourses";
+import TopicTaught from "./TopicTaught";
 function Home() {
   return (
-    <div>
+    <>
       <Banner />
-    </div>
+      <BestCourses />
+      <TopicTaught />
+    </>
   );
 }
 

@@ -9,13 +9,8 @@ import logoImage from "./../../../assets/img/EduFlex.jpg";
 
 function NavbarComp() {
   return (
-    <Navbar
-      expand="lg"
-      bg="dark"
-      data-bs-theme="dark"
-      className="border-bottom"
-    >
-      <Container>
+    <Navbar expand="lg" className="border-bottom">
+      <Container fluid>
         <Navbar.Brand to="/" as={Link}>
           <Image
             src={logoImage}

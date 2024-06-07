@@ -1,0 +1,16 @@
+:root{
+    --fire:linear-gradient(to bottom right, #FF6C87, #FC7246);
+}
+
+.primary-text-color {
+    background: var(--fire);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE10+/Edge */
+    user-select: none;         /* Standard */
+  }

@@ -4,7 +4,7 @@ import { loadSlim } from "@tsparticles/slim"; // Importing the slim package
 
 import "./particle.css";
 
-const Part = () => {
+const Part = ({ id }) => {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -89,7 +89,7 @@ const Part = () => {
   return (
     init && (
       <Particles
-        id={"tsparticles"}
+        id={id}
         className="w-100 h-100 bg-brand-background"
         init={particlesLoaded}
         options={options}
