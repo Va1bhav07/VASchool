@@ -21,8 +21,8 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <Container>
-      <Row as="footer" className="align-items-center py-3 my-4 border-top">
+    <Container fluid>
+      <Row as="footer" className="align-items-center py-3 border-top">
         <Col md={3} className="align-items-center">
           <span>&copy; 2024 EduFlex. All Rights Reserved.</span>
         </Col>
@@ -43,7 +43,6 @@ const Footer = () => {
             Contact
           </Nav.Link>
         </Col>
-
         <Col as={Nav} md={4} className="justify-content-end">
           {socialLinks.map((link) => (
             <Nav.Link
