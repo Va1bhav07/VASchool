@@ -1,18 +1,18 @@
-import { Outlet, Navigate, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { SpinnerComp } from "../../components/Spinner";
+import { Outlet, Navigate, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { SpinnerComp } from '../../components/Spinner';
 
 const ProtectedRoutes = () => {
   // code for authentication for protected routes
   //  i.e. components require login of user
   const location = useLocation();
   const authData = useSelector((state) => state.authReducer);
-  console.log("auht :>> ", authData);
+  console.log('auht :>> ', authData);
   const { isLoggedIn, isLoading } = authData;
 
-  console.log("authData--- :>> ", authData, isLoggedIn, isLoading);
+  console.log('authData--- :>> ', authData, isLoggedIn, isLoading);
 
-  const userLogin = localStorage.getItem("userLogin");
+  const userLogin = localStorage.getItem('userLogin');
 
   if (isLoading && userLogin) {
     return (

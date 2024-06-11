@@ -1,11 +1,11 @@
-import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import { useDispatch, useSelector } from "react-redux";
-import { logoutAction } from "../../../services/actions/authActions";
-import { Link } from "react-router-dom"; // Import Link from React Router
-import { FaCartShopping } from "react-icons/fa6";
-import Badge from "react-bootstrap/Badge";
+import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutAction } from '../../../services/actions/authActions';
+import { Link } from 'react-router-dom'; // Import Link from React Router
+import { FaCartShopping } from 'react-icons/fa6';
+import Badge from 'react-bootstrap/Badge';
 
 function Navlinks() {
   const dispatch = useDispatch();
@@ -58,8 +58,8 @@ function Navlinks() {
         )}
       </Nav>
       <Nav>
-        <Nav.Link as={Link} to={"/cart"}>
-          <FaCartShopping size={"23px"} className="me-1" />
+        <Nav.Link as={Link} to={'/cart'}>
+          <FaCartShopping size={'23px'} className="me-1" />
           <Badge bg="success">{courses?.length || 0}</Badge>
         </Nav.Link>
       </Nav>

@@ -1,10 +1,10 @@
-import { Box } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react';
 
-import Actions from './Actions.jsx'
-import Data from './Data.jsx'
-import Profile from './Profile.jsx'
+import Actions from './Actions.jsx';
+import Data from './Data.jsx';
+import Profile from './Profile.jsx';
 
-function Sidebar({userData}) {
+function Sidebar({ userData }) {
   return (
     <Box
       as="aside"
@@ -15,13 +15,12 @@ function Sidebar({userData}) {
       rounded="md"
       borderWidth={1}
       borderColor="brand.light"
-      style={{ transform: 'translateY(-100px)' }}
-    >
-      <Profile userData={userData}/>
+      style={{ transform: 'translateY(-100px)' }}>
+      <Profile userData={userData} />
       <Data />
       <Actions />
     </Box>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;

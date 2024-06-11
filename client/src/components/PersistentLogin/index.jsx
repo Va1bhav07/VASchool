@@ -1,5 +1,5 @@
-import { useAccessToken } from "../../hooks/useAccessToken";
-import { Outlet } from "react-router-dom";
+import { useAccessToken } from '../../hooks/useAccessToken';
+import { Outlet } from 'react-router-dom';
 
 function PersistentLogin() {
   useAccessToken();

@@ -1,7 +1,7 @@
-import React, { Suspense } from "react";
-import Header from "../Header";
-import Footer from "../Footer";
-import { SpinnerComp } from "../../components/Spinner";
+import React, { Suspense } from 'react';
+import Header from '../Header';
+import Footer from '../Footer';
+import { SpinnerComp } from '../../components/Spinner';
 
 function Main({ children }) {
   // for light theme use data-bs-theme="light" bg-white text-white

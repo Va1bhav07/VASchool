@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
+import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
 
 export function useFormHook(initialState) {
   const [formDataState, setFormData] = useState(initialState);
@@ -45,8 +45,7 @@ export function FormComp({
       validated={validated}
       onSubmit={handleSubmit}
       onChange={handleFormChange}
-      {...props}
-    >
+      {...props}>
       {children}
     </Form>
   );

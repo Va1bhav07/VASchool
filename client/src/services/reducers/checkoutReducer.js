@@ -2,7 +2,7 @@ import {
   SET_CHECKOUT_COURSES,
   REMOVE_FROM_CHECKOUT,
   REMOVE_CHECKOUT_COURSES,
-} from "../constants/checkoutConstants";
+} from '../constants/checkoutConstants';
 
 const initialState = {
   checkoutCoursesData: [],

@@ -11,7 +11,7 @@ import {
   // COURSE_BY_ID_REQUEST,
   COURSE_BY_ID_SUCCESS,
   COURSE_BY_ID_FAIL,
-} from "../constants";
+} from '../constants';
 
 const initialState = {
   allCourses: [],
@@ -25,7 +25,7 @@ export const courseReducer = (
   state = initialState,
   { type, courseData, message, instructorCourses, allCourses, course }
 ) => {
-  console.log("type,courseData,message :>> ", type, courseData, message);
+  console.log('type,courseData,message :>> ', type, courseData, message);
   switch (type) {
     case ADD_COURSE_SUCCESS:
       return {
@@ -38,7 +38,7 @@ export const courseReducer = (
     case ADD_COURSE_FAIL:
       return {
         ...state,
-        message: "",
+        message: '',
         isLoading: false,
       };
 

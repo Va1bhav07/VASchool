@@ -3,7 +3,7 @@ import {
   USER_SIGN_IN_REQUESTED,
   USER_LOGOUT_REQUESTED,
   USER_TOKEN_REQUEST,
-} from "../constants";
+} from '../constants';
 
 export const loginAction = (data) => {
   return {

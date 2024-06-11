@@ -1,8 +1,8 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import { useCartHandler } from "../../../../hooks/useCartHandler";
+import { useCartHandler } from '../../../../hooks/useCartHandler';
 
 function CourseAction({ course }) {
   const { _id, price } = course;
@@ -14,7 +14,7 @@ function CourseAction({ course }) {
   const { handleAddToCart, handleRemoveFromCart } = useCartHandler();
 
   const handleDetails = () => {
-    navigate("/course-details/" + _id);
+    navigate('/course-details/' + _id);
   };
 
   const onAddToCart = (course) => {
@@ -38,24 +38,21 @@ function CourseAction({ course }) {
         <button
           className="btn btn-primary btn-sm"
           type="button"
-          onClick={handleDetails}
-        >
+          onClick={handleDetails}>
           Details
         </button>
         {!cartInfo?.courses?.includes(course._id) ? (
           <button
             onClick={() => onAddToCart(course)}
             className="btn btn-outline-primary btn-sm mt-2"
-            type="button"
-          >
+            type="button">
             Add to cart
           </button>
         ) : (
           <button
             onClick={() => onRemoveFromCart(course)}
             className="btn btn-outline-danger btn-sm mt-2"
-            type="button"
-          >
+            type="button">
             Remove from Cart
           </button>
         )}

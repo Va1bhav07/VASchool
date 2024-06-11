@@ -3,7 +3,7 @@ import {
   SET_GUEST_CART_DATA,
   CART_DATA_REQUESTED,
   REQUEST_REMOVE_FROM_CART,
-} from "../constants/cartConstants";
+} from '../constants/cartConstants';
 
 export const getCartDataAction = (courses) => {
   return {
