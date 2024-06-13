@@ -1,0 +1,17 @@
+.stat-container {
+  transition: all 0.5s ease;
+}
+.stat-container:hover {
+  transform: scale(1.07);
+}
+
+.stat {
+  display: inline-grid;
+  column-gap: 1rem;
+}
+
+.stat-svg {
+  grid-column-start: 2;
+  grid-row: 1 / 4;
+  place-self: center;
+}

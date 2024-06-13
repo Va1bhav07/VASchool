@@ -1,6 +1,20 @@
 import Card from 'react-bootstrap/Card';
 
-function CardComp({ children, header, footer, imgSrc, ...props }) {
+type CardProps = {
+  children: React.ReactNode;
+  header?: React.ReactNode;
+  footer?: React.ReactNode;
+  imgSrc?: string;
+  [key: string]: unknown; // Allow any other props
+};
+
+function CardComp({
+  children,
+  header,
+  footer,
+  imgSrc,
+  ...props
+}: CardProps): JSX.Element {
   return (
     <Card {...props}>
       {header && <Card.Header>{header}</Card.Header>}

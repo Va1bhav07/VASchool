@@ -1,6 +1,6 @@
 import { Outlet, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { SpinnerComp } from '../../components/Spinner';
+import { SpinnerComp } from '../components/Spinner';
 
 const ProtectedRoutes = () => {
   // code for authentication for protected routes
