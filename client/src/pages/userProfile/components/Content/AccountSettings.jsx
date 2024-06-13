@@ -1,14 +1,13 @@
-import { FormControl, FormLabel, Grid, Input, Select } from "@chakra-ui/react";
-import Actions from "./Actions.jsx";
+import { FormControl, FormLabel, Grid, Input, Select } from '@chakra-ui/react';
+import Actions from './Actions.jsx';
 
 function AccountSettings({ userData }) {
   const { fullName, email } = userData;
   return (
     <>
       <Grid
-        templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
-        gap={6}
-      >
+        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
+        gap={6}>
         <FormControl id="firstName">
           <FormLabel>Name</FormLabel>
           <Input

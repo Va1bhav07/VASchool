@@ -1,15 +1,15 @@
-import React from "react";
-import Particles from "@tsparticles/react";
+import React from 'react';
+import Particles from '@tsparticles/react';
 
-import htmlIcon from "../../assets/svg/html-icon.svg";
-import cssIcon from "../../assets/svg/css-icon.svg";
-import sassIcon from "../../assets/svg/sass-icon.svg";
-import jsIcon from "../../assets/svg/js-icon.svg";
-import nodeIcon from "../../assets/svg/node-icon.svg";
-import reactIcon from "../../assets/svg/react-icon.svg";
-import typescriptIcon from "../../assets/svg/typescript-icon.svg";
-import vueIcon from "../../assets/svg/vue-icon.svg";
-import boostrapIcon from "../../assets/svg/bootstrap-icon.svg";
+import htmlIcon from '../../assets/svg/html-icon.svg';
+import cssIcon from '../../assets/svg/css-icon.svg';
+import sassIcon from '../../assets/svg/sass-icon.svg';
+import jsIcon from '../../assets/svg/js-icon.svg';
+import nodeIcon from '../../assets/svg/node-icon.svg';
+import reactIcon from '../../assets/svg/react-icon.svg';
+import typescriptIcon from '../../assets/svg/typescript-icon.svg';
+import vueIcon from '../../assets/svg/vue-icon.svg';
+import boostrapIcon from '../../assets/svg/bootstrap-icon.svg';
 
 function ParticleComp() {
   return (
@@ -26,16 +26,16 @@ function ParticleComp() {
           events: {
             onClick: {
               enable: true,
-              mode: "push",
+              mode: 'push',
             },
             onDiv: {
-              elementId: "repulse-div",
+              elementId: 'repulse-div',
               enable: false,
-              mode: "repulse",
+              mode: 'repulse',
             },
             onHover: {
               enable: true,
-              mode: "bubble",
+              mode: 'bubble',
               parallax: {
                 enable: false,
                 force: 60,
@@ -78,11 +78,11 @@ function ParticleComp() {
         },
         particles: {
           color: {
-            value: "#ffffff",
+            value: '#ffffff',
           },
           lineLinked: {
             blink: false,
-            color: "#000",
+            color: '#000',
             consent: false,
             distance: 150,
             enable: false,
@@ -98,9 +98,9 @@ function ParticleComp() {
               },
             },
             bounce: false,
-            direction: "none",
+            direction: 'none',
             enable: true,
-            outMode: "out",
+            outMode: 'out',
             random: false,
             speed: 2,
             straight: false,
@@ -129,17 +129,17 @@ function ParticleComp() {
               speed: 5,
               sync: false,
             },
-            direction: "random",
+            direction: 'random',
             random: true,
             value: 0,
           },
           shape: {
             character: {
               fill: false,
-              font: "Verdana",
-              style: "",
-              value: "*",
-              weight: "400",
+              font: 'Verdana',
+              style: '',
+              value: '*',
+              weight: '400',
             },
             image: [
               {
@@ -212,10 +212,10 @@ function ParticleComp() {
               sides: 5,
             },
             stroke: {
-              color: "#000000",
+              color: '#000000',
               width: 0,
             },
-            type: "image",
+            type: 'image',
           },
           size: {
             animation: {
@@ -231,20 +231,20 @@ function ParticleComp() {
         polygon: {
           draw: {
             enable: false,
-            lineColor: "#ffffff",
+            lineColor: '#ffffff',
             lineWidth: 0.5,
           },
           move: {
             radius: 10,
           },
           scale: 1,
-          url: "",
+          url: '',
         },
         background: {
-          image: "",
-          position: "50% 50%",
-          repeat: "no-repeat",
-          size: "cover",
+          image: '',
+          position: '50% 50%',
+          repeat: 'no-repeat',
+          size: 'cover',
         },
       }}
     />

@@ -1,4 +1,4 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button } from '@chakra-ui/react';
 
 function Actions({ submitHandler }) {
   return (

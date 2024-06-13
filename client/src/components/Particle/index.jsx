@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim"; // Importing the slim package
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import Particles, { initParticlesEngine } from '@tsparticles/react';
+import { loadSlim } from '@tsparticles/slim'; // Importing the slim package
 
-import "./particle.css";
+import './particle.css';
 
 const Part = ({ id }) => {
   const [init, setInit] = useState(false);
@@ -17,7 +17,7 @@ const Part = ({ id }) => {
   }, []);
 
   const particlesLoaded = useCallback((container) => {
-    console.log("particlesLoaded", container);
+    console.log('particlesLoaded', container);
   }, []);
 
   const options = useMemo(
@@ -30,7 +30,7 @@ const Part = ({ id }) => {
       },
       particles: {
         shape: {
-          type: "circle",
+          type: 'circle',
         },
         number: {
           // density: {
@@ -61,11 +61,11 @@ const Part = ({ id }) => {
         events: {
           onClick: {
             enable: true,
-            mode: "push",
+            mode: 'push',
           },
           onHover: {
             enable: true,
-            mode: "repulse",
+            mode: 'repulse',
           },
           resize: true,
         },

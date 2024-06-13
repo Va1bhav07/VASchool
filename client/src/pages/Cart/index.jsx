@@ -1,10 +1,10 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import CartComp from "./CartComp";
-import { setCheckoutCoursesAction } from "../../services/actions/checkoutActions";
-import { useCart } from "../../hooks/useCart";
-import { useCartHandler } from "../../hooks/useCartHandler";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import CartComp from './CartComp';
+import { setCheckoutCoursesAction } from '../../services/actions/checkoutActions';
+import { useCart } from '../../hooks/useCart';
+import { useCartHandler } from '../../hooks/useCartHandler';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const Cart = () => {
 
   const handleCheckout = (cartData) => {
     dispatch(setCheckoutCoursesAction(cartData));
-    navigate("/checkout");
+    navigate('/checkout');
   };
 
   return (

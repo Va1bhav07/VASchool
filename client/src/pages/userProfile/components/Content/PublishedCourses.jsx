@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import NoCourse from "./NoCourse";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchCourseAction } from "../../../../services/actions/courseActions";
-import CourseCard from "../../../../components/CourseCard";
+import React, { useEffect } from 'react';
+import NoCourse from './NoCourse';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCourseAction } from '../../../../services/actions/courseActions';
+import CourseCard from '../../../../components/CourseCard';
 
 function PublishedCourses({ userData = {}, tabIndexState }) {
   const { _id } = userData;
@@ -10,7 +10,7 @@ function PublishedCourses({ userData = {}, tabIndexState }) {
   const courses = useSelector((state) => state.courseReducer);
   const { instructorCourses = [] } = courses;
 
-  console.log("courses :>> ", courses);
+  console.log('courses :>> ', courses);
 
   useEffect(() => {
     tabIndexState === 2 && dispatch(fetchCourseAction(_id));

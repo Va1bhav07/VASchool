@@ -1,24 +1,24 @@
-import React, { useEffect } from "react";
-import CheckoutCourses from "./CheckoutCourses";
-import CheckoutForm from "./CheckoutForm";
-import { useFormHook } from "../../components/Form";
-import { Button, Row, Col } from "react-bootstrap";
-import { apiAxios } from "../../utilities/axios";
-import { useNavigate, Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import "../authentication/authentication.css";
-import "./checkout.css";
+import React, { useEffect } from 'react';
+import CheckoutCourses from './CheckoutCourses';
+import CheckoutForm from './CheckoutForm';
+import { useFormHook } from '../../components/Form';
+import { Button, Row, Col } from 'react-bootstrap';
+import { apiAxios } from '../../utilities/axios';
+import { useNavigate, Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import '../authentication/authentication.css';
+import './checkout.css';
 import {
   removeCheckoutCoursesAction,
   setCheckoutCoursesAction,
-} from "../../services/actions/checkoutActions";
+} from '../../services/actions/checkoutActions';
 
 const initialFvalue = {
-  fullName: "",
-  email: "",
-  cardNumber: "",
-  expiry: "",
-  cvvNumber: "",
+  fullName: '',
+  email: '',
+  cardNumber: '',
+  expiry: '',
+  cvvNumber: '',
   agreeTerms: false,
 };
 
@@ -44,7 +44,7 @@ function Checkout() {
       !cvvNumber ||
       !agreeTerms
     ) {
-      return console.log("enter all values");
+      return console.log('enter all values');
     }
 
     // Create a new object including formDataState and checkoutCourses
@@ -53,9 +53,9 @@ function Checkout() {
       checkoutCourses: checkoutCoursesData,
     };
 
-    const response = await apiAxios.post("/checkout", formDataWithCourses);
+    const response = await apiAxios.post('/checkout', formDataWithCourses);
     response && dispatch(removeCheckoutCoursesAction());
-    response && navigate("/");
+    response && navigate('/');
   };
 
   const handleDelete = (course) => {
@@ -69,7 +69,7 @@ function Checkout() {
     }
   };
   const handleCancel = () => {
-    navigate("/");
+    navigate('/');
   };
 
   return (
@@ -92,8 +92,7 @@ function Checkout() {
                 as={Link}
                 to="/"
                 variant="outline-primary"
-                className="w-100"
-              >
+                className="w-100">
                 Go to Homepage
               </Button>
             </Col>
@@ -102,8 +101,7 @@ function Checkout() {
                 as={Link}
                 to="/course-listing"
                 variant="primary"
-                className="w-100"
-              >
+                className="w-100">
                 Browse all courses
               </Button>
             </Col>

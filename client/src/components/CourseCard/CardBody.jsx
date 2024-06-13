@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function CourseInfo({ course }) {
   const { title, description, author, language, level, createdAt } = course;

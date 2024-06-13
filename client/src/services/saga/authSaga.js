@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from "redux-saga/effects";
+import { takeLatest, call, put } from 'redux-saga/effects';
 import {
   USER_LOGIN_REQUESTED,
   USER_LOGIN_SUCCESS,
@@ -12,23 +12,23 @@ import {
   USER_LOGOUT_FAIL,
   ADD_CART_INFO_SUCCESS,
   ADD_CART_INFO_FAIL,
-} from "../constants";
-import { apiAxios } from "../../utilities/axios";
+} from '../constants';
+import { apiAxios } from '../../utilities/axios';
 
 function* fetchLogin(action) {
   try {
-    const url = "/login";
+    const url = '/login';
     const user = yield call(apiAxios.post, url, action.payload);
-    console.log("fetchLogin user :>> ", user);
+    console.log('fetchLogin user :>> ', user);
     if (user) {
       yield put({ type: USER_LOGIN_SUCCESS, user });
       yield put({
         type: ADD_CART_INFO_SUCCESS,
         cartInfo: user?.foundUser?.cartData,
       });
-      localStorage.setItem("userLogin", true);
-      localStorage.removeItem("encryptedCartData", true);
-    } else throw new Error("error in fetchlogin");
+      localStorage.setItem('userLogin', true);
+      localStorage.removeItem('encryptedCartData', true);
+    } else throw new Error('error in fetchlogin');
   } catch (e) {
     yield put({ type: USER_LOGIN_FAIL, message: e.message });
     yield put({ type: ADD_CART_INFO_FAIL, message: e.message });
@@ -37,18 +37,18 @@ function* fetchLogin(action) {
 
 function* signInUser(action) {
   try {
-    const url = "/signup";
+    const url = '/signup';
     const user = yield call(apiAxios.post, url, action.payload);
-    console.log("Signup user :>> ", user);
+    console.log('Signup user :>> ', user);
     if (user) {
       yield put({ type: USER_SIGN_IN_SUCCESS, user });
       yield put({
         type: ADD_CART_INFO_SUCCESS,
         cartInfo: user?.newUser?.cartData,
       });
-      localStorage.setItem("userLogin", true);
-      localStorage.removeItem("encryptedCartData", true);
-    } else throw new Error("error in signInUser");
+      localStorage.setItem('userLogin', true);
+      localStorage.removeItem('encryptedCartData', true);
+    } else throw new Error('error in signInUser');
   } catch (e) {
     yield put({ type: USER_SIGN_IN_FAIL, message: e.message });
     yield put({ type: ADD_CART_INFO_FAIL, message: e.message });
@@ -57,18 +57,18 @@ function* signInUser(action) {
 
 function* checkUserToken() {
   try {
-    const url = "/api/accessToken";
+    const url = '/api/accessToken';
     const user = yield call(apiAxios.get, url);
-    console.log("accessToken user :>> ", user);
+    console.log('accessToken user :>> ', user);
     if (user) {
       yield put({ type: USER_LOGIN_SUCCESS, user });
       yield put({
         type: ADD_CART_INFO_SUCCESS,
         cartInfo: user?.foundUser?.cartData,
       });
-    } else throw new Error("access Token not found");
+    } else throw new Error('access Token not found');
   } catch (e) {
-    localStorage.removeItem("userLogin");
+    localStorage.removeItem('userLogin');
     yield put({ type: USER_LOGIN_FAIL, message: e.message });
     yield put({ type: ADD_CART_INFO_FAIL, message: e.message });
   }
@@ -76,11 +76,11 @@ function* checkUserToken() {
 
 function* logout() {
   try {
-    const url = "/api/logout";
+    const url = '/api/logout';
     const user = yield call(apiAxios.get, url);
-    console.log("user :>> ", user);
+    console.log('user :>> ', user);
     yield put({ type: USER_LOGOUT_SUCCESS, user });
-    const localStorageItems = ["userLogin", "encryptedCartData"];
+    const localStorageItems = ['userLogin', 'encryptedCartData'];
     localStorageItems.forEach((key) => localStorage.removeItem(key));
   } catch (e) {
     yield put({ type: USER_LOGOUT_FAIL, message: e.message });

@@ -1,10 +1,10 @@
-import React from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import CardComp from "../../../components/Cards";
-import CourseAction from "./CourseActions";
-import CourseInfo from "./CourseInfo";
-import Image from "react-bootstrap/Image";
+import React from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import CardComp from '../../../components/Cards';
+import CourseAction from './CourseActions';
+import CourseInfo from './CourseInfo';
+import Image from 'react-bootstrap/Image';
 
 // const baseURL =
 //   process.env.NODE_ENV === "development"
@@ -27,15 +27,13 @@ function CourseList({ course }) {
                 </Col>
                 <Col
                   md={6}
-                  className="d-flex flex-column justify-content-evenly"
-                >
+                  className="d-flex flex-column justify-content-evenly">
                   <CourseInfo course={course} />
                 </Col>
                 <Col
                   md={6}
                   lg={3}
-                  className="d-flex flex-column justify-content-between border-sm-start-none border-start"
-                >
+                  className="d-flex flex-column justify-content-between border-sm-start-none border-start">
                   <CourseAction course={course} />
                 </Col>
               </Row>

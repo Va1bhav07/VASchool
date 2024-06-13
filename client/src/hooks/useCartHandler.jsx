@@ -1,18 +1,18 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import {
   requestAddToCartAction,
   requestRemoveFromCartAction,
-} from "../services/actions/cartActions";
+} from '../services/actions/cartActions';
 import {
   ADD_TO_CART_SUCCESS,
   REMOVE_FROM_CART_SUCCESS,
-} from "../services/constants/cartConstants";
+} from '../services/constants/cartConstants';
 
 import {
   setEncryptedGuestCartData,
   getDecryptedGuestCartData,
-} from "../utilities/cartUtilities";
-import { toast } from "react-toastify";
+} from '../utilities/cartUtilities';
+import { toast } from 'react-toastify';
 
 export const useCartHandler = () => {
   const { isLoggedIn, userData } = useSelector(
@@ -29,19 +29,19 @@ export const useCartHandler = () => {
     }
     const decryptedGuestCartData = getDecryptedGuestCartData();
     console.log(
-      "decryptedGuestCartData from useCartHandler :>> ",
+      'decryptedGuestCartData from useCartHandler :>> ',
       decryptedGuestCartData,
       courseId
     );
     if (decryptedGuestCartData?.includes(courseId)) {
       // if course is already in guest localStorage
-      return toast.error("Course alreay in cart.", { autoClose: 2000 });
+      return toast.error('Course alreay in cart.', { autoClose: 2000 });
     }
     // else add course in guest localStorage
     decryptedGuestCartData.push(courseId);
     setEncryptedGuestCartData(decryptedGuestCartData);
     dispatch({ type: ADD_TO_CART_SUCCESS, courseId: courseId });
-    toast.success("Course added to cart.", { autoClose: 2000 });
+    toast.success('Course added to cart.', { autoClose: 2000 });
   };
 
   const handleRemoveFromCart = (course) => {
@@ -58,7 +58,7 @@ export const useCartHandler = () => {
       setEncryptedGuestCartData(updatedGuestCartData);
     }
     dispatch({ type: REMOVE_FROM_CART_SUCCESS, courseId: courseId });
-    toast.success("Course removed from cart.", { autoClose: 2000 });
+    toast.success('Course removed from cart.', { autoClose: 2000 });
   };
 
   return {

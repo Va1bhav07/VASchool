@@ -1,5 +1,5 @@
-import React from "react";
-import Accordion from "react-bootstrap/Accordion";
+import React from 'react';
+import Accordion from 'react-bootstrap/Accordion';
 
 const FAQs = () => {
   return (

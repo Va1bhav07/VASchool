@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import CardComp from "../../../components/Cards";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
-import Row from "react-bootstrap/esm/Row";
-import Col from "react-bootstrap/esm/Col";
-import { useParams, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCourseByIdAction } from "../../../services/actions/courseActions";
-import { useCartHandler } from "../../../hooks/useCartHandler";
+import React, { useState, useEffect } from 'react';
+import CardComp from '../../../components/Cards';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/esm/Row';
+import Col from 'react-bootstrap/esm/Col';
+import { useParams, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCourseByIdAction } from '../../../services/actions/courseActions';
+import { useCartHandler } from '../../../hooks/useCartHandler';
 
 function CourseDetails() {
   const dispatch = useDispatch();
@@ -18,15 +18,15 @@ function CourseDetails() {
   const { id } = useParams();
 
   const [courseDetails, setCourseDetails] = useState({
-    image: "",
-    name: "",
-    description: "",
+    image: '',
+    name: '',
+    description: '',
   });
 
   const { handleAddToCart } = useCartHandler();
 
   useEffect(() => {
-    console.log("location :>> ", id);
+    console.log('location :>> ', id);
     !getCourseDetails() && dispatch(fetchCourseByIdAction(id));
   }, [id, courseData?._id]);
 
@@ -70,9 +70,8 @@ function CourseDetails() {
             <Button
               variant="outline-primary"
               as={Link}
-              to={"/course-listing"}
-              className="m-2"
-            >
+              to={'/course-listing'}
+              className="m-2">
               Back to all courses
             </Button>
           </Col>

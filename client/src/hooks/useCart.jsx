@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { getCartDataAction } from "../services/actions/cartActions";
+import { getCartDataAction } from '../services/actions/cartActions';
 
 export const useCart = () => {
   const dispatch = useDispatch();

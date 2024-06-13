@@ -1,12 +1,12 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function CourseAction({ course, action }) {
   const { id, price } = course;
   const navigate = useNavigate();
 
   const handleDetails = () => {
-    navigate("/course-details/" + id);
+    navigate('/course-details/' + id);
   };
 
   return (
@@ -23,8 +23,7 @@ function CourseAction({ course, action }) {
           <button
             className="btn btn-primary btn-sm"
             type="button"
-            onClick={handleDetails}
-          >
+            onClick={handleDetails}>
             Details
           </button>
           <button className="btn btn-outline-primary btn-sm mt-2" type="button">
@@ -32,7 +31,7 @@ function CourseAction({ course, action }) {
           </button>
         </div>
       ) : (
-        ""
+        ''
       )}
     </>
   );

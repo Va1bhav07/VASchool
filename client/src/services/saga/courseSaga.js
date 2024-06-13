@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from "redux-saga/effects";
+import { takeLatest, call, put } from 'redux-saga/effects';
 import {
   ADD_COURSE_REQUEST,
   ADD_COURSE_SUCCESS,
@@ -12,69 +12,69 @@ import {
   COURSE_BY_ID_REQUEST,
   COURSE_BY_ID_SUCCESS,
   COURSE_BY_ID_FAIL,
-} from "../constants";
-import { apiAxios } from "../../utilities/axios";
+} from '../constants';
+import { apiAxios } from '../../utilities/axios';
 
 function* addCourse(action) {
   try {
-    const url = "/api/createCourse";
+    const url = '/api/createCourse';
     const course = yield call(apiAxios.post, url, action.payload);
-    console.log("createCourse :>> ", course);
+    console.log('createCourse :>> ', course);
     if (course) {
       yield put({ type: ADD_COURSE_SUCCESS, course });
-    } else throw new Error("error in addCourse");
+    } else throw new Error('error in addCourse');
   } catch (e) {
     yield put({ type: ADD_COURSE_FAIL, message: e.message });
   }
 }
 
 function* fetchInstructorCourses(action) {
-  console.log("action :>> ", action);
+  console.log('action :>> ', action);
   const createdBy = action?.payload;
   try {
     const url = `/api/getPublishedCourses/${createdBy}`;
     const courses = yield call(apiAxios.get, url);
-    console.log("courses :>> ", courses);
+    console.log('courses :>> ', courses);
     if (courses?.data?.length) {
       yield put({
         type: INSTRUCTOR_COURSES_SUCCESS,
         instructorCourses: courses.data,
       });
-    } else throw new Error("error in fetchInstructorCourses");
+    } else throw new Error('error in fetchInstructorCourses');
   } catch (e) {
     yield put({ type: INSTRUCTOR_COURSES_FAIL, message: e.message });
   }
 }
 
 function* fetchAllCourses(action) {
-  console.log("action :>> ", action);
+  console.log('action :>> ', action);
   try {
     const url = `/api/getCourses`;
     const courses = yield call(apiAxios.get, url);
-    console.log("courses :>> ", courses);
+    console.log('courses :>> ', courses);
     if (courses?.success) {
       yield put({
         type: ALL_COURSES_SUCCESS,
         allCourses: courses.data,
       });
-    } else throw new Error("error in fetchAllCourses");
+    } else throw new Error('error in fetchAllCourses');
   } catch (e) {
     yield put({ type: ALL_COURSES_FAIL, message: e.message });
   }
 }
 
 function* fetchCourseById(action) {
-  console.log("fetchCourseByIdaction :>> ", action);
+  console.log('fetchCourseByIdaction :>> ', action);
   try {
     const url = `/api/getCourse/${action?.payload}`;
     const course = yield call(apiAxios.get, url);
-    console.log("course :>> ", course);
+    console.log('course :>> ', course);
     if (course?.data?._id) {
       yield put({
         type: COURSE_BY_ID_SUCCESS,
         course: course.data,
       });
-    } else throw new Error("error in fetchCourseById");
+    } else throw new Error('error in fetchCourseById');
   } catch (e) {
     yield put({ type: COURSE_BY_ID_FAIL, message: e.message });
   }
