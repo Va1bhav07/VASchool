@@ -16,7 +16,7 @@ function OurCommunity(): JSX.Element {
               className={`px-5 py-4 mb-0 stat ${ind === 1 ? 'border-start border-end' : ' border-0'}`}>
               <div className="fs-5">{data.title}</div>
 
-              <div className="fw-bold fs-1">{data.number}</div>
+              <div className="fw-bold fs-1 lh-1">{data.number}</div>
               <div className="stat-svg">
                 <CardSvg fontSize={'48px'} size={60} />
               </div>
