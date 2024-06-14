@@ -5,6 +5,7 @@ type CardProps = {
   header?: React.ReactNode;
   footer?: React.ReactNode;
   imgSrc?: string;
+  className?: string;
   [key: string]: unknown; // Allow any other props
 };
 
