@@ -32,7 +32,7 @@ function BestCourses() {
   return (
     <Container as={'section'} className="text-center my-4">
       <h1 className="fs-1 fw-bold p-3">Our Best Courses</h1>
-      <Row xs={1} md={3} className="gx-5">
+      <Row xs={1} md={3} className="g-0 g-md-4 g-lg-5">
         {demoData.map((data, idx) => (
           <Col key={idx} className="mb-3">
             <CardComp

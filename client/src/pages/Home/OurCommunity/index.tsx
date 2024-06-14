@@ -7,13 +7,13 @@ function OurCommunity(): JSX.Element {
       <h1 className="fw-bold p-4 mt-4 mb-3 mb-md-4 text-center">
         Our Community
       </h1>
-      <div className="d-flex shadow rounded-5 bg-body-tertiary stat-container mb-5">
+      <div className="d-flex flex-column flex-lg-row shadow rounded-5 bg-body-tertiary scale-effect mb-5">
         {communityData.map((data, ind) => {
           const CardSvg = data.img;
           return (
             <div
               key={ind}
-              className={`px-5 py-4 mb-0 stat ${ind === 1 ? 'border-start border-end border-lg ' : ' border-0'}`}>
+              className={`px-5 py-4 mb-0 stat ${ind === 1 ? 'border-start border-end' : ' border-0'}`}>
               <div className="fs-5">{data.title}</div>
 
               <div className="fw-bold fs-1">{data.number}</div>
