@@ -11,7 +11,7 @@ function StudentTestimonials() {
         Our Student Testimonials
       </h1>
       <Container>
-        <Row md={2} lg={3} className="g-4 m-5">
+        <Row md={2} lg={3} className="g-4 m-lg-5">
           {studentTestimonialsData.map((student, ind) => {
             const Fig = student.linkedin;
             return (

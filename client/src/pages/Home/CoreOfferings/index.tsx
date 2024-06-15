@@ -17,7 +17,7 @@ function CoreOfferings() {
             <CardComp
               key={index}
               border="0"
-              className="bg-body-tertiary shadow scale-effect">
+              className="bg-body-tertiary shadow scale-effect mx-3 m-lg-0">
               <div className="p-2">
                 <div className="mb-3">
                   <Svg size={36} />
