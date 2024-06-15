@@ -5,7 +5,7 @@ import { meetDevData } from './meetDevData';
 function MeetDev() {
   const { img, name, title, desc, comment, namasteDevLink, links } =
     meetDevData;
-  console.log('namasteDevLink.src :>> ', namasteDevLink.src);
+
   return (
     <section className="align-items-center">
       <h1 className="fw-bold p-4 mt-4 mb-3 mb-md-4 text-center">
@@ -15,7 +15,7 @@ function MeetDev() {
         border="0"
         className="shadow bg-body-tertiary w-75 mx-auto mb-5">
         <div className="d-lg-flex align-items-center  gap-5 text-center text-lg-start">
-          <div>
+          <div className="m-3 m-lg-0">
             <img
               src={img}
               className="rounded-4"
@@ -35,7 +35,7 @@ function MeetDev() {
               </a>
             </Card.Text>
 
-            <div className="d-flex gap-3">
+            <div className="d-flex justify-content-center justify-content-md-start gap-3">
               {links.map((link) => {
                 const Fig = link.fig;
                 return (
