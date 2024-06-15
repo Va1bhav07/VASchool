@@ -13,7 +13,7 @@ function MeetDev() {
       </h1>
       <CardComp
         border="0"
-        className="shadow bg-body-tertiary w-75 mx-auto mb-5">
+        className="shadow bg-body-tertiary w-75 mx-auto mb-4">
         <div className="d-lg-flex align-items-center  gap-5 text-center text-lg-start">
           <div className="m-3 m-lg-0">
             <img
@@ -36,10 +36,14 @@ function MeetDev() {
             </Card.Text>
 
             <div className="d-flex justify-content-center justify-content-md-start gap-3">
-              {links.map((link) => {
+              {links.map((link, ind) => {
                 const Fig = link.fig;
                 return (
-                  <a href={link.src} target="_blank" className="text-white">
+                  <a
+                    href={link.src}
+                    target="_blank"
+                    className="text-white"
+                    key={ind}>
                     <Fig size={30} />
                   </a>
                 );

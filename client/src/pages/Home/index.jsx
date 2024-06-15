@@ -4,6 +4,7 @@ import TopicTaught from './TopicTaught';
 import OurCommunity from './OurCommunity';
 import CoreOfferings from './CoreOfferings';
 import MeetDev from './MeetDev';
+import TopCompanies from './TopCompanies';
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
       <OurCommunity />
       <CoreOfferings />
       <MeetDev />
+      <TopCompanies />
     </>
   );
 }
