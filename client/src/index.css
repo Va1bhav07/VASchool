@@ -10,6 +10,10 @@
   -webkit-text-fill-color: transparent;
 }
 
+.orange {
+  color: #e58c33;
+}
+
 .no-select {
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */

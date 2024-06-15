@@ -18,7 +18,7 @@ function Banner() {
             <Col
               md={12}
               lg={6}
-              className="text-center text-lg-end  type-writer fw-bold primary-text-color">
+              className="text-center text-lg-end type-writer fw-bold primary-text-color">
               <Typewriter
                 onInit={(typewriter) => {
                   typewriter
