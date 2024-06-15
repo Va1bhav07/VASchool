@@ -1,5 +1,5 @@
-import React from "react";
-import NavbarComp from "../Header/Navbar";
+import React from 'react';
+import NavbarComp from '../Header/Navbar';
 
 function Header() {
   return (

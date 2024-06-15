@@ -7,14 +7,14 @@ import {
   Image,
   Badge,
   Figure,
-} from "react-bootstrap";
-import Carousel from "react-bootstrap/Carousel";
-import bannerImage from "../../../assets/img/banner.jpg";
-import maleIcon from "../../../assets/img/icon-male.png";
-import femaleIcon from "../../../assets/img/icon-female.png";
-import { FaCartPlus } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import "../index.css";
+} from 'react-bootstrap';
+import Carousel from 'react-bootstrap/Carousel';
+import bannerImage from '../../../assets/img/banner.jpg';
+import maleIcon from '../../../assets/img/icon-male.png';
+import femaleIcon from '../../../assets/img/icon-female.png';
+import { FaCartPlus } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import '../index.css';
 
 const HomeComp = ({
   cartDataLength,
@@ -65,15 +65,13 @@ const HomeComp = ({
             <Carousel
               data-bs-theme="light"
               controls={false}
-              className="carousel-margin"
-            >
+              className="carousel-margin">
               {
                 /*dummyData.*/ courses.map((course, index) => (
                   <Carousel.Item
                     key={index}
                     interval={1000}
-                    className="rounded"
-                  >
+                    className="rounded">
                     <a href={`course-details/${course._id}`}>
                       <Image
                         // src={course.image_data}
@@ -109,8 +107,7 @@ const HomeComp = ({
               as={Col}
               md={12}
               sm={12}
-              xs={12}
-            >
+              xs={12}>
               Unveil our Latest Courses
             </Button>
           </Col>
@@ -126,8 +123,7 @@ const HomeComp = ({
                     className="text-center col-new-courses mt-4 mb-4"
                     xs={12}
                     sm={11}
-                    md={5}
-                  >
+                    md={5}>
                     <Row>
                       <Col>
                         <Badge pill className="mt-2 mb-2">
@@ -140,7 +136,7 @@ const HomeComp = ({
                         alt={course.title}
                         // src={course.image_data}
                         src={course.thumbnail}
-                        width={"400px"}
+                        width={'400px'}
                         rounded
                       />
                       <Figure.Caption>
@@ -159,8 +155,7 @@ const HomeComp = ({
                             <Button
                               variant="info"
                               href={`course-details/${course._id}`}
-                              className="w-100"
-                            >
+                              className="w-100">
                               Details
                             </Button>
                           </Col>
@@ -169,8 +164,7 @@ const HomeComp = ({
                               variant="success"
                               className="w-100"
                               key={index}
-                              onClick={() => handleEnroll(course)}
-                            >
+                              onClick={() => handleEnroll(course)}>
                               Enroll
                             </Button>
                           </Col>
@@ -183,8 +177,7 @@ const HomeComp = ({
                                 handleAddToCart(course);
                               }}
                               as={Col}
-                              xs={12}
-                            >
+                              xs={12}>
                               <FaCartPlus className="" /> Add to Cart
                             </Button>
                           </Col>
@@ -205,8 +198,7 @@ const HomeComp = ({
               size="lg"
               as={Link}
               to="/cart"
-              className="w-100"
-            >
+              className="w-100">
               View Cart ({cartDataLength})
             </Button>
           </Col>
@@ -216,8 +208,7 @@ const HomeComp = ({
               size="lg"
               as={Link}
               to="/course-listing"
-              className="w-100"
-            >
+              className="w-100">
               Browse all courses
             </Button>
           </Col>
@@ -235,8 +226,8 @@ const HomeComp = ({
               <Figure.Image
                 alt="person icon"
                 src={maleIcon}
-                width={"100px"}
-                height={"100px"}
+                width={'100px'}
+                height={'100px'}
               />
               <Figure.Caption>
                 <h5>Thilakh</h5>
@@ -255,8 +246,8 @@ const HomeComp = ({
               <Figure.Image
                 alt="person icon"
                 src={maleIcon}
-                width={"100px"}
-                height={"100px"}
+                width={'100px'}
+                height={'100px'}
               />
               <Figure.Caption>
                 <h5>Sanjay</h5>
@@ -277,8 +268,8 @@ const HomeComp = ({
               <Figure.Image
                 alt="person icon"
                 src={femaleIcon}
-                width={"100px"}
-                height={"100px"}
+                width={'100px'}
+                height={'100px'}
               />
               <Figure.Caption>
                 <h5>Dhruva</h5>

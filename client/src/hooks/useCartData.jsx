@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getDecryptedGuestCartData } from "../utilities/cartUtilities";
-import { setGuestCartDataAction } from "../services/actions/cartActions";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDecryptedGuestCartData } from '../utilities/cartUtilities';
+import { setGuestCartDataAction } from '../services/actions/cartActions';
 
 export const useCartData = () => {
   // this will only works for Guest Users
@@ -12,7 +12,7 @@ export const useCartData = () => {
   const decryptedGuestCartData = getDecryptedGuestCartData();
 
   useEffect(() => {
-    console.log("only work for GUEST user :>> ");
+    console.log('only work for GUEST user :>> ');
     const getCartData = () => {
       if (decryptedGuestCartData?.length) {
         dispatch(setGuestCartDataAction(decryptedGuestCartData));

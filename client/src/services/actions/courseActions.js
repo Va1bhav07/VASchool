@@ -3,7 +3,7 @@ import {
   INSTRUCTOR_COURSES_REQUEST,
   ALL_COURSES_REQUEST,
   COURSE_BY_ID_REQUEST,
-} from "../constants";
+} from '../constants';
 
 export const addCourseAction = (data) => {
   return {

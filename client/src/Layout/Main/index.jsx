@@ -1,18 +1,18 @@
-import React, { Suspense } from "react";
-import Header from "../Header";
-import Footer from "../Footer";
-import Container from "react-bootstrap/Container";
-import { SpinnerComp } from "../../components/Spinner";
+import React, { Suspense } from 'react';
+import Header from '../Header';
+import Footer from '../Footer';
+import { SpinnerComp } from '../../components/Spinner';
 
 function Main({ children }) {
+  // for light theme use data-bs-theme="light" bg-white text-white
   return (
-    <div className="min-vh-100 d-flex flex-column">
+    <div data-bs-theme="dark" className="min-vh-100 d-flex flex-column bg-dark">
       <Header />
-      <Container className="d-flex flex-column flex-grow-1">
+      <main className="d-flex flex-column flex-grow-1 text-white">
         <Suspense fallback={<SpinnerComp className="m-auto" />}>
           {children}
         </Suspense>
-      </Container>
+      </main>
       <Footer />
     </div>
   );

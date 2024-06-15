@@ -1,20 +1,20 @@
-import Login from "./pages/authentication/Login";
-import Signup from "./pages/authentication/Signup";
-import SignOut from "./pages/authentication/Signout";
-import CourseDetails from "./pages/courses/course-details";
-import InstructorDetails from "./pages/instructor/instructor-details";
-import Home from "./pages/Home";
-import { Routes, Route } from "react-router-dom";
-import AboutUs from "./pages/About";
-import FAQs from "./pages/FAQ";
-import UserProfile from "./pages/userProfile/usrProfile";
-import PrivateRoutes from "./Layout/routes/private-routes";
-import ProtectedRoutes from "./Layout/routes/protected-routes";
-import CourseListing from "./pages/courses/course-listing";
-import PersistentLogin from "./components/PersistentLogin";
-import PersistentCart from "./components/PeristentCart";
-import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
+import Login from './pages/authentication/Login';
+import Signup from './pages/authentication/Signup';
+import SignOut from './pages/authentication/Signout';
+import CourseDetails from './pages/courses/course-details';
+import InstructorDetails from './pages/instructor/instructor-details';
+import Home from './pages/Home';
+import { Routes, Route } from 'react-router-dom';
+import AboutUs from './pages/About';
+import FAQs from './pages/FAQ';
+import UserProfile from './pages/userProfile/usrProfile';
+import PrivateRoutes from './routes/private-routes';
+import ProtectedRoutes from './routes/protected-routes';
+import CourseListing from './pages/courses/course-listing';
+import PersistentLogin from './components/PersistentLogin';
+import PersistentCart from './components/PeristentCart';
+import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 
 function App() {
   return (

@@ -1,11 +1,11 @@
-import React from "react";
-import { Image } from "react-bootstrap";
-import Accordion from "react-bootstrap/Accordion";
-import { BsTrash } from "react-icons/bs";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import "../checkout.css";
+import React from 'react';
+import { Image } from 'react-bootstrap';
+import Accordion from 'react-bootstrap/Accordion';
+import { BsTrash } from 'react-icons/bs';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import '../checkout.css';
 
 function CheckoutCourses({ checkoutCoursesData, handleDelete }) {
   return (
@@ -13,7 +13,7 @@ function CheckoutCourses({ checkoutCoursesData, handleDelete }) {
       <h4 className="text-center content-body p-2">
         <strong>Order summary</strong>
       </h4>
-      {checkoutCoursesData.length==="1" ? (
+      {checkoutCoursesData.length === '1' ? (
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
             <Accordion.Header>
@@ -40,8 +40,7 @@ function CheckoutCourses({ checkoutCoursesData, handleDelete }) {
               <Row>
                 <Col>
                   <p>
-                    <strong> Author: </strong>{" "}
-                    {`${checkoutCoursesData.author}`}
+                    <strong> Author: </strong> {`${checkoutCoursesData.author}`}
                   </p>
                 </Col>
                 <Col>
@@ -55,13 +54,14 @@ function CheckoutCourses({ checkoutCoursesData, handleDelete }) {
                 <Col>
                   <p>
                     <strong> Date published: </strong>
-                    {new Date(
-                      checkoutCoursesData.createdAt
-                    ).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
+                    {new Date(checkoutCoursesData.createdAt).toLocaleDateString(
+                      'en-US',
+                      {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      }
+                    )}
                   </p>
                 </Col>
                 <Col>
@@ -77,8 +77,7 @@ function CheckoutCourses({ checkoutCoursesData, handleDelete }) {
                 <Col className="d-flex justify-content-end">
                   <Button
                     variant="danger"
-                    onClick={() => handleDelete(checkoutCoursesData)}
-                  >
+                    onClick={() => handleDelete(checkoutCoursesData)}>
                     Delete <BsTrash className="ml-1" />
                   </Button>
                 </Col>
@@ -129,10 +128,10 @@ function CheckoutCourses({ checkoutCoursesData, handleDelete }) {
                   <Col>
                     <p>
                       <strong> Date published: </strong>
-                      {new Date(course.createdAt).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
+                      {new Date(course.createdAt).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
                       })}
                     </p>
                   </Col>
@@ -147,8 +146,7 @@ function CheckoutCourses({ checkoutCoursesData, handleDelete }) {
                   <Col className="d-flex justify-content-end">
                     <Button
                       variant="danger"
-                      onClick={() => handleDelete(course)}
-                    >
+                      onClick={() => handleDelete(course)}>
                       Delete <BsTrash className="ml-1" />
                     </Button>
                   </Col>

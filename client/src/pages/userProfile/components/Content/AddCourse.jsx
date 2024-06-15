@@ -8,24 +8,24 @@ import {
   GridItem,
   InputGroup,
   InputLeftElement,
-} from "@chakra-ui/react";
-import Actions from "./Actions.jsx";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addCourseAction } from "../../../../services/actions/courseActions.js";
+} from '@chakra-ui/react';
+import Actions from './Actions.jsx';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addCourseAction } from '../../../../services/actions/courseActions.js';
 
 function AddCourse({ userData = {} }) {
   const { _id, fullName = {} } = userData;
   const dispatch = useDispatch();
 
   const [courseState, setCourse] = useState({
-    title: "",
-    description: "",
-    videoUrl: "",
-    thumbnail: "",
-    price: "",
-    language: "english",
-    level: "beginner",
+    title: '',
+    description: '',
+    videoUrl: '',
+    thumbnail: '',
+    price: '',
+    language: 'english',
+    level: 'beginner',
   });
   const handleAddCourse = (e) => {
     const { name, value } = e.target;
@@ -51,7 +51,7 @@ function AddCourse({ userData = {} }) {
     const { title, description, videoUrl, thumbnail, price, level } =
       courseState;
     if (!title || !description || !videoUrl || !thumbnail || !price || !level) {
-      return alert("Please fill required fields");
+      return alert('Please fill required fields');
     }
     const courseData = { ...courseState, createdBy: _id, author: fullName };
     // const formData = new FormData();
@@ -66,9 +66,8 @@ function AddCourse({ userData = {} }) {
   return (
     <form onSubmit={submitAddCourse} encType="multipart/form-data">
       <Grid
-        templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
-        gap={6}
-      >
+        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
+        gap={6}>
         <FormControl id="title" isRequired>
           <FormLabel>Title</FormLabel>
 
@@ -89,8 +88,7 @@ function AddCourse({ userData = {} }) {
             focusBorderColor="brand.blue"
             onChange={(e) => handleAddCourse(e)}
             name="language"
-            value={courseState.language}
-          >
+            value={courseState.language}>
             <option value="english">English</option>
             <option value="french">French</option>
             <option value="german">German</option>
@@ -102,8 +100,7 @@ function AddCourse({ userData = {} }) {
             <InputLeftElement
               pointerEvents="none"
               color="gray.300"
-              fontSize="1.2em"
-            >
+              fontSize="1.2em">
               $
             </InputLeftElement>
             <Input
@@ -123,8 +120,7 @@ function AddCourse({ userData = {} }) {
             focusBorderColor="brand.blue"
             onChange={(e) => handleAddCourse(e)}
             name="level"
-            value={courseState.level}
-          >
+            value={courseState.level}>
             <option value="beginner">Beginner</option>
             <option value="intermediate">Intermediate</option>
             <option value="expert">Expert</option>

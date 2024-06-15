@@ -1,7 +1,7 @@
-import React from "react";
-import { Row, Col, Button, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import "../cart.css";
+import React from 'react';
+import { Row, Col, Button, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import '../cart.css';
 
 const CartComp = ({
   cartData,
@@ -21,8 +21,7 @@ const CartComp = ({
             <Image
               src={`${course.thumbnail}`}
               alt={`${course.thumbnail}`}
-              className="w-100 course-details-cart-col-img"
-            ></Image>
+              className="w-100 course-details-cart-col-img"></Image>
           </Col>
 
           <Col className="course-details-cart-col mt-4">
@@ -43,10 +42,10 @@ const CartComp = ({
               <Col sm={6}>
                 <strong>Published on:</strong>
                 <p>
-                  {new Date(course.createdAt).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
+                  {new Date(course.createdAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
                   })}
                 </p>
               </Col>
@@ -67,8 +66,7 @@ const CartComp = ({
                 variant="outline-danger"
                 size="lg"
                 onClick={() => onRemoveFromCart(course)}
-                className="h-100 w-100 button-remove"
-              >
+                className="h-100 w-100 button-remove">
                 <strong>Remove</strong>
               </Button>
             </Col>
@@ -81,13 +79,15 @@ const CartComp = ({
             variant="outline-primary"
             as={Link}
             to="/course-listing"
-            className="w-100"
-          >
+            className="w-100">
             Add more courses
           </Button>
         </Col>
         <Col md={6} className="mt-4">
-          <Button variant="success" onClick={()=>handleCheckout(cartData)} className="w-100">
+          <Button
+            variant="success"
+            onClick={() => handleCheckout(cartData)}
+            className="w-100">
             Continue to Checkout (${totalPrice.toFixed(2)})
           </Button>
         </Col>

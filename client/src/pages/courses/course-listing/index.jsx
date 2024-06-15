@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { CourseFilter } from "../filter-courses";
-import CourseList from "../courseList";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllCoursesAction } from "../../../services/actions/courseActions";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { CourseFilter } from '../filter-courses';
+import CourseList from '../courseList';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllCoursesAction } from '../../../services/actions/courseActions';
 
 function CourseListing() {
   const location = useParams();
@@ -19,19 +19,19 @@ function CourseListing() {
   async function filterData(location) {
     const { language, difficulty, courselength } = location;
     setCourses(allCourses);
-    var newArray = "";
-    if (language != "All" && language != undefined) {
+    var newArray = '';
+    if (language != 'All' && language != undefined) {
       newArray = courses.filter(function (el) {
         return el.language == language;
       });
     }
-    if (difficulty != "All" && difficulty != undefined) {
+    if (difficulty != 'All' && difficulty != undefined) {
       newArray = courses.filter(function (el) {
         return el.level == difficulty;
       });
     }
-    if (courselength != "All" && courselength != undefined) {
-      if (courselength == "less than 15 day") {
+    if (courselength != 'All' && courselength != undefined) {
+      if (courselength == 'less than 15 day') {
         newArray = courses.filter(function (el) {
           return (
             Math.ceil(
@@ -51,7 +51,7 @@ function CourseListing() {
         });
       }
     }
-    if (newArray != "") setCourses(newArray);
+    if (newArray != '') setCourses(newArray);
   }
 
   return (

@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import SignupForm from "./SignupForm";
-import CardComp from "../../../components/Cards";
-import { useFormHook } from "../../../components/Form";
-import SigninupLink from "../signinupLink";
-import Card from "react-bootstrap/Card";
-import "../authentication.css";
-import { useNavigate } from "react-router-dom";
-import { signInAction } from "../../../services/actions/authActions";
-import { useDispatch, useSelector } from "react-redux";
-import { getDecryptedGuestCartData } from "../../../utilities/cartUtilities";
+import React, { useEffect } from 'react';
+import SignupForm from './SignupForm';
+import CardComp from '../../../components/Cards';
+import { useFormHook } from '../../../components/Form';
+import SigninupLink from '../signinupLink';
+import Card from 'react-bootstrap/Card';
+import '../authentication.css';
+import { useNavigate } from 'react-router-dom';
+import { signInAction } from '../../../services/actions/authActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDecryptedGuestCartData } from '../../../utilities/cartUtilities';
 
 const initialFvalue = {
-  fullName: "",
-  email: "",
-  password: "",
+  fullName: '',
+  email: '',
+  password: '',
 };
 
 function Signup() {
@@ -25,15 +25,15 @@ function Signup() {
 
   useEffect(() => {
     if (authReducer.isLoggedIn) {
-      navigate("/");
+      navigate('/');
     }
   }, [authReducer.isLoggedIn, navigate]);
 
   const onFormSubmit = async () => {
-    console.log("fro :>> ", formDataState);
+    console.log('fro :>> ', formDataState);
     const { fullName, email, password } = formDataState;
     if (!email || !password || !fullName) {
-      return console.log("enter all values");
+      return console.log('enter all values');
     }
     const decryptedCartIteamIds = getDecryptedGuestCartData();
     dispatch(signInAction({ ...formDataState, decryptedCartIteamIds }));
@@ -47,7 +47,7 @@ function Signup() {
           handleFormChange={handleFormChange}
           onFormSubmit={onFormSubmit}
         />
-        <SigninupLink type={"signup"} />
+        <SigninupLink type={'signup'} />
       </CardComp>
     </section>
   );

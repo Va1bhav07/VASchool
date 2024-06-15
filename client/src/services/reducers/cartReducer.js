@@ -6,21 +6,21 @@ import {
   REMOVE_FROM_CART_FAIL,
   ADD_TO_CART_SUCCESS,
   ADD_TO_CART_FAIL,
-} from "../constants/cartConstants";
+} from '../constants/cartConstants';
 import {
   ADD_CART_INFO_SUCCESS,
   ADD_CART_INFO_FAIL,
   USER_LOGOUT_SUCCESS,
-} from "../constants";
+} from '../constants';
 
 const initialState = {
   cartInfo: {},
   cartData: [],
-  message: "",
+  message: '',
 };
 
 export const cartReducer = (state = initialState, action) => {
-  console.log("cartReducer :>> ", action);
+  console.log('cartReducer :>> ', action);
   switch (action.type) {
     case ADD_CART_INFO_SUCCESS:
       return {
@@ -94,7 +94,7 @@ export const cartReducer = (state = initialState, action) => {
     case USER_LOGOUT_SUCCESS:
       return {
         ...initialState,
-        message: action?.message || "",
+        message: action?.message || '',
       };
 
     default:

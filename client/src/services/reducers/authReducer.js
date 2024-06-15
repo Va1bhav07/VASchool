@@ -5,24 +5,24 @@ import {
   USER_SIGN_IN_FAIL,
   USER_LOGOUT_SUCCESS,
   USER_TOKEN_REQUEST,
-} from "../constants";
+} from '../constants';
 
 const initialState = {
   userData: {},
   isLoggedIn: false,
-  message: "",
+  message: '',
   isLoading: true,
 };
 
 export const authReducer = (state = initialState, { type, user, message }) => {
-  console.log("type,user,message :>> ", type, user, message);
+  console.log('type,user,message :>> ', type, user, message);
   switch (type) {
     case USER_LOGIN_SUCCESS:
       return {
         ...state,
         userData: { ...user?.foundUser },
         isLoggedIn: true,
-        message: user?.message || "",
+        message: user?.message || '',
         isLoading: false,
       };
     case USER_LOGIN_FAIL:
@@ -38,7 +38,7 @@ export const authReducer = (state = initialState, { type, user, message }) => {
         ...state,
         userData: { ...user?.newUser },
         isLoggedIn: true,
-        message: user?.message || "",
+        message: user?.message || '',
         isLoading: false,
       };
     case USER_SIGN_IN_FAIL:
@@ -53,7 +53,7 @@ export const authReducer = (state = initialState, { type, user, message }) => {
       return {
         ...initialState,
         isLoading: false,
-        message: user?.message || "",
+        message: user?.message || '',
       };
     case USER_TOKEN_REQUEST:
       return {

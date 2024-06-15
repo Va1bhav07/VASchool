@@ -17,8 +17,7 @@ function CompanySettings() {
   return (
     <Grid
       templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
-      gap={6}
-    >
+      gap={6}>
       <FormControl id="userid">
         <FormLabel>Username</FormLabel>
         <InputGroup>
@@ -27,16 +26,16 @@ function CompanySettings() {
               {/* Your SVG path here */}
             </svg>
           </InputLeftAddon>
-          <Input
-            focusBorderColor="brand.blue"
-            type="text"
-            placeholder="khan"
-          />
+          <Input focusBorderColor="brand.blue" type="text" placeholder="khan" />
         </InputGroup>
       </FormControl>
       <FormControl id="Name">
         <FormLabel>Name</FormLabel>
-        <Input focusBorderColor="brand.blue" type="text" placeholder="Sadab Khan" />
+        <Input
+          focusBorderColor="brand.blue"
+          type="text"
+          placeholder="Sadab Khan"
+        />
       </FormControl>
       <FormControl id="youremail">
         <FormLabel>Email Address</FormLabel>
