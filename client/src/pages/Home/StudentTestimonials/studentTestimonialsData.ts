@@ -34,7 +34,7 @@ export const studentTestimonialsData = [
   {
     img: 'https://i.pravatar.cc/9',
     name: 'Thor',
-    title: 'Senior Software Developer',
+    title: 'Software Developer',
     company: 'DoorDash',
     linkedin: FaLinkedin,
     desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
@@ -44,7 +44,7 @@ export const studentTestimonialsData = [
   {
     img: 'https://i.pravatar.cc/9',
     name: 'Messi',
-    title: 'Senior Software engineer',
+    title: 'Sr. Backend developer',
     company: 'Apple',
     linkedin: FaLinkedin,
     desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
@@ -54,7 +54,7 @@ export const studentTestimonialsData = [
   {
     img: 'https://i.pravatar.cc/9',
     name: 'Tony',
-    title: 'Senior Frontend Developer',
+    title: 'Frontend Developer',
     company: 'Wipro',
     linkedin: FaLinkedin,
     desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque

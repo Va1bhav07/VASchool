@@ -35,7 +35,7 @@ function MeetDev() {
               </a>
             </Card.Text>
 
-            <div className="d-flex justify-content-center justify-content-md-start gap-3">
+            <div className="d-flex justify-content-center justify-content-lg-start gap-3">
               {links.map((link, ind) => {
                 const Fig = link.fig;
                 return (

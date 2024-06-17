@@ -7,6 +7,7 @@ import MeetDev from './MeetDev';
 import TopCompanies from './TopCompanies';
 import StudentTestimonials from './StudentTestimonials';
 import MissionValue from './MissionValue';
+import GiftCourse from './GiftCourse';
 
 function Home() {
   return (
@@ -20,6 +21,7 @@ function Home() {
       <TopCompanies />
       <StudentTestimonials />
       <MissionValue />
+      <GiftCourse />
     </>
   );
 }
