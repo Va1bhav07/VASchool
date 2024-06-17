@@ -1,0 +1,28 @@
+.testimonial-container::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-container .testimonial-card {
+  width: 20rem;
+}
+
+@media (min-width: 768px) {
+  .testimonial-container {
+    display: grid !important;
+    overflow-x: hidden !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+  .testimonial-container .testimonial-card {
+    margin: 0 !important;
+    width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonial-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .testimonial-container .testimonial-card {
+  }
+}

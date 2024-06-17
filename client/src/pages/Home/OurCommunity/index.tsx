@@ -7,7 +7,7 @@ function OurCommunity(): JSX.Element {
       <h1 className="fw-bold p-4 mt-4 mb-3 mb-md-4 text-center">
         Our Community
       </h1>
-      <div className="d-flex flex-column flex-lg-row shadow rounded-5 bg-body-tertiary scale-effect mb-5">
+      <div className="d-flex flex-column flex-lg-row shadow rounded-3 bg-body-tertiary scale-effect mb-5">
         {communityData.map((data, ind) => {
           const CardSvg = data.img;
           return (

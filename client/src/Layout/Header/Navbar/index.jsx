@@ -4,8 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Image } from 'react-bootstrap';
 import Navlinks from './Navlinks';
 import { Link } from 'react-router-dom';
-import logoImage from './../../../assets/img/EduFlex.jpg';
-// import "../../../pages/Home/index.css";
+import logoImage from '../../../assets/svg/VAS.svg';
 
 function NavbarComp() {
   return (
@@ -14,12 +13,11 @@ function NavbarComp() {
         <Navbar.Brand to="/" as={Link}>
           <Image
             src={logoImage}
-            alt="Brand Logo"
-            roundedCircle
+            alt="VASchool"
             className=""
-            style={{ height: '40px', width: '40px' }}
+            width={200}
+            height={40}
           />
-          {/* <Col className="italic">EduFlex</Col> */}
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
