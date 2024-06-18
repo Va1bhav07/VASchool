@@ -4,7 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useParams } from 'react-router-dom';
 import { CourseFilter } from '../filter-courses';
-import CourseList from '../courseList';
+// import CourseList from '../courseList';
+import { CourseCard } from '../../../components/CourseCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllCoursesAction } from '../../../services/actions/courseActions';
 
@@ -68,7 +69,7 @@ function CourseListing() {
           <section>
             <h4>Total : {courses.length} courses</h4>
             {courses.map(function (course) {
-              return <CourseList key={course._id} course={course} />;
+              return <CourseCard key={course._id} course={course} />;
             })}
           </section>
         </Col>

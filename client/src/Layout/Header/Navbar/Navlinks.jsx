@@ -37,9 +37,6 @@ function Navlinks() {
           </>
         ) : (
           <>
-            <Nav.Link as={Link} eventKey="checkout" to="/checkout">
-              Checkout
-            </Nav.Link>
             <Nav.Link as={Link} eventKey="myaccount" to="/myaccount">
               My Account
             </Nav.Link>
