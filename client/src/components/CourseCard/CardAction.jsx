@@ -1,12 +1,28 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-function CourseAction({ course, action }) {
-  const { id, price } = course;
+import { useCartHandler } from '../../hooks/useCartHandler';
+
+function CourseAction({ course }) {
+  const { _id, price } = course;
   const navigate = useNavigate();
 
+  const cartReducer = useSelector(({ cartReducer }) => cartReducer);
+  const { cartInfo = {} } = cartReducer;
+
+  const { handleAddToCart, handleRemoveFromCart } = useCartHandler();
+
   const handleDetails = () => {
-    navigate('/course-details/' + id);
+    navigate('/course-details/' + _id);
+  };
+
+  const onAddToCart = (course) => {
+    handleAddToCart(course);
+  };
+
+  const onRemoveFromCart = (course) => {
+    handleRemoveFromCart(course);
   };
 
   return (
@@ -18,21 +34,29 @@ function CourseAction({ course, action }) {
         </span> */}
       </div>
       {/* <h6 className="text-success">Free shipping</h6> */}
-      {action ? (
-        <div className="d-flex flex-column mt-4">
+      <div className="d-flex flex-column mt-4">
+        <button
+          className="btn btn-success btn-sm"
+          type="button"
+          onClick={handleDetails}>
+          Details
+        </button>
+        {!cartInfo?.courses?.includes(course._id) ? (
           <button
-            className="btn btn-primary btn-sm"
-            type="button"
-            onClick={handleDetails}>
-            Details
-          </button>
-          <button className="btn btn-outline-primary btn-sm mt-2" type="button">
+            onClick={() => onAddToCart(course)}
+            className="btn btn-outline-success btn-sm mt-2"
+            type="button">
             Add to cart
           </button>
-        </div>
-      ) : (
-        ''
-      )}
+        ) : (
+          <button
+            onClick={() => onRemoveFromCart(course)}
+            className="btn btn-outline-danger btn-sm mt-2"
+            type="button">
+            Remove from Cart
+          </button>
+        )}
+      </div>
     </>
   );
 }

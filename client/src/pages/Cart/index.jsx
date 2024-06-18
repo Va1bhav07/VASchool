@@ -1,17 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import CartComp from './CartComp';
+// import CartComp from './CartComp';
 import { setCheckoutCoursesAction } from '../../services/actions/checkoutActions';
 import { useCart } from '../../hooks/useCart';
-import { useCartHandler } from '../../hooks/useCartHandler';
+import CartContainer from './CartContainer';
 
 const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const cartData = useSelector((state) => state.cartReducer.cartData);
   const cartData = useCart();
-  const { handleRemoveFromCart } = useCartHandler();
 
   // Calculate total price of all courses in the cart
   const totalPrice = cartData.reduce(
@@ -19,19 +18,18 @@ const Cart = () => {
     0
   );
 
-  const onRemoveFromCart = (course) => {
-    handleRemoveFromCart(course);
-  };
-
   const handleCheckout = (cartData) => {
     dispatch(setCheckoutCoursesAction(cartData));
     navigate('/checkout');
   };
 
+  if (!cartData?.length) {
+    return <h1>Such Empty</h1>;
+  }
+
   return (
-    <CartComp
+    <CartContainer
       cartData={cartData}
-      onRemoveFromCart={onRemoveFromCart}
       totalPrice={totalPrice}
       handleCheckout={handleCheckout}
     />
