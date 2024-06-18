@@ -15,7 +15,6 @@ const initialState = {
 };
 
 export const authReducer = (state = initialState, { type, user, message }) => {
-  console.log('type,user,message :>> ', type, user, message);
   switch (type) {
     case USER_LOGIN_SUCCESS:
       return {

@@ -2,7 +2,7 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 import CartItems from '../CartItems';
 import CardsAccept from '../CardsAccept';
 import CartSummary from '../CartSummary';
-import { CartDataItemsProps } from '../../../shared.types';
+import type { CartDataItemsProps } from '../../../shared.types';
 
 type CartContainerProps = {
   cartData: CartDataItemsProps;

@@ -10,11 +10,13 @@ const ProtectedRoutes = () => {
   console.log('auht :>> ', authData);
   const { isLoggedIn, isLoading } = authData;
 
-  console.log('authData--- :>> ', authData, isLoggedIn, isLoading);
+  const userLogin = localStorage.getItem('userLogin') === 'true';
 
-  const userLogin = localStorage.getItem('userLogin');
+  if (!userLogin) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
 
-  if (isLoading && userLogin) {
+  if (isLoading) {
     return (
       <div className="flex-grow-1 align-content-center  align-self-center">
         <SpinnerComp />

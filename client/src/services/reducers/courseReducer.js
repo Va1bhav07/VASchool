@@ -18,21 +18,19 @@ const initialState = {
   myCourses: [],
   instructorCourses: [],
   courseData: {},
+  newCoursesAdded: [],
   isLoading: true,
 };
 
 export const courseReducer = (
   state = initialState,
-  { type, courseData, message, instructorCourses, allCourses, course }
+  { type, courseData, message, instructorCourses, allCourses, newCourse }
 ) => {
-  console.log('type,courseData,message :>> ', type, courseData, message);
   switch (type) {
     case ADD_COURSE_SUCCESS:
       return {
         ...state,
-        allCourses: [],
-        myCourses: [],
-        courseData: {},
+        newCoursesAdded: [...state.newCoursesAdded, newCourse],
         isLoading: false,
       };
     case ADD_COURSE_FAIL:
@@ -89,7 +87,7 @@ export const courseReducer = (
     case COURSE_BY_ID_SUCCESS:
       return {
         ...state,
-        courseData: course,
+        courseData,
         isLoading: false,
       };
 

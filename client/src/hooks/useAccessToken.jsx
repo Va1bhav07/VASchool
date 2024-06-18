@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 export const useAccessToken = () => {
   const dispatch = useDispatch();
   const authData = useSelector((state) => state.authReducer);
-  console.log('authData :>> ', authData);
 
   useEffect(() => {
     const userLogin = localStorage.getItem('userLogin');

@@ -22,7 +22,6 @@ function TopicTaught() {
 
     setDurations(durationArray);
     setShuffledKeywords(shuffledArray);
-    console.log('durationArray', durationArray);
   }, []);
 
   if (!durations || !shuffledKeywords) {

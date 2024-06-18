@@ -18,10 +18,10 @@ import { apiAxios } from '../../utilities/axios';
 function* addCourse(action) {
   try {
     const url = '/api/createCourse';
-    const course = yield call(apiAxios.post, url, action.payload);
-    console.log('createCourse :>> ', course);
-    if (course) {
-      yield put({ type: ADD_COURSE_SUCCESS, course });
+    const newCourse = yield call(apiAxios.post, url, action.payload);
+    console.log('createCourse :>> ', newCourse);
+    if (newCourse?.success) {
+      yield put({ type: ADD_COURSE_SUCCESS, newCourse: newCourse.data });
     } else throw new Error('error in addCourse');
   } catch (e) {
     yield put({ type: ADD_COURSE_FAIL, message: e.message });
@@ -72,7 +72,7 @@ function* fetchCourseById(action) {
     if (course?.data?._id) {
       yield put({
         type: COURSE_BY_ID_SUCCESS,
-        course: course.data,
+        courseData: course.data,
       });
     } else throw new Error('error in fetchCourseById');
   } catch (e) {

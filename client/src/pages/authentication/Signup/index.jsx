@@ -25,7 +25,7 @@ function Signup() {
 
   useEffect(() => {
     if (authReducer.isLoggedIn) {
-      navigate('/');
+      navigate('/', { replace: true });
     }
   }, [authReducer.isLoggedIn, navigate]);
 
