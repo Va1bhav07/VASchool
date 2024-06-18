@@ -18,7 +18,7 @@ function CartContainer({
 }: CartContainerProps) {
   return (
     <section className="h-100 gradient-custom">
-      <Container className="py-5">
+      <Container className="py-2 py-lg-5">
         <Row className="d-flex justify-content-center my-4">
           <Col md={8}>
             <Card className="mb-4">
