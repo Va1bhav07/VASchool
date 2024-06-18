@@ -36,7 +36,7 @@ function CourseAction({ course }) {
       {/* <h6 className="text-success">Free shipping</h6> */}
       <div className="d-flex flex-column mt-4">
         <button
-          className="btn btn-primary btn-sm"
+          className="btn btn-success btn-sm"
           type="button"
           onClick={handleDetails}>
           Details
@@ -44,7 +44,7 @@ function CourseAction({ course }) {
         {!cartInfo?.courses?.includes(course._id) ? (
           <button
             onClick={() => onAddToCart(course)}
-            className="btn btn-outline-primary btn-sm mt-2"
+            className="btn btn-outline-success btn-sm mt-2"
             type="button">
             Add to cart
           </button>

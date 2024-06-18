@@ -1,4 +1,5 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CardComp from '../../../components/Cards';
@@ -15,7 +16,7 @@ function CourseList({ course }) {
   const { thumbnail } = course;
   return (
     <section>
-      <div>
+      <Container>
         <Row className="justify-content-center mb-3">
           <Col md={12}>
             <CardComp className="shadow-0 border rounded-3">
@@ -40,7 +41,7 @@ function CourseList({ course }) {
             </CardComp>
           </Col>
         </Row>
-      </div>
+      </Container>
     </section>
   );
 }

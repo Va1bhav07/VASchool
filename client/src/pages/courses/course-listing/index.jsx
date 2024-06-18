@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { useParams } from 'react-router-dom';
 import { CourseFilter } from '../filter-courses';
 import CourseList from '../courseList';
@@ -16,6 +19,7 @@ function CourseListing() {
     !allCourses?.length && dispatch(getAllCoursesAction());
     filterData(location);
   }, [location, allCourses?.length]);
+
   async function filterData(location) {
     const { language, difficulty, courselength } = location;
     setCourses(allCourses);
@@ -55,21 +59,21 @@ function CourseListing() {
   }
 
   return (
-    <>
-      <div className="row mt-3">
-        <div className="col-lg-3">
+    <Container fluid>
+      <Row className="mt-3" xs={1} md={2}>
+        <Col md={3}>
           <CourseFilter />
-        </div>
-        <div className="col-lg-9">
+        </Col>
+        <Col md={9}>
           <section>
             <h4>Total : {courses.length} courses</h4>
             {courses.map(function (course) {
               return <CourseList key={course._id} course={course} />;
             })}
           </section>
-        </div>
-      </div>
-    </>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
