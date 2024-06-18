@@ -22,13 +22,7 @@ const Footer = () => {
     <Container fluid>
       <Row xs={1} lg={3} as="footer" className="align-items-center py-3">
         <Col className="d-flex align-items-center justify-content-center mb-3">
-          <Image
-            src={logoImage}
-            alt="VASchool"
-            className=""
-            width={200}
-            height={40}
-          />
+          <Image src={logoImage} alt="VASchool" height={40} />
         </Col>
         <Col as={Nav} className="align-items-center justify-content-center">
           <Nav.Link

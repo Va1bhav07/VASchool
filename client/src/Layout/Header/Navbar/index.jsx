@@ -8,13 +8,13 @@ import logoImage from '../../../assets/svg/VAS.svg';
 
 function NavbarComp() {
   return (
-    <Navbar expand="lg" className="border-bottom">
+    <Navbar collapseOnSelect expand="lg" className="border-bottom">
       <Container fluid>
         <Navbar.Brand to="/" as={Link}>
           <Image src={logoImage} alt="VASchool" className="" height={40} />
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navlinks />
       </Container>
     </Navbar>

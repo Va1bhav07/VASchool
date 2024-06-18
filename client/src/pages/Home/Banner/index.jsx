@@ -8,12 +8,17 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import hello from '../../../assets/svg/Hello.gif';
+import { useSize } from '../../../hooks/useSize';
 
 function Banner() {
+  const { windowSize } = useSize();
+
+  const isMobile = windowSize.width < 768;
+
   return (
     <section className="position-relative">
       <div className="banner w-100 m-0 p-0 overflow-hidden">
-        <Particle id={'tsparticles'} />
+        <Particle id={'tsparticles'} isMobile={isMobile} />
         <Container
           fluid
           className="position-absolute top-50 start-50 translate-center w-100">
@@ -51,7 +56,7 @@ function Banner() {
                 </Button>
               </a>
             </Col>
-            <Col md={12} lg={6}>
+            <Col md={12} lg={6} className="d-none d-md-block">
               <Image
                 src={hello}
                 alt="namaste"

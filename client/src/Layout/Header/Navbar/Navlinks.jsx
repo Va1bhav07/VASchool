@@ -20,36 +20,34 @@ function Navlinks() {
   };
 
   return (
-    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+    <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
       <Nav>
-        <Nav.Link as={Link} to="/course-listing">
+        <Nav.Link as={Link} eventKey="courses" to="/course-listing">
           Courses
         </Nav.Link>
-      </Nav>
-      <Nav>
+
         {!authReducer.isLoggedIn ? (
           <>
-            <Nav.Link as={Link} to="/login">
+            <Nav.Link as={Link} eventKey="login" to="/login">
               Login
             </Nav.Link>
-            <Nav.Link as={Link} to="/signup">
+            <Nav.Link as={Link} eventKey="signin" to="/signup">
               Sign Up
             </Nav.Link>
           </>
         ) : (
           <>
-            <Nav.Link as={Link} to="/checkout">
+            <Nav.Link as={Link} eventKey="checkout" to="/checkout">
               Checkout
             </Nav.Link>
-            <Nav.Link as={Link} to="/myaccount">
+            <Nav.Link as={Link} eventKey="myaccount" to="/myaccount">
               My Account
             </Nav.Link>
             <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
           </>
         )}
-      </Nav>
-      <Nav>
-        <Nav.Link as={Link} to={'/cart'}>
+
+        <Nav.Link as={Link} eventKey="cart" to={'/cart'}>
           <FaCartShopping size={'23px'} className="me-1" />
           <Badge bg="success">{courses?.length || 0}</Badge>
         </Nav.Link>

@@ -4,7 +4,7 @@ import { loadSlim } from '@tsparticles/slim'; // Importing the slim package
 
 import './particle.css';
 
-const Part = ({ id }) => {
+const Part = ({ id, isMobile }) => {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -37,21 +37,21 @@ const Part = ({ id }) => {
           //   enable: true,
           //   area: 1,
           // },
-          limit: 200,
-          value: 30,
+          limit: 600,
+          value: isMobile ? 10 : 30,
         },
         move: {
           enable: true,
-          speed: { min: 3, max: 7 },
+          speed: { min: 3, max: isMobile ? 3 : 7 },
         },
         links: {
           enable: true,
-          distance: 200,
+          distance: isMobile ? 100 : 200,
           opacity: 0.5,
           width: 1,
         },
         size: {
-          value: { min: 1, max: 5 },
+          value: { min: 2, max: 5 },
         },
         opacity: {
           value: { min: 0.3, max: 0.7 },
