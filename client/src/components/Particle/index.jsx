@@ -38,20 +38,20 @@ const Part = ({ id }) => {
           //   area: 1,
           // },
           limit: 200,
-          value: 150,
+          value: 30,
         },
         move: {
           enable: true,
-          speed: { min: 1, max: 2 },
+          speed: { min: 3, max: 7 },
         },
         links: {
           enable: true,
-          distance: 40,
+          distance: 200,
           opacity: 0.5,
           width: 1,
         },
         size: {
-          value: { min: 1, max: 3 },
+          value: { min: 1, max: 5 },
         },
         opacity: {
           value: { min: 0.3, max: 0.7 },

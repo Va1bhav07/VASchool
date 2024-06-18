@@ -20,20 +20,11 @@ function Navlinks() {
   };
 
   return (
-    <Navbar.Collapse id="basic-navbar-nav" className="">
-      <Nav className="justify-content-center flex-grow-1">
-        <Nav.Link as={Link} to="/">
-          Home
-        </Nav.Link>
-        <Nav.Link as={Link} to="/about-us">
-          About
-        </Nav.Link>
+    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+      <Nav>
         <Nav.Link as={Link} to="/course-listing">
           Courses
         </Nav.Link>
-        {/* <Nav.Link as={Link} to="/privacy-policy">
-          Privacy Policy
-        </Nav.Link> */}
       </Nav>
       <Nav>
         {!authReducer.isLoggedIn ? (
