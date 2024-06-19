@@ -5,12 +5,10 @@ import { theme } from './helpers';
 
 const UserProfile = () => {
   return (
-    <>
-      <ChakraProvider theme={theme}>
-        <Cover />
-        <Main />
-      </ChakraProvider>
-    </>
+    <ChakraProvider theme={theme}>
+      <Cover />
+      <Main />
+    </ChakraProvider>
   );
 };
 
