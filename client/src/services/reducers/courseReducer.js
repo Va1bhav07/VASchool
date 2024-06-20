@@ -17,14 +17,15 @@ const initialState = {
   allCourses: [],
   myCourses: [],
   instructorCourses: [],
-  courseData: {},
+  courseDetails: {},
   newCoursesAdded: [],
   isLoading: true,
+  message: '',
 };
 
 export const courseReducer = (
   state = initialState,
-  { type, courseData, message, instructorCourses, allCourses, newCourse }
+  { type, courseDetails, message, instructorCourses, allCourses, newCourse }
 ) => {
   switch (type) {
     case ADD_COURSE_SUCCESS:
@@ -87,7 +88,7 @@ export const courseReducer = (
     case COURSE_BY_ID_SUCCESS:
       return {
         ...state,
-        courseData,
+        courseDetails,
         isLoading: false,
       };
 

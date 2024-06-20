@@ -22,6 +22,7 @@ const styles = {
 const colors = {
   brand: {
     700: '#2b3035',
+    800: '#1a1d20',
     900: '#212529',
   },
 };

@@ -72,7 +72,7 @@ function* fetchCourseById(action) {
     if (course?.data?._id) {
       yield put({
         type: COURSE_BY_ID_SUCCESS,
-        courseData: course.data,
+        courseDetails: course.data,
       });
     } else throw new Error('error in fetchCourseById');
   } catch (e) {

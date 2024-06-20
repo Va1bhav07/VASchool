@@ -2,11 +2,11 @@ import { FormControl, FormLabel, Grid, Input } from '@chakra-ui/react';
 import ButtonComp from '../../Components/Button';
 import { FormComp, useFormHook } from '../../Components/Form';
 
-import type { userDataProps } from '../../../../shared.types';
+import type { UserDataProps } from '../../../../shared.types';
 import { useEffect } from 'react';
 
 type AccountSettingsProps = {
-  userData: userDataProps;
+  userData: UserDataProps;
 };
 
 type FormHookProps = {

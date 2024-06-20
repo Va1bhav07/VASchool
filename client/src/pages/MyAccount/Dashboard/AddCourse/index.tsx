@@ -16,11 +16,11 @@ import { useDispatch } from 'react-redux';
 import { addCourseAction } from '../../../../services/actions/courseActions.js';
 import { FormComp, useFormHook } from '../../Components/Form';
 
-import type { userDataProps } from '../../../../shared.types';
+import type { UserDataProps } from '../../../../shared.types';
 import ButtonComp from '../../Components/Button';
 
 type AddCourseProps = {
-  userData: userDataProps;
+  userData: UserDataProps;
 };
 
 type FormHookProps = {
