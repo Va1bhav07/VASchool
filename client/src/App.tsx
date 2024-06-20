@@ -14,7 +14,6 @@ import CourseListing from './pages/courses/course-listing';
 import PersistentLogin from './components/PersistentLogin';
 import PersistentCart from './components/PeristentCart';
 import Cart from './pages/Cart';
-import BootStrapLayout from './Layout/Main';
 import MyAccount from './pages/MyAccount';
 // import Checkout from './pages/Checkout';
 
@@ -25,22 +24,19 @@ function App() {
       {/* PersistentCart will only work for guest users */}
       <Route element={<PersistentCart />}>
         <Route element={<PersistentLogin />}>
-          <Route element={<BootStrapLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/faqs" element={<FAQs />} />
-            <Route path="/signout" element={<SignOut />} />
-            <Route path="/course-details/:id?" element={<CourseDetails />} />
-            <Route
-              path="/course-listing/filter/:language?/:difficulty?/:courselength?"
-              element={<CourseListing />}
-            />
-            <Route path="/course-listing" element={<CourseListing />} />
-            <Route path="/cart" element={<Cart />} />
-          </Route>
-          {/* END BSLayout */}
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/faqs" element={<FAQs />} />
+          <Route path="/signout" element={<SignOut />} />
+          <Route path="/course-details/:id?" element={<CourseDetails />} />
+          <Route
+            path="/course-listing/filter/:language?/:difficulty?/:courselength?"
+            element={<CourseListing />}
+          />
+          <Route path="/course-listing" element={<CourseListing />} />
+          <Route path="/cart" element={<Cart />} />
           <Route element={<ProtectedRoutes />}>
             <Route path="/myAccount" element={<MyAccount />} />
             <Route path="/myAccounts" element={<UserProfile />} />

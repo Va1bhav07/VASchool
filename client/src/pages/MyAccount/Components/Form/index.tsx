@@ -3,7 +3,11 @@ import React, { useState, ReactNode } from 'react';
 export function useFormHook<T>(initialState: T) {
   const [formDataState, setFormData] = useState<T>(initialState);
 
-  const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFormChange = (
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
     const { name, value } = event.target;
     name &&
       setFormData((prevState) => ({

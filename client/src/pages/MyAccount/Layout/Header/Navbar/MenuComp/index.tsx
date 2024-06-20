@@ -9,6 +9,7 @@ import {
   Center,
 } from '@chakra-ui/react';
 import { menuItems } from './menuItems';
+import { Link } from 'react-router-dom';
 
 function MenuComp() {
   return (
@@ -21,7 +22,7 @@ function MenuComp() {
         minW={0}>
         <Avatar
           size={'sm'}
-          src={'https://avatars.dicebear.com/api/male/username.svg'}
+          src={'https://api.dicebear.com/9.x/pixel-art/svg'}
         />
       </MenuButton>
       <MenuList alignItems={'center'}>
@@ -29,7 +30,7 @@ function MenuComp() {
         <Center>
           <Avatar
             size={'2xl'}
-            src={'https://avatars.dicebear.com/api/male/username.svg'}
+            src={'https://api.dicebear.com/9.x/pixel-art/svg'}
           />
         </Center>
         <br />
@@ -38,7 +39,9 @@ function MenuComp() {
         </Center>
         <MenuDivider />
         {menuItems.map((item, ind) => (
-          <MenuItem key={ind}>{item.text}</MenuItem>
+          <MenuItem key={ind} as={Link} to={item.link}>
+            {item.text}
+          </MenuItem>
         ))}
       </MenuList>
     </Menu>

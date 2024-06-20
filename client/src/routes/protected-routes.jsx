@@ -18,8 +18,9 @@ const ProtectedRoutes = () => {
 
   if (isLoading) {
     return (
-      <div className="flex-grow-1 align-content-center  align-self-center">
-        <SpinnerComp />
+      // old flex-grow-1 align-content-center  align-self-center
+      <div className="min-vh-100 d-flex bg-dark text-white">
+        <SpinnerComp className="m-auto" />
       </div>
     );
   }

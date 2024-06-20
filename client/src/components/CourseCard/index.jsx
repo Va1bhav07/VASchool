@@ -6,12 +6,12 @@ import CardAction from './CardAction';
 import CardBody from './CardBody';
 import Image from 'react-bootstrap/Image';
 
-export function CourseCard({ course, border = '1' }) {
+export function CourseCard({ course, border = '1', cardAttibute = {} }) {
   const { thumbnail } = course;
   return (
     <Row className="justify-content-center mb-3">
       <Col md={12}>
-        <CardComp border={border}>
+        <CardComp border={border} {...cardAttibute}>
           <Row>
             <Col md={12} lg={3} className="mb-4 mb-lg-0">
               <Image src={`${thumbnail}`} thumbnail className="border-0" />

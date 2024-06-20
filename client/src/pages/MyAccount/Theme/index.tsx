@@ -13,7 +13,7 @@ const styles = {
     body: {
       fontFamily: 'body',
       color: mode('gray.800', 'whiteAlpha.900')(props),
-      bg: mode('gray.100', '#212529')(props),
+      bg: mode('whiteAlpha.900', '#212529')(props),
       lineHeight: 'base',
     },
   }),

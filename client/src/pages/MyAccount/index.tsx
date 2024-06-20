@@ -6,12 +6,10 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 function MyAccount() {
   return (
-    <>
-      <ChakraProvider theme={theme}>
-        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <Main />
-      </ChakraProvider>
-    </>
+    <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <Main />
+    </ChakraProvider>
   );
 }
 

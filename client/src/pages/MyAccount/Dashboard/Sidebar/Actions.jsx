@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 
 export default function Actions() {
-  const value = 'https://VASchool.ca/khan';
+  const value = 'https://VASchool.ca/Vaibhav';
   const { hasCopied, onCopy } = useClipboard(value);
 
   const profileUrl = useRef(null);

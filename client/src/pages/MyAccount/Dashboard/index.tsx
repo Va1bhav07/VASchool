@@ -1,7 +1,8 @@
 import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
-import AccountSettings from './AccountSetting';
 import { useColorModeValue } from '@chakra-ui/react';
 
+// import AccountSettings from './AccountSetting';
+import AddCourse from './AddCourse';
 import type { userDataProps } from '../../../shared.types';
 
 type DashboardProps = {
@@ -9,7 +10,7 @@ type DashboardProps = {
 };
 
 const Dashboard = ({ userData }: DashboardProps) => {
-  const tabs = ['Account Settings'];
+  const tabs = [];
 
   if (userData?.userType === 'instructor') {
     tabs.push('Add Course', 'Published Courses');
@@ -32,11 +33,11 @@ const Dashboard = ({ userData }: DashboardProps) => {
         </TabList>
 
         <TabPanels>
-          <TabPanel>
+          {/* <TabPanel>
             <AccountSettings userData={userData} />
-          </TabPanel>
+          </TabPanel> */}
           <TabPanel>
-            <p>two!</p>
+            <AddCourse userData={userData} />
           </TabPanel>
           <TabPanel>
             <p>three!</p>

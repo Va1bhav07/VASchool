@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react';
 
 function Profile({ userData }) {
-  const { fullName } = userData;
+  const { fullName, email } = userData;
   const [userProfile, setUserProfile] = useState(null);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -46,10 +46,10 @@ function Profile({ userData }) {
     <VStack spacing={3} py={5} borderBottomWidth={1} borderColor="brand.light">
       <Avatar
         size="2xl"
-        name="Khan"
+        name={fullName}
         cursor="pointer"
         onClick={openChooseImage}
-        src={userProfile ? userProfile : '/profile.jpeg'}>
+        src={userProfile}>
         <AvatarBadge bg="brand.blue" boxSize="1em">
           <svg width="0.4em" fill="currentColor" viewBox="0 0 20 20">
             <path
@@ -93,7 +93,7 @@ function Profile({ userData }) {
           {fullName}
         </Heading>
         <Text color="brand.gray" fontSize="sm">
-          Web Development
+          {email}
         </Text>
       </VStack>
     </VStack>

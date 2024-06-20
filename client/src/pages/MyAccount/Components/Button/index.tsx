@@ -4,13 +4,15 @@ type ButtonCompProps = {
   isLoading?: boolean;
   loadingText?: string;
   colorScheme?: string;
+  text?: string;
   [key: string]: unknown;
 };
 
 function ButtonComp({
   isLoading = false,
   loadingText = 'saving',
-  colorScheme = 'teal',
+  colorScheme = 'green',
+  text = 'Save',
   ...props
 }: ButtonCompProps) {
   return (
@@ -19,8 +21,9 @@ function ButtonComp({
         isLoading={isLoading}
         loadingText={loadingText}
         colorScheme={colorScheme}
+        w={{ base: 'full', md: '60' }}
         {...props}>
-        Save
+        {text}
       </Button>
     </Box>
   );

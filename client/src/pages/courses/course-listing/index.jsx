@@ -69,7 +69,14 @@ function CourseListing() {
           <section>
             <h4>Total : {courses.length} courses</h4>
             {courses.map(function (course) {
-              return <CourseCard key={course._id} course={course} />;
+              return (
+                <CourseCard
+                  key={course._id}
+                  course={course}
+                  // border={'0'}
+                  // cardAttibute={{ className: 'bg-body-tertiary shadow' }}
+                />
+              );
             })}
           </section>
         </Col>
