@@ -48,7 +48,7 @@ const Dashboard = ({ userData }: DashboardProps) => {
         <TabPanels
           overflowY={'auto'}
           sx={{
-            '-webkit-mask': 'linear-gradient(180deg, white 97%, transparent)',
+            WebkitMask: 'linear-gradient(180deg, white 97%, transparent)',
             mask: 'linear-gradient(180deg, white 97%, transparent)',
           }}>
           {/* <TabPanel>
