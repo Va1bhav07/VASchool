@@ -71,7 +71,7 @@ function SignupForm({ onFormSubmit, handleFormChange }) {
         />
       </Form.Group>
       <Button className="w-100" type="submit">
-        Submit form
+        Sign Up
       </Button>
     </FormComp>
   );

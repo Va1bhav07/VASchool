@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from React Router
 
 function SignupLink({ type }) {
   return (
@@ -8,11 +9,11 @@ function SignupLink({ type }) {
         {type === 'signin'
           ? "Don't have an account?"
           : 'Already have an account?'}{' '}
-        <a
-          className="link-opacity-75"
-          href={type === 'signin' ? '/signup' : '/login'}>
+        <Link
+          to={type === 'signin' ? '/signup' : '/login'}
+          className="link-opacity-75">
           {type === 'signin' ? 'Sign Up' : 'Login'}
-        </a>
+        </Link>
       </p>
     </>
   );

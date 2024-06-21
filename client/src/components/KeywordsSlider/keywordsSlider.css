@@ -1,15 +1,14 @@
-.inner{
-    width: max-content;
-    animation: loop var(--duration) linear infinite var(--direction) ;
+.inner {
+  width: max-content;
+  animation: loop var(--duration) linear infinite var(--direction);
+  gap: var(--space);
 }
 
-
 @keyframes loop {
-    0% {
-        transform: translateX(0)
-    }
-    to {
-      transform: translateX(calc(-50% - 0.5rem));
-
-    }
+  0% {
+    transform: translateX(0);
   }
+  to {
+    transform: translateX(calc(-50% - var(--space) / 2));
+  }
+}

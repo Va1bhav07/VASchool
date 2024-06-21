@@ -11,29 +11,39 @@ import {
   // COURSE_BY_ID_REQUEST,
   COURSE_BY_ID_SUCCESS,
   COURSE_BY_ID_FAIL,
+  DELETE_COURSE_BY_ID_SUCCESS,
+  DELETE_COURSE_BY_ID_FAIL,
 } from '../constants';
 
 const initialState = {
   allCourses: [],
   myCourses: [],
   instructorCourses: [],
-  courseData: {},
+  courseDetails: {},
+  newCoursesAdded: [],
   isLoading: true,
+  message: '',
 };
 
 export const courseReducer = (
   state = initialState,
-  { type, courseData, message, instructorCourses, allCourses, course }
+  {
+    type,
+    courseDetails,
+    message,
+    instructorCourses,
+    allCourses,
+    newCourse,
+    courseId,
+  }
 ) => {
-  console.log('type,courseData,message :>> ', type, courseData, message);
   switch (type) {
     case ADD_COURSE_SUCCESS:
       return {
         ...state,
-        allCourses: [],
-        myCourses: [],
-        courseData: {},
+        newCoursesAdded: [...state.newCoursesAdded, newCourse],
         isLoading: false,
+        message,
       };
     case ADD_COURSE_FAIL:
       return {
@@ -89,7 +99,7 @@ export const courseReducer = (
     case COURSE_BY_ID_SUCCESS:
       return {
         ...state,
-        courseData: course,
+        courseDetails,
         isLoading: false,
       };
 
@@ -99,6 +109,23 @@ export const courseReducer = (
         isLoading: false,
       };
 
+    case DELETE_COURSE_BY_ID_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        instructorCourses: state.instructorCourses.filter(
+          (course) => course._id !== courseId
+        ),
+        newCoursesAdded: state.newCoursesAdded.filter(
+          (course) => course._id !== courseId
+        ),
+      };
+    case DELETE_COURSE_BY_ID_FAIL:
+      return {
+        ...state,
+        message,
+        isLoading: false,
+      };
     default:
       return {
         ...state,

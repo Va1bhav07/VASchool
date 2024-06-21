@@ -1,56 +1,44 @@
 import React from 'react';
-import {
-  FiGithub,
-  FiTwitter,
-  FiLinkedin,
-  FiGlobe,
-  FiYoutube,
-} from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiGlobe } from 'react-icons/fi';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import logoImage from '../../assets/svg/VAS.svg';
+import { Image } from 'react-bootstrap';
 
 const socialLinks = [
-  { id: 1, icon: <FiGlobe />, url: 'https://www.gooogle.com/' },
-  { id: 2, icon: <FiGithub />, url: 'https://github.com/' },
-  { id: 3, icon: <FiTwitter />, url: 'https://twitter.com/' },
-  { id: 4, icon: <FiLinkedin />, url: 'https://www.linkedin.com/in/' },
-  { id: 5, icon: <FiYoutube />, url: 'https://www.youtube.com/c/' },
+  { id: 1, icon: <FiGlobe />, url: 'https://va1bhav07.vercel.app/' },
+  { id: 2, icon: <FiGithub />, url: 'https://github.com/Va1bhav07' },
+  {
+    id: 3,
+    icon: <FiLinkedin />,
+    url: 'https://www.linkedin.com/in/va1bhav07/',
+  },
 ];
 
 const Footer = () => {
   return (
     <Container fluid>
-      <Row as="footer" className="align-items-center py-3 border-top">
-        <Col md={3} className="align-items-center">
-          <span>&copy; 2024 EduFlex. All Rights Reserved.</span>
+      <Row xs={1} lg={3} as="footer" className="align-items-center py-3">
+        <Col className="d-flex align-items-center justify-content-center mb-3 mb-lg-0">
+          <Image src={logoImage} alt="VASchool" height={40} />
         </Col>
-        <Col as={Nav} md={5} className="justify-content-end">
-          <Nav.Link href="/" className="text-muted">
-            Home
-          </Nav.Link>
-          <Nav.Link href="/about-us" className="text-muted">
-            About
-          </Nav.Link>
-          <Nav.Link href="/privacy-policy" className="text-muted">
-            Privacy Policy
-          </Nav.Link>
-          <Nav.Link href="/services" className="text-muted">
-            Services
-          </Nav.Link>
-          <Nav.Link href="/contact" className="text-muted">
+        <Col as={Nav} className="align-items-center justify-content-center">
+          <Nav.Link
+            href="https://va1bhav07.vercel.app/contact"
+            className="text-muted"
+            target="_blank">
             Contact
           </Nav.Link>
         </Col>
-        <Col as={Nav} md={4} className="justify-content-end">
+        <Col as={Nav} className="align-items-center justify-content-center">
           {socialLinks.map((link) => (
             <Nav.Link
               className="text-muted"
               key={link.id}
               href={link.url}
-              target="_blank"
-              rel="noopener noreferrer">
+              target="_blank">
               {link.icon}
             </Nav.Link>
           ))}

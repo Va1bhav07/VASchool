@@ -41,7 +41,9 @@ function BestCourses() {
               imgSrc={data.img}>
               <Card.Title>{data.title}</Card.Title>
               <Card.Text>{data.text}</Card.Text>
-              <Button variant="success">Go somewhere</Button>
+              <Button variant="success" className="p-2">
+                START LEARNING
+              </Button>
             </CardComp>
           </Col>
         ))}

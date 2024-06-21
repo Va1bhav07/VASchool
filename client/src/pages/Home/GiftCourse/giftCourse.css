@@ -1,0 +1,28 @@
+.gift-card {
+  width: 55rem;
+}
+
+.gift-card .ribbon {
+  width: 128px;
+  height: 128px;
+}
+
+.gift-card .gift-boxes {
+  width: 325px;
+  height: 260px;
+}
+
+@media (max-width: 880px) {
+  .gift-card {
+    width: 23rem;
+  }
+
+  .gift-card .gift-boxes {
+    width: 176px;
+    height: 149px;
+  }
+  .gift-card .ribbon {
+    width: 112px;
+    height: 112px;
+  }
+}

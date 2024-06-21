@@ -5,7 +5,7 @@ const courseController = require("./controllers/courseController");
 const verifyJWT = require("./middleware/verifyJWT");
 // const { upload } = require("./utilities/multerFile");
 const cartController = require("./controllers/cartController");
-const checkoutController = require("./controllers/checkoutController") 
+const checkoutController = require("./controllers/checkoutController");
 
 router.get("/", (_, res) => {
   return res.json("Api is working!...");
@@ -37,6 +37,8 @@ router.get(
 // );
 router.post("/api/createCourse", courseController.createCourse);
 router.get("/api/getCourse/:id", courseController.getCourseById);
+router.get("/api/deleteCourse/:id", courseController.deleteCourseById);
+
 router.post("/api/admin-login", authController.AdminLogin);
 
 // ============= Cart Api ======================
@@ -46,6 +48,6 @@ router.delete("/api/deleteFromCart", cartController.deleteFromCart);
 router.post("/api/addGuestCartToUser", cartController.addGuestCartToUser);
 
 // ================= Checkout Api =================
-router.post("/checkout", checkoutController.EnrollUser)
+router.post("/checkout", checkoutController.EnrollUser);
 
 module.exports = router;

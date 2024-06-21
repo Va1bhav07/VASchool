@@ -21,6 +21,10 @@ const userSchema = new Schema({
     type: String,
     default: "student",
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 userSchema.pre("save", function (next) {

@@ -10,14 +10,14 @@ function CoreOfferings() {
         Core Offerings
       </h1>
 
-      <div className="offerings-container mb-5">
+      <div className="offerings-container mx-4 mb-5 mx-lg-0">
         {offeringData.map((data, index) => {
           const Svg = data.fig;
           return (
             <CardComp
               key={index}
               border="0"
-              className="bg-body-tertiary shadow scale-effect">
+              className="bg-body-tertiary shadow scale-effect m-lg-0">
               <div className="p-2">
                 <div className="mb-3">
                   <Svg size={36} />

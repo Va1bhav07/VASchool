@@ -22,7 +22,7 @@ function Login() {
   const { formDataState, handleFormChange } = useFormHook(initialFvalue);
   useEffect(() => {
     if (authData.isLoggedIn) {
-      navigate('/');
+      navigate('/', { replace: true });
     }
   }, [authData.isLoggedIn, navigate]);
 
@@ -37,7 +37,9 @@ function Login() {
 
   return (
     <section className="d-flex justify-content-center align-items-center">
-      <CardComp className="shadow mt-5 card-comp p-4">
+      <CardComp
+        border={'0'}
+        className="shadow mt-5 card-comp p-4 bg-body-tertiary">
         <Card.Title className="text-center fs-2 mb-4">Sign In</Card.Title>
         <LoginForm
           handleFormChange={handleFormChange}

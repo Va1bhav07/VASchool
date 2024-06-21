@@ -28,7 +28,6 @@ const Content = ({ userData }) => {
       flexDir="column"
       justifyContent="space-between"
       pt={5}
-      bg="white"
       rounded="md"
       borderWidth={1}
       borderColor="gray.200"

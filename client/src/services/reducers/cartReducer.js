@@ -20,7 +20,6 @@ const initialState = {
 };
 
 export const cartReducer = (state = initialState, action) => {
-  console.log('cartReducer :>> ', action);
   switch (action.type) {
     case ADD_CART_INFO_SUCCESS:
       return {

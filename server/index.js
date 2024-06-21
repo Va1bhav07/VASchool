@@ -15,7 +15,11 @@ app.use(express.json()); //body parser
 app.use(
   cors({
     credentials: true, // this is needed to set jwt in cokkies and make sure axios withCredentials = true
-    origin: ["http://localhost:5173", "https://vaschool.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://vaschool.vercel.app",
+      "https://vaschooldev.vercel.app",
+    ],
   })
 ); // allow cors
 app.use("/", express.static("images"));

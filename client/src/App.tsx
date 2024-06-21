@@ -2,7 +2,7 @@ import Login from './pages/authentication/Login';
 import Signup from './pages/authentication/Signup';
 import SignOut from './pages/authentication/Signout';
 import CourseDetails from './pages/courses/course-details';
-import InstructorDetails from './pages/instructor/instructor-details';
+// import InstructorDetails from './pages/instructor/instructor-details';
 import Home from './pages/Home';
 import { Routes, Route } from 'react-router-dom';
 import AboutUs from './pages/About';
@@ -14,7 +14,8 @@ import CourseListing from './pages/courses/course-listing';
 import PersistentLogin from './components/PersistentLogin';
 import PersistentCart from './components/PeristentCart';
 import Cart from './pages/Cart';
-import Checkout from './pages/Checkout';
+import MyAccount from './pages/MyAccount';
+// import Checkout from './pages/Checkout';
 
 function App() {
   return (
@@ -37,9 +38,11 @@ function App() {
           <Route path="/course-listing" element={<CourseListing />} />
           <Route path="/cart" element={<Cart />} />
           <Route element={<ProtectedRoutes />}>
-            <Route path="/instructor-details" element={<InstructorDetails />} />
-            <Route path="/myAccount" element={<UserProfile />} />
-            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/myAccount" element={<MyAccount />} />
+            <Route path="/myAccounts" element={<UserProfile />} />
+
+            {/* <Route path="/instructor-details" element={<InstructorDetails />} />
+            <Route path="/checkout" element={<Checkout />} /> */}
           </Route>
 
           <Route element={<PrivateRoutes />}>

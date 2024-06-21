@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import NoCourse from './NoCourse';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCourseAction } from '../../../../services/actions/courseActions';
-import CourseCard from '../../../../components/CourseCard';
+import { CourseCard } from '../../../../components/CourseCard';
 
 function PublishedCourses({ userData = {}, tabIndexState }) {
   const { _id } = userData;

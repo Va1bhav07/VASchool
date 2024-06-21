@@ -2,11 +2,7 @@ import React from 'react';
 import NavbarComp from '../Header/Navbar';
 
 function Header() {
-  return (
-    <>
-      <NavbarComp />
-    </>
-  );
+  return <NavbarComp />;
 }
 
 export default Header;

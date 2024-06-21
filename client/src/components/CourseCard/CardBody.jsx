@@ -12,7 +12,7 @@ function CourseInfo({ course }) {
         <strong>Author:</strong> {author}
       </div>
       <div className="d-flex justify-content-between mt-1 mb-0 text-muted small ">
-        <span>{language.toUpperCase()}</span>
+        <span>{language?.toUpperCase()}</span>
         <span>{level?.toUpperCase()}</span>
         <span>{date.toLocaleDateString()}</span>
       </div>
