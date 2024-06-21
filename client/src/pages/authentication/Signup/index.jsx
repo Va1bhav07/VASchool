@@ -25,7 +25,7 @@ function Signup() {
 
   useEffect(() => {
     if (authReducer.isLoggedIn) {
-      navigate('/');
+      navigate('/', { replace: true });
     }
   }, [authReducer.isLoggedIn, navigate]);
 
@@ -41,7 +41,9 @@ function Signup() {
 
   return (
     <section className="d-flex justify-content-center align-items-center">
-      <CardComp className="mt-5 card-comp p-4">
+      <CardComp
+        border={'0'}
+        className="shadow mt-5 card-comp p-4 bg-body-tertiary">
         <Card.Title className="text-center fs-2 mb-4">Sign Up</Card.Title>
         <SignupForm
           handleFormChange={handleFormChange}

@@ -12,16 +12,19 @@ import {
   COURSE_BY_ID_REQUEST,
   COURSE_BY_ID_SUCCESS,
   COURSE_BY_ID_FAIL,
+  DELETE_COURSE_BY_ID_REQUEST,
+  DELETE_COURSE_BY_ID_SUCCESS,
+  DELETE_COURSE_BY_ID_FAIL,
 } from '../constants';
 import { apiAxios } from '../../utilities/axios';
 
 function* addCourse(action) {
   try {
     const url = '/api/createCourse';
-    const course = yield call(apiAxios.post, url, action.payload);
-    console.log('createCourse :>> ', course);
-    if (course) {
-      yield put({ type: ADD_COURSE_SUCCESS, course });
+    const newCourse = yield call(apiAxios.post, url, action.payload);
+    console.log('createCourse :>> ', newCourse);
+    if (newCourse?.success) {
+      yield put({ type: ADD_COURSE_SUCCESS, newCourse: newCourse.data });
     } else throw new Error('error in addCourse');
   } catch (e) {
     yield put({ type: ADD_COURSE_FAIL, message: e.message });
@@ -72,11 +75,29 @@ function* fetchCourseById(action) {
     if (course?.data?._id) {
       yield put({
         type: COURSE_BY_ID_SUCCESS,
-        course: course.data,
+        courseDetails: course.data,
       });
     } else throw new Error('error in fetchCourseById');
   } catch (e) {
     yield put({ type: COURSE_BY_ID_FAIL, message: e.message });
+  }
+}
+
+function* deleteCourseById(action) {
+  console.log('deleteCourseById :>> ', action);
+  try {
+    const url = `/api/deleteCourse/${action?.payload}`;
+    const course = yield call(apiAxios.get, url);
+    console.log('course :>> ', course);
+    if (course?.success) {
+      yield put({
+        type: DELETE_COURSE_BY_ID_SUCCESS,
+        message: course.message,
+        courseId: action?.payload,
+      });
+    } else throw new Error('error in deleteCourseById');
+  } catch (e) {
+    yield put({ type: DELETE_COURSE_BY_ID_FAIL, message: e.message });
   }
 }
 
@@ -85,4 +106,5 @@ export default function* watchFork() {
   yield takeLatest(INSTRUCTOR_COURSES_REQUEST, fetchInstructorCourses);
   yield takeLatest(ALL_COURSES_REQUEST, fetchAllCourses);
   yield takeLatest(COURSE_BY_ID_REQUEST, fetchCourseById);
+  yield takeLatest(DELETE_COURSE_BY_ID_REQUEST, deleteCourseById);
 }

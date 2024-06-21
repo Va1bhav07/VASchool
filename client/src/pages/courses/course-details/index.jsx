@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import CardComp from '../../../components/Cards';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -12,39 +12,44 @@ import { useCartHandler } from '../../../hooks/useCartHandler';
 
 function CourseDetails() {
   const dispatch = useDispatch();
-  const { allCourses, courseData } = useSelector(
-    (state) => state.courseReducer
+  const { allCourses, courseDetails } = useSelector(
+    ({ courseReducer }) => courseReducer
   );
   const { id } = useParams();
 
-  const [courseDetails, setCourseDetails] = useState({
-    image: '',
-    name: '',
-    description: '',
-  });
+  const [courseDetailsState, setCourseDetails] = useState(courseDetails);
 
   const { handleAddToCart } = useCartHandler();
 
-  useEffect(() => {
-    console.log('location :>> ', id);
-    !getCourseDetails() && dispatch(fetchCourseByIdAction(id));
-  }, [id, courseData?._id]);
+  const memoizedCourseDetails = useMemo(() => {
+    return allCourses.find((course) => course._id === id);
+  }, [allCourses, id]);
 
-  const getCourseDetails = () => {
-    let course = allCourses.find((course) => course._id === id);
-    if (course?._id) {
-      setCourseDetails(course);
-      return true;
+  useEffect(() => {
+    const getCourseDetails = () => {
+      if (memoizedCourseDetails?._id) {
+        setCourseDetails(memoizedCourseDetails);
+        return true;
+      }
+      if (courseDetails?._id === id) {
+        setCourseDetails(courseDetails);
+        return true;
+      }
+      return false;
+    };
+
+    if (!getCourseDetails()) {
+      dispatch(fetchCourseByIdAction(id));
     }
-    if (courseData?._id === `${id}`) {
-      setCourseDetails(courseData);
-      return true;
-    }
-    return false;
-  };
+  }, [id, memoizedCourseDetails, courseDetails, dispatch]);
+
   const onAddToCart = (course) => {
     handleAddToCart(course);
   };
+
+  const { thumbnail, title, description, language, price, author } =
+    courseDetailsState || {};
+
   return (
     <section className="d-flex justify-content-center align-items-center">
       <CardComp className="w-100 mt-2 card-course p-1">
@@ -53,18 +58,18 @@ function CourseDetails() {
         </Card.Title>
         <Row>
           <Col lg="3">
-            <Image src={courseDetails.thumbnail} thumbnail />
+            <Image src={thumbnail} thumbnail />
           </Col>
           <Col lg="9">
-            <h3>{courseDetails.title} </h3>
+            <h3>{title}</h3>
             <p>
-              <strong>Details:</strong> {courseDetails.description}
+              <strong>Details:</strong> {description}
             </p>
             {/* <p>Course level: {courseDetails.level}</p> */}
-            <p>language: {courseDetails.language}</p>
-            <p>${courseDetails.price}</p>
-            <p>By: {courseDetails.author}</p>
-            <Button onClick={() => onAddToCart(courseDetails)}>
+            <p>Language: {language}</p>
+            <p>${price}</p>
+            <p>By: {author}</p>
+            <Button onClick={() => onAddToCart(courseDetailsState)}>
               Add to cart
             </Button>
             <Button
