@@ -20,10 +20,14 @@ export default function Main() {
         display={{ base: 'block', md: 'flex' }}
         flex={1}
         as="main"
+        w={'full'}
         gap={6}
         py={{ base: 5, md: 9 }}
         justifyContent={'center'}
-        maxW="container.xl">
+        maxW="container.xl"
+        // maxW="8.xl"
+        // bg="green.400"
+      >
         <Suspense fallback={<Spinner alignSelf={'center'} />}>
           <Sidebar userData={userData} />
           <Dashboard userData={userData} />

@@ -12,6 +12,9 @@ import {
   COURSE_BY_ID_REQUEST,
   COURSE_BY_ID_SUCCESS,
   COURSE_BY_ID_FAIL,
+  DELETE_COURSE_BY_ID_REQUEST,
+  DELETE_COURSE_BY_ID_SUCCESS,
+  DELETE_COURSE_BY_ID_FAIL,
 } from '../constants';
 import { apiAxios } from '../../utilities/axios';
 
@@ -80,9 +83,28 @@ function* fetchCourseById(action) {
   }
 }
 
+function* deleteCourseById(action) {
+  console.log('deleteCourseById :>> ', action);
+  try {
+    const url = `/api/deleteCourse/${action?.payload}`;
+    const course = yield call(apiAxios.get, url);
+    console.log('course :>> ', course);
+    if (course?.success) {
+      yield put({
+        type: DELETE_COURSE_BY_ID_SUCCESS,
+        message: course.message,
+        courseId: action?.payload,
+      });
+    } else throw new Error('error in deleteCourseById');
+  } catch (e) {
+    yield put({ type: DELETE_COURSE_BY_ID_FAIL, message: e.message });
+  }
+}
+
 export default function* watchFork() {
   yield takeLatest(ADD_COURSE_REQUEST, addCourse);
   yield takeLatest(INSTRUCTOR_COURSES_REQUEST, fetchInstructorCourses);
   yield takeLatest(ALL_COURSES_REQUEST, fetchAllCourses);
   yield takeLatest(COURSE_BY_ID_REQUEST, fetchCourseById);
+  yield takeLatest(DELETE_COURSE_BY_ID_REQUEST, deleteCourseById);
 }

@@ -1,48 +1,68 @@
 import {
-  Button,
   Card,
-  CardBody,
-  CardFooter,
-  Heading,
   Image,
-  Stack,
+  VStack,
+  CardFooter,
+  Button,
   Text,
-  //   useColorModeValue,
 } from '@chakra-ui/react';
-export function CourseCard() {
+import type { CourseDetailsProps } from '../../../../../shared.types';
+import { CardBodyComp } from './CardBodyComp';
+import { Link } from 'react-router-dom';
+
+type CourseCardProps = {
+  courseDetails: CourseDetailsProps;
+  onCourseDelete: (id: string) => void;
+};
+
+export function CourseCard({ courseDetails, onCourseDelete }: CourseCardProps) {
+  const { _id, title, thumbnail, price } = courseDetails;
   return (
     <Card
       direction={{ base: 'column', sm: 'row' }}
-      overflow="hidden"
       variant="outline"
-      boxShadow="xl"
       bg={'transparent'}
+      borderWidth={0}
       //   borderWidth={0}
-      //   bg={useColorModeValue('WhiteAlpha.200', 'brand.900')}
     >
       <Image
         objectFit="cover"
         maxW={{ base: '100%', sm: '200px' }}
-        src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
-        alt="Caffe Latte"
+        src={thumbnail}
+        alt={title}
+        flex={1}
       />
-
-      <Stack>
-        <CardBody>
-          <Heading size="md">The perfect latte</Heading>
-
-          <Text py="2">
-            Caffè latte is a coffee beverage of Italian origin made with
-            espresso and steamed milk.
+      <CardBodyComp courseDetails={courseDetails} />
+      <CardFooter
+        flex={1}
+        borderStartWidth={1}
+        // p={0}
+        // alignItems="center"
+        justifyContent="space-between"
+        flexDirection="column">
+        <Text mb={2} fontSize="sm">
+          <Text as="b" fontSize="2xl">
+            $ {price}
           </Text>
-        </CardBody>
-
-        <CardFooter>
-          <Button variant="solid" colorScheme="blue">
-            Buy Latte
+        </Text>
+        <VStack>
+          <Button
+            as={Link}
+            to={`/course-details/${_id}`}
+            variant="solid"
+            colorScheme="green"
+            w={'full'}>
+            Details
           </Button>
-        </CardFooter>
-      </Stack>
+          <Button
+            onClick={() => onCourseDelete(_id)}
+            variant="outline"
+            colorScheme="red"
+            w={'full'}>
+            Delete
+          </Button>
+        </VStack>
+      </CardFooter>
     </Card>
   );
 }

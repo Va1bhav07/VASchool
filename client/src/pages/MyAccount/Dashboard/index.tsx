@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import { useColorModeValue } from '@chakra-ui/react';
 
@@ -13,11 +13,11 @@ type DashboardProps = {
 
 const Dashboard = ({ userData }: DashboardProps) => {
   const tabs = [];
-  const [tabIndexState, setTabIndex] = useState(0);
+  // const [tabIndexState, setTabIndex] = useState(0);
 
-  const handleTabChange = (tab: number) => {
-    setTabIndex(tab);
-  };
+  // const handleTabChange = (tab: number) => {
+  //   setTabIndex(tab);
+  // };
 
   if (userData?.userType === 'instructor') {
     tabs.push('Add Course', 'Published Courses');
@@ -33,7 +33,7 @@ const Dashboard = ({ userData }: DashboardProps) => {
       rounded="md">
       <Tabs
         isLazy
-        onChange={handleTabChange}
+        // onChange={handleTabChange}
         display={'flex'}
         height={'100%'}
         flexDirection={'column'}>
@@ -52,15 +52,15 @@ const Dashboard = ({ userData }: DashboardProps) => {
             mask: 'linear-gradient(180deg, white 97%, transparent)',
           }}>
           {/* <TabPanel>
-            <AccountSettings userData={userData} />
-          </TabPanel> */}
+           <AccountSettings userData={userData} /> 
+          </TabPanel>*/}
           <TabPanel>
             <AddCourse userData={userData} />
           </TabPanel>
           <TabPanel>
             <PublishedCourses
               userData={userData}
-              tabIndexState={tabIndexState}
+              // tabIndexState={tabIndexState}
             />
           </TabPanel>
         </TabPanels>

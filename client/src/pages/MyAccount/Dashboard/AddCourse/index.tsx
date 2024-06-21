@@ -10,7 +10,6 @@ import {
   InputLeftElement,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addCourseAction } from '../../../../services/actions/courseActions.js';
@@ -18,6 +17,7 @@ import { FormComp, useFormHook } from '../../Components/Form';
 
 import type { UserDataProps } from '../../../../shared.types';
 import ButtonComp from '../../Components/Button';
+import { toast, Bounce } from 'react-toastify';
 
 type AddCourseProps = {
   userData: UserDataProps;
@@ -48,28 +48,32 @@ function AddCourse({ userData }: AddCourseProps) {
   const dispatch = useDispatch();
   const borderColor = useColorModeValue('gray.300', 'inherit');
 
-  const { formDataState, handleFormChange, setFormData } =
+  const { formDataState, handleFormChange } =
     useFormHook<FormHookProps>(initialvalue);
 
   const submitAddCourse = (isValid: boolean) => {
     if (!isValid) {
-      console.log('show error :>> ');
+      return toast.error('Please fill required fields', {
+        position: 'top-right',
+        autoClose: 1500,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        transition: Bounce,
+      });
     }
     console.log('formDataState :>> ', formDataState);
-    //   const { title, description, videoUrl, thumbnail, price, level } =
-    //     formDataState;
+    // const { title, description, videoUrl, thumbnail, price, level } =
+    //   formDataState;
 
-    //   if (!title || !description || !videoUrl || !thumbnail || !price || !level) {
-    //     return alert('Please fill required fields');
-    //   }
-    //   const courseData = { ...formDataState, createdBy: _id, author: fullName };
-    //   // const formData = new FormData();
-    //   // for (let key in courseData) {
-    //   //   console.log("key :>> ", key, courseData[key]);
-    //   //   formData.append(key, courseData[key]);
-    //   // }
-    //   // console.log("courseData :>> ", courseData);
-    //   dispatch(addCourseAction(courseData));
+    const courseData = { ...formDataState, createdBy: _id, author: fullName };
+    // const formData = new FormData();
+    // for (let key in courseData) {
+    //   console.log("key :>> ", key, courseData[key]);
+    //   formData.append(key, courseData[key]);
+    // }
+    // console.log("courseData :>> ", courseData);
+    dispatch(addCourseAction(courseData));
   };
 
   return (

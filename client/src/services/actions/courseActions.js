@@ -3,6 +3,7 @@ import {
   INSTRUCTOR_COURSES_REQUEST,
   ALL_COURSES_REQUEST,
   COURSE_BY_ID_REQUEST,
+  DELETE_COURSE_BY_ID_REQUEST,
 } from '../constants';
 
 export const addCourseAction = (data) => {
@@ -29,6 +30,13 @@ export const fetchCourseAction = (data) => {
 export const fetchCourseByIdAction = (data) => {
   return {
     type: COURSE_BY_ID_REQUEST,
+    payload: data,
+  };
+};
+
+export const deleteCourseByIdAction = (data) => {
+  return {
+    type: DELETE_COURSE_BY_ID_REQUEST,
     payload: data,
   };
 };
