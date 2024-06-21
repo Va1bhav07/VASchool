@@ -39,7 +39,7 @@ function LoginForm({ handleFormChange, onFormSubmit }) {
         </Form.Group>
       </Row>
       <Button className="w-100" type="submit">
-        Submit form
+        Sign In
       </Button>
     </FormComp>
   );

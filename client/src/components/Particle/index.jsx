@@ -37,7 +37,7 @@ const Part = ({ id, isMobile }) => {
           //   enable: true,
           //   area: 1,
           // },
-          limit: 600,
+          limit: 60,
           value: isMobile ? 10 : 30,
         },
         move: {
@@ -71,7 +71,7 @@ const Part = ({ id, isMobile }) => {
         },
         modes: {
           push: {
-            quantity: 10,
+            quantity: 2,
           },
           repulse: {
             distance: 100,
