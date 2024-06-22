@@ -175,11 +175,10 @@ function AddCourse({ userData }: AddCourseProps) {
           />
         </FormControl>
 
-        <GridItem colSpan={2}>
+        <GridItem colSpan={{ base: 1, md: 2 }}>
           <FormControl id="description" isRequired>
             <FormLabel>Description</FormLabel>
             <Textarea
-              //   type="Description"
               name="description"
               placeholder=""
               onChange={handleFormChange}

@@ -22,16 +22,16 @@ type PublishedCoursesProps = {
 function PublishedCourses({ userData }: PublishedCoursesProps) {
   const { _id } = userData;
   const dispatch = useDispatch();
-  const [courseDetailsState, setCourseDetails] = useState<CourseDetailsProps[]>(
-    []
-  );
+  const [publishedCoursesState, setPublishedCourses] = useState<
+    CourseDetailsProps[]
+  >([]);
 
   const courses = useSelector((state: RootState) => state.courseReducer);
   const { instructorCourses = [], newCoursesAdded = [], isLoading } = courses;
 
   useEffect(() => {
     if (instructorCourses.length) {
-      setCourseDetails([
+      setPublishedCourses([
         ...(newCoursesAdded.length ? newCoursesAdded : []),
         ...instructorCourses,
       ]);
@@ -56,7 +56,7 @@ function PublishedCourses({ userData }: PublishedCoursesProps) {
     );
   }
 
-  if (!courseDetailsState.length) {
+  if (!publishedCoursesState.length) {
     return <NoCourse />;
   }
 
@@ -69,7 +69,7 @@ function PublishedCourses({ userData }: PublishedCoursesProps) {
       // gap={3}
       // borderWidth={0}
     >
-      {courseDetailsState.map((courseDetails: CourseDetailsProps) => {
+      {publishedCoursesState.map((courseDetails: CourseDetailsProps) => {
         return (
           <CourseCard
             key={courseDetails._id}

@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
-import axios from 'axios';
+// import axios from 'axios';
 
 const dummyData = {
   image:

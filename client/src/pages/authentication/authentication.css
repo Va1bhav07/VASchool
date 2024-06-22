@@ -4,11 +4,11 @@
 
 @media screen and (max-width: 1200px) {
   .card-comp {
-    width: 50%;
+    width: 40%;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 668px) {
   .card-comp {
     width: 80%;
   }

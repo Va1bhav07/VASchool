@@ -5,6 +5,7 @@ import {
   CardFooter,
   Button,
   Text,
+  Flex,
 } from '@chakra-ui/react';
 import type { CourseDetailsProps } from '../../../../../shared.types';
 import { CardBodyComp } from './CardBodyComp';
@@ -19,23 +20,29 @@ export function CourseCard({ courseDetails, onCourseDelete }: CourseCardProps) {
   const { _id, title, thumbnail, price } = courseDetails;
   return (
     <Card
-      direction={{ base: 'column', sm: 'row' }}
+      direction={{ base: 'column', md: 'row' }}
       variant="outline"
       bg={'transparent'}
       borderWidth={0}
       //   borderWidth={0}
     >
-      <Image
-        objectFit="cover"
-        maxW={{ base: '100%', sm: '200px' }}
-        src={thumbnail}
-        alt={title}
-        flex={1}
-      />
-      <CardBodyComp courseDetails={courseDetails} />
+      <Flex direction={{ base: 'column', sm: 'row' }} flex={3}>
+        <Image
+          objectFit="cover"
+          maxW={{ base: '100%', md: '200px' }}
+          boxSize="150px"
+          src={thumbnail}
+          alt={title}
+          flex={1}
+          mb={{ base: 5, sm: 0 }}
+        />
+
+        <CardBodyComp courseDetails={courseDetails} />
+      </Flex>
+
       <CardFooter
         flex={1}
-        borderStartWidth={1}
+        borderStartWidth={{ base: 0, md: 1 }}
         // p={0}
         // alignItems="center"
         justifyContent="space-between"
