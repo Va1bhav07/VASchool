@@ -28,3 +28,16 @@
 .scale-effect:hover {
   transform: scale(1.07);
 }
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.bg-info-soft {
+  background-color: rgba(14, 165, 233, 0.1) !important;
+  color: #0ea5e9 !important;
+}

@@ -18,7 +18,10 @@ const demoData = [
     img: Edu,
     title: 'Card Title',
     text: `  Some quick example text to build on the card title and make up the
-          bulk of the card's content.`,
+          bulk of the card's content.
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+          `,
   },
   {
     img: Edu,
@@ -36,14 +39,25 @@ function BestCourses() {
         {demoData.map((data, idx) => (
           <Col key={idx} className="mb-3">
             <CardComp
+              // h={100}
+              // style={{ width: '25rem' }}
               border="0"
-              className="shadow bg-body-tertiary"
-              imgSrc={data.img}>
+              className="shadow bg-body-tertiary  h-100"
+              imgSrc={
+                <Card.Img
+                  variant="top"
+                  src={data.img}
+                  width={350}
+                  height={350}
+                />
+              }
+              footer={
+                <Button variant="success" className="p-2 my-4">
+                  START LEARNING
+                </Button>
+              }>
               <Card.Title>{data.title}</Card.Title>
               <Card.Text>{data.text}</Card.Text>
-              <Button variant="success" className="p-2">
-                START LEARNING
-              </Button>
             </CardComp>
           </Col>
         ))}
