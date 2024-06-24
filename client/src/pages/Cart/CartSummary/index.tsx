@@ -9,13 +9,13 @@ type CartSummaryProps = {
 
 function CartSummary({ totalPrice, handleCheckout }: CartSummaryProps) {
   return (
-    <Card className="mb-4">
+    <Card className="mb-4 bg-body-tertiary shadow" border="0">
       <Card.Header>
         <h5 className="mb-0">Summary</h5>
       </Card.Header>
       <Card.Body>
         <ListGroup variant="flush">
-          <ListGroup.Item className="d-flex justify-content-between align-items-center px-0 ">
+          <ListGroup.Item className="d-flex justify-content-between align-items-center px-0 bg-transparent ">
             Products
             <span>${totalPrice}</span>
           </ListGroup.Item>
@@ -23,7 +23,7 @@ function CartSummary({ totalPrice, handleCheckout }: CartSummaryProps) {
             Shipping
             <span>Gratis</span>
           </ListGroup.Item> */}
-          <ListGroup.Item className="d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+          <ListGroup.Item className="d-flex justify-content-between align-items-center border-0 px-0 mb-3 bg-transparent">
             <div>
               <strong>Total amount</strong>
               <strong>

@@ -37,6 +37,7 @@ function PublishedCourses({ userData }: PublishedCoursesProps) {
       ]);
     } else {
       dispatch(fetchCourseAction(_id));
+      setPublishedCourses([]);
     }
   }, [dispatch, _id, instructorCourses, newCoursesAdded]);
 

@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 function CardsAccept() {
   return (
-    <Card className="mb-4 mb-lg-0">
+    <Card className="mb-4 mb-lg-0 bg-body-tertiary" border="0">
       <Card.Body>
         <p>
           <strong>We accept</strong>
@@ -24,12 +24,12 @@ function CardsAccept() {
           src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
           alt="Mastercard"
         />
-        <img
+        {/* <img
           className="me-2"
           width="45px"
           src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.webp"
           alt="PayPal acceptance mark"
-        />
+        /> */}
       </Card.Body>
     </Card>
   );
