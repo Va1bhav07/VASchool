@@ -32,7 +32,7 @@ const Dashboard = ({ userData }: DashboardProps) => {
       height={'82vh'}
       rounded="md">
       <Tabs
-        isLazy
+        // isLazy
         // onChange={handleTabChange}
         display={'flex'}
         height={'100%'}

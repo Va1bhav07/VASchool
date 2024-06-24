@@ -1,23 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import CardComp from '../../../components/Cards';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { getAllCoursesAction } from '../../../services/actions/courseActions';
+import { CardSkeleton } from '../../../components/Cards/CardSkeleton';
+import type { RootState } from '../../../services/reducers/rootReducer';
+import type { CourseDetailsProps } from '../../../shared.types';
 
 function BestCourses() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [bestCoursesState, setBestCourses] = useState([]);
+  const [bestCoursesState, setBestCourses] = useState<CourseDetailsProps[]>([]);
 
-  const courseReducer = useSelector(({ courseReducer }) => courseReducer);
-  const { allCourses = [] } = courseReducer;
+  const courseReducer = useSelector(
+    ({ courseReducer }: RootState) => courseReducer
+  );
+  const { allCourses = [], isLoading } = courseReducer;
 
-  const handleDetails = (id) => {
+  const handleDetails = (id: string) => {
     navigate('/course-details/' + id);
   };
 
@@ -27,16 +31,22 @@ function BestCourses() {
         // ...(newCoursesAdded.length ? newCoursesAdded : []),
         ...allCourses,
       ]);
-      return;
+    } else {
+      dispatch(getAllCoursesAction());
+      setBestCourses([]);
     }
-    !allCourses?.length && dispatch(getAllCoursesAction());
-    // filterData(location);
-  }, [allCourses.length, allCourses, dispatch]);
+  }, [dispatch, allCourses]);
 
   return (
     <Container as={'section'} className="text-center my-4">
       <h1 className="fs-1 fw-bold p-3">Our Best Courses</h1>
       <Row xs={1} md={3} className="g-0 g-md-4 g-lg-5 justify-content-center">
+        {isLoading &&
+          Array.from({ length: 3 }).map((_, ind) => (
+            <Col key={ind} className="mb-3">
+              <CardSkeleton />
+            </Col>
+          ))}
         {bestCoursesState.slice(0, 3).map((course, idx) => (
           <Col key={idx} className="mb-3">
             <Card
