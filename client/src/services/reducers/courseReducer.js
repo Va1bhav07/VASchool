@@ -1,5 +1,5 @@
 import {
-  // ADD_COURSE_REQUEST,
+  ADD_COURSE_REQUEST,
   ADD_COURSE_SUCCESS,
   ADD_COURSE_FAIL,
   // INSTRUCTOR_COURSES_REQUEST,
@@ -52,11 +52,11 @@ export const courseReducer = (
         isLoading: false,
       };
 
-    // case ADD_COURSE_REQUEST:
-    //   return {
-    //     ...state,
-    //     isLoading: true,
-    //   };
+    case ADD_COURSE_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
 
     case INSTRUCTOR_COURSES_SUCCESS:
       return {
