@@ -1,4 +1,5 @@
 import React, { useState, ReactNode } from 'react';
+import { toast } from 'react-toastify';
 
 export function useFormHook<T>(initialState: T) {
   const [formDataState, setFormData] = useState<T>(initialState);
@@ -8,7 +9,28 @@ export function useFormHook<T>(initialState: T) {
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >
   ) => {
+    // debugger;
     const { name, value } = event.target;
+    const target = event.target as HTMLInputElement;
+
+    if (target.files) {
+      const file = target.files[0];
+
+      if (file) {
+        if (file.size / 1024 / 1024 > 20) {
+          return toast.error('File size is too big (max 20MB)');
+        }
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          setFormData((prevState) => ({
+            ...prevState,
+            [name]: e.target?.result as string,
+          }));
+        };
+        reader.readAsDataURL(file);
+        return;
+      }
+    }
     name &&
       setFormData((prevState) => ({
         ...prevState,

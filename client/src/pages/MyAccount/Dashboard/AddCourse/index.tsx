@@ -72,8 +72,8 @@ function AddCourse({ userData }: AddCourseProps) {
     //   console.log("key :>> ", key, courseData[key]);
     //   formData.append(key, courseData[key]);
     // }
-    // console.log("courseData :>> ", courseData);
-    dispatch(addCourseAction(courseData));
+    console.log('courseData :>> ', courseData);
+    // dispatch(addCourseAction(courseData));
   };
 
   return (
@@ -142,25 +142,25 @@ function AddCourse({ userData }: AddCourseProps) {
 
         <FormControl id="thumbnail" isRequired>
           <FormLabel>Thumbnail</FormLabel>
-          {/* <Input
-              variant="unstyled"
-              p={1}
-              type="file"
-              name="thumbnail"
-              accept="image/*"
-              //
-              placeholder=""
-              onChange={handleFormChange}
-              required
-            /> */}
           <Input
+            // variant="unstyled"
+            p={1}
+            type="file"
+            name="thumbnail"
+            accept="image/*"
+            placeholder=""
+            onChange={handleFormChange}
+            // value={formDataState.thumbnail}
+            required
+          />
+          {/* <Input
             name="thumbnail"
             placeholder=""
             onChange={handleFormChange}
             value={formDataState.thumbnail}
             borderColor={borderColor}
             required
-          />
+          /> */}
         </FormControl>
 
         <FormControl id="videoUrl" isRequired>
