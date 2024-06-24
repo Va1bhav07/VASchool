@@ -14,8 +14,12 @@ function CartItems({ cartData }: CartItemsProps) {
     <>
       {cartData.map((course, ind) => (
         <React.Fragment key={ind}>
-          <CourseCard course={course} border="0" />
-          <hr className="my-4" />
+          <CourseCard
+            course={course}
+            border="0"
+            cardAttibute={{ className: 'bg-body-tertiary' }}
+          />
+          {ind + 1 !== cartData.length ? <hr className="my-4" /> : ''}
         </React.Fragment>
       ))}
     </>

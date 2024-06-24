@@ -39,11 +39,12 @@ function* fetchInstructorCourses(action) {
     const courses = yield call(apiAxios.get, url);
     console.log('courses :>> ', courses);
     if (courses?.data?.length) {
+      // this length will check if no course i.e [] then fail condition and no re render will occur
       yield put({
         type: INSTRUCTOR_COURSES_SUCCESS,
         instructorCourses: courses.data,
       });
-    } else throw new Error('error in fetchInstructorCourses');
+    } else throw new Error('No published courses found');
   } catch (e) {
     yield put({ type: INSTRUCTOR_COURSES_FAIL, message: e.message });
   }
@@ -55,12 +56,13 @@ function* fetchAllCourses(action) {
     const url = `/api/getCourses`;
     const courses = yield call(apiAxios.get, url);
     console.log('courses :>> ', courses);
-    if (courses?.success) {
+    if (courses?.data?.length) {
+      // this length will check if no course i.e [] then fail condition and no re render will occur
       yield put({
         type: ALL_COURSES_SUCCESS,
         allCourses: courses.data,
       });
-    } else throw new Error('error in fetchAllCourses');
+    } else throw new Error('No courses found');
   } catch (e) {
     yield put({ type: ALL_COURSES_FAIL, message: e.message });
   }

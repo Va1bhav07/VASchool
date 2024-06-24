@@ -41,7 +41,9 @@ const getCartData = async (req, res) => {
   try {
     const { courseIds } = req.body;
     if (!courseIds?.length)
-      return res.status(404).json({ success: false, message: "no course ids" });
+      return res
+        .status(404)
+        .json({ success: false, message: "No course IDs provided" });
 
     const courses = await Courses.find({ _id: { $in: courseIds } });
     return res.status(208).json({

@@ -10,7 +10,7 @@ import {
   InputLeftElement,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { addCourseAction } from '../../../../services/actions/courseActions.js';
 import { FormComp, useFormHook } from '../../Components/Form';
@@ -18,6 +18,7 @@ import { FormComp, useFormHook } from '../../Components/Form';
 import type { UserDataProps } from '../../../../shared.types';
 import ButtonComp from '../../Components/Button';
 import { toast, Bounce } from 'react-toastify';
+import type { RootState } from '../../../../services/reducers/rootReducer';
 
 type AddCourseProps = {
   userData: UserDataProps;
@@ -46,6 +47,9 @@ const initialvalue: FormHookProps = {
 function AddCourse({ userData }: AddCourseProps) {
   const { _id, fullName = {} } = userData;
   const dispatch = useDispatch();
+  const courses = useSelector((state: RootState) => state.courseReducer);
+  const { isLoading } = courses;
+
   const borderColor = useColorModeValue('gray.300', 'inherit');
 
   const { formDataState, handleFormChange } =
@@ -175,11 +179,10 @@ function AddCourse({ userData }: AddCourseProps) {
           />
         </FormControl>
 
-        <GridItem colSpan={2}>
+        <GridItem colSpan={{ base: 1, md: 2 }}>
           <FormControl id="description" isRequired>
             <FormLabel>Description</FormLabel>
             <Textarea
-              //   type="Description"
               name="description"
               placeholder=""
               onChange={handleFormChange}
@@ -189,7 +192,7 @@ function AddCourse({ userData }: AddCourseProps) {
           </FormControl>
         </GridItem>
       </Grid>
-      <ButtonComp type="submit" text="Add Course" />
+      <ButtonComp isLoading={isLoading} type="submit" text="Add Course" />
     </FormComp>
   );
 }

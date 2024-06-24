@@ -21,7 +21,7 @@ function CartContainer({
       <Container className="py-2 py-lg-5">
         <Row className="d-flex justify-content-center my-4">
           <Col md={8}>
-            <Card className="mb-4">
+            <Card className="mb-4 shadow bg-body-tertiary" border="0">
               <Card.Header>
                 <h5 className="mb-0">Cart - {cartData.length} items</h5>
               </Card.Header>
