@@ -8,31 +8,37 @@ import { useDailyResetTimer } from '../../../../hooks/useDailyResetTimer';
 
 type CourseBuyProps = {
   price: number;
+  onAddToCart: () => void;
 };
 
-export function CourseBuy({ price }: CourseBuyProps) {
+export function CourseBuy({ price, onAddToCart }: CourseBuyProps) {
   const { hours, mins, secs } = useDailyResetTimer();
   return (
     <Container>
-      <Row className="">
-        <Col className="d-flex align-items-center gap-2">
+      <Row>
+        <Col
+          xs={12}
+          md={7}
+          className="d-flex align-items-center gap-2 justify-content-center justify-content-md-start flex-wrap">
           <p className="h4 fw-bold m-0">${price}</p>
           <p className="m-0">
             + TAX <del>13%</del>
           </p>
           <Badge bg="success">13% OFF</Badge>
         </Col>
-        <Col className="d-flex align-items-center gap-1">
+        <Col
+          xs={12}
+          md={5}
+          className="d-flex align-items-center gap-1 justify-content-center justify-content-md-start">
           <LuTimer />
           <p className="h-5 m-0">1825 Days validity</p>
         </Col>
       </Row>
-      <Row className="mt-2">
-        <Col>
+      <Row className="mt-2 justify-content-center justify-content-md-start">
+        <Col xs="auto">
           <span className="me-2 fs-5">🎉</span>
           <span className="fw-semibold">Special Discount : 13% OFF</span>
         </Col>
-        {/* <Col></Col> */}
       </Row>
       <Row className="mt-2 align-items-center">
         <Col xs="auto">
@@ -41,15 +47,19 @@ export function CourseBuy({ price }: CourseBuyProps) {
           <span className="text-success fw-bold me-2">SUMMERSALE</span>
           <span className="fw-semibold">₹2613 OFF</span>
         </Col>
-        <Col>
+        <Col xs="auto">
           <p className="text-success fw-bold m-0">
             ⏱ {hours}H : {mins}M : {secs}S
           </p>
         </Col>
+        <Col xs={12} md={10}>
+          <Button
+            className="fw-bold mt-3 py-2 w-100 rounded-pill"
+            onClick={onAddToCart}>
+            Add To Cart
+          </Button>
+        </Col>
       </Row>
-      <Button className="fw-bold mt-3 py-2 w-75 rounded-pill ">
-        ENROLL TODAY
-      </Button>
     </Container>
   );
 }
