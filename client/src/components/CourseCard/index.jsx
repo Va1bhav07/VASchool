@@ -5,6 +5,7 @@ import CardComp from '../Cards';
 import CardAction from './CardAction';
 import CardBody from './CardBody';
 import Image from 'react-bootstrap/Image';
+import './courseCard.css';
 
 export function CourseCard({ course, border = '1', cardAttibute = {} }) {
   const { thumbnail } = course;
@@ -22,7 +23,7 @@ export function CourseCard({ course, border = '1', cardAttibute = {} }) {
             <Col
               md={6}
               lg={3}
-              className="d-flex flex-column justify-content-between border-sm-start-none border-start">
+              className="d-flex flex-column justify-content-between border-start border_md-0">
               <CardAction course={course} />
             </Col>
           </Row>
