@@ -18,11 +18,21 @@ export const useCartHandler = () => {
   const { isLoggedIn, userData } = useSelector(
     ({ authReducer }) => authReducer
   );
+  const { cartInfo } = useSelector(({ cartReducer }) => cartReducer);
+  const { courses } = cartInfo;
   const dispatch = useDispatch();
   const userId = userData._id;
 
   const handleAddToCart = (course) => {
     const courseId = course._id;
+
+    const isCourseInCart = courses?.find((course_id) => course_id == courseId);
+
+    if (isCourseInCart) {
+      return toast.error('Course is already in the cart', {
+        autoClose: 2000,
+      });
+    }
 
     if (isLoggedIn) {
       return dispatch(requestAddToCartAction({ userId, courseId }));

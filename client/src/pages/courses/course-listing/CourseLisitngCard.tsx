@@ -41,7 +41,7 @@ export function CourseLisitngCard({ course }: CourseLisitngCardProps) {
   return (
     <Card
       border="0"
-      className="shadow bg-body-tertiary h-100 pointer-hover mx-5 mx-sm-0">
+      className="shadow bg-body-tertiary h-100 pointer-hover mx-2 mx-sm-0">
       <Card.Img
         variant="top"
         src={course.thumbnail}

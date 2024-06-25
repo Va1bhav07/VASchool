@@ -47,7 +47,7 @@ function CourseDetails() {
   //   courseDetailsState || {};
 
   return (
-    <Container as="section">
+    <Container as="section" fluid="lg">
       <CourseInfo courseDetails={courseDetailsState} />
     </Container>
   );
