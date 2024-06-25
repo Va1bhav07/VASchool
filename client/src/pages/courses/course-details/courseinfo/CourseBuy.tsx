@@ -40,7 +40,7 @@ export function CourseBuy({ price, onAddToCart }: CourseBuyProps) {
           <span className="fw-semibold">Special Discount : 13% OFF</span>
         </Col>
       </Row>
-      <Row className="mt-2 align-items-center">
+      <Row className="mt-2 align-items-center justify-content-center justify-content-md-start">
         <Col xs="auto">
           <span className="fs-5">🎁</span>
           <span className="fw-semibold mx-2">Coupon :</span>
