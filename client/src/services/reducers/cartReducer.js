@@ -1,4 +1,5 @@
 import {
+  CART_DATA_REQUESTED,
   CART_DATA_SUCCESS,
   CART_DATA_FAIL,
   SET_GUEST_CART_DATA,
@@ -17,6 +18,7 @@ const initialState = {
   cartInfo: {},
   cartData: [],
   message: '',
+  isLoading: true,
 };
 
 export const cartReducer = (state = initialState, action) => {
@@ -24,6 +26,7 @@ export const cartReducer = (state = initialState, action) => {
     case ADD_CART_INFO_SUCCESS:
       return {
         ...state,
+        isLoading: false,
         cartInfo: {
           ...action.cartInfo,
           courses: [...(action?.cartInfo?.courses || [])],
@@ -32,24 +35,34 @@ export const cartReducer = (state = initialState, action) => {
     case ADD_CART_INFO_FAIL:
       return {
         ...state,
+        isLoading: false,
         message: action.message,
+      };
+
+    case CART_DATA_REQUESTED:
+      return {
+        ...state,
+        isLoading: true,
       };
 
     case CART_DATA_SUCCESS:
       return {
         ...state,
+        isLoading: false,
         cartData: action?.cartData,
       };
 
     case CART_DATA_FAIL:
       return {
         ...state,
+        isLoading: false,
         message: action?.message,
       };
 
     case SET_GUEST_CART_DATA:
       return {
         ...state,
+        isLoading: false,
         cartInfo: {
           ...state.cartInfo,
           courses: action.payload,
@@ -59,6 +72,7 @@ export const cartReducer = (state = initialState, action) => {
     case ADD_TO_CART_SUCCESS:
       return {
         ...state,
+        isLoading: false,
         cartInfo: {
           ...state.cartInfo,
           courses: [...(state?.cartInfo?.courses || []), action.courseId],
@@ -67,11 +81,13 @@ export const cartReducer = (state = initialState, action) => {
     case ADD_TO_CART_FAIL:
       return {
         ...state,
+        isLoading: false,
         message: action.message,
       };
     case REMOVE_FROM_CART_SUCCESS:
       return {
         ...state,
+        isLoading: false,
         cartInfo: {
           ...state.cartInfo,
           courses: state.cartInfo.courses.filter(
@@ -87,6 +103,7 @@ export const cartReducer = (state = initialState, action) => {
     case REMOVE_FROM_CART_FAIL:
       return {
         ...state,
+        isLoading: false,
         message: action.message,
       };
 

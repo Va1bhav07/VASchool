@@ -30,7 +30,7 @@ export function CourseCard({ courseDetails, onCourseDelete }: CourseCardProps) {
         <Image
           objectFit="cover"
           maxW={{ base: '100%', md: '200px' }}
-          boxSize="150px"
+          boxSize={{ base: 'none', sm: '150px' }}
           src={thumbnail}
           alt={title}
           flex={1}
