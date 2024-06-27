@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, AbsoluteCenter, Flex, Center, Text } from '@chakra-ui/react';
+import { Box, AbsoluteCenter } from '@chakra-ui/react';
 
 function NoCourse() {
   return (

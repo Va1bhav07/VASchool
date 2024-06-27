@@ -21,8 +21,6 @@ function* fetchUserCourses(action) {
     });
     if (response?.cartData?.length) {
       const { cartData } = response;
-      console.log('fetchLogin user :>> ', cartData);
-
       yield put({ type: CART_DATA_SUCCESS, cartData });
     } else throw new Error('error in fetchUserCourses');
   } catch (e) {
