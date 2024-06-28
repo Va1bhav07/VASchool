@@ -53,3 +53,32 @@ export type CartDataItemProps = {
 };
 
 export type CartDataItemsProps = CartDataItemProps[];
+
+export type filterDataProps = {
+  id: string;
+  name: string;
+};
+
+export type filterUIProps = {
+  author: {
+    title: string;
+    data: filterDataProps[];
+    comp: string;
+  };
+  level: {
+    title: string;
+    data: filterDataProps[];
+    comp: string;
+  };
+  language: {
+    title: string;
+    data: filterDataProps[];
+    comp: string;
+  };
+};
+
+export type appliedFilterProps = {
+  author: string;
+  level: string;
+  language: string;
+};
