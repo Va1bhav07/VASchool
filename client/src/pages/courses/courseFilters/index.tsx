@@ -2,9 +2,12 @@ import Card from 'react-bootstrap/Card';
 import { FilterForm } from './FilterForm';
 import { useEffect, useState } from 'react';
 import { filterUIProps, CourseDetailsProps } from '../../../shared.types';
+import { MobileCourseFilter } from './MobileCourseFilter';
 
 type CourseFiltersProps = {
   courses: CourseDetailsProps[];
+  mobileFilterHandler: () => void;
+  showMoblieFilter: boolean;
 };
 
 const initialFilterUI: filterUIProps = {
@@ -29,7 +32,11 @@ const authors = new Set<string>();
 const levels = new Set<string>();
 const languages = new Set<string>();
 
-export function CourseFilters({ courses }: CourseFiltersProps) {
+export function CourseFilters({
+  courses,
+  mobileFilterHandler,
+  showMoblieFilter,
+}: CourseFiltersProps) {
   const [filterState, setFilter] = useState<filterUIProps>(initialFilterUI);
   // console.log(' authors,levels,languages :>> ', authors, levels, languages);
   const filterData = { ...filterState };
@@ -68,13 +75,26 @@ export function CourseFilters({ courses }: CourseFiltersProps) {
   }, [courses]);
 
   return (
-    <Card border="0" className="shadow bg-body-tertiary position-sticky top-0">
-      <Card.Header>
-        <h5 className="mb-0">Filter</h5>
-      </Card.Header>
-      <Card.Body>
-        <FilterForm filterState={filterState} />
-      </Card.Body>
-    </Card>
+    <>
+      <MobileCourseFilter
+        mobileFilterHandler={mobileFilterHandler}
+        showMoblieFilter={showMoblieFilter}>
+        <FilterForm
+          filterState={filterState}
+          mobileFilterHandler={mobileFilterHandler}
+        />
+      </MobileCourseFilter>
+
+      <Card
+        border="0"
+        className="shadow bg-body-tertiary position-sticky top-0">
+        <Card.Header>
+          <h5 className="mb-0">Filter</h5>
+        </Card.Header>
+        <Card.Body>
+          <FilterForm filterState={filterState} />
+        </Card.Body>
+      </Card>
+    </>
   );
 }

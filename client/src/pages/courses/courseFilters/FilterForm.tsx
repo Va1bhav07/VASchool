@@ -10,6 +10,7 @@ import type { filterUIProps } from '../../../shared.types';
 
 type FilterFormProps = {
   filterState: filterUIProps;
+  mobileFilterHandler?: () => void;
 };
 
 const initalFilterState = {
@@ -18,7 +19,10 @@ const initalFilterState = {
   language: '',
 };
 
-export function FilterForm({ filterState }: FilterFormProps) {
+export function FilterForm({
+  filterState,
+  mobileFilterHandler,
+}: FilterFormProps) {
   const { formDataState, handleFormChange, setFormData } =
     useFormHook(initalFilterState);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -61,6 +65,7 @@ export function FilterForm({ filterState }: FilterFormProps) {
       return;
     }
     setSearchParams(formDataState);
+    mobileFilterHandler?.();
   };
 
   return (
@@ -84,7 +89,9 @@ export function FilterForm({ filterState }: FilterFormProps) {
           </React.Fragment>
         );
       })}
-      <Button type="submit">Submit form</Button>
+      <Button type="submit" variant="success" className="w-100">
+        Apply Filter
+      </Button>
     </FormComp>
   );
 }
