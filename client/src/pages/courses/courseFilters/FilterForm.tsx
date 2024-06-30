@@ -62,7 +62,7 @@ export function FilterForm({
   const onFormSubmit = () => {
     const isEmpty = Object.values(formDataState).every((e) => e === '');
     if (isEmpty) {
-      return;
+      return setSearchParams({});
     }
     setSearchParams(formDataState);
     mobileFilterHandler?.();
