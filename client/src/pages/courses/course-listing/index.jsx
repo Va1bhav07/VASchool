@@ -9,6 +9,7 @@ import { FaSliders } from 'react-icons/fa6';
 import { CourseLisitngCard } from './CourseLisitngCard';
 import { CourseFilters } from '../courseFilters';
 import { getAllCoursesAction } from '../../../services/actions/courseActions';
+import { SpinnerComp } from '../../../components/Spinner';
 
 const filterCourses = (courses, filterQuery) => {
   if (Object.keys(filterQuery).length === 0) {
@@ -34,7 +35,7 @@ function CourseListing() {
 
   const dispatch = useDispatch();
   const courseReducer = useSelector(({ courseReducer }) => courseReducer);
-  const { allCourses = [], newCoursesAdded = [] } = courseReducer;
+  const { allCourses = [], newCoursesAdded = [], isLoading } = courseReducer;
 
   useEffect(() => {
     if (allCourses.length) {
@@ -55,6 +56,10 @@ function CourseListing() {
   const mobileFilterHandler = () => {
     setShowMoblieFilter((pre) => !pre);
   };
+
+  if (isLoading) {
+    return <SpinnerComp className="m-auto" />;
+  }
 
   return (
     <Container as="section" className="mt-4">

@@ -18,15 +18,17 @@ const handleResponse = (response, id) => {
   if (isStatusInRange(response.status, 200, 299)) {
     const message = response?.data?.message || 'Request successful';
     // toast.success(message);
-    if (message !== 'Cart data fetched') {
-      toast.update(id, {
-        render: message,
-        type: 'success',
-        isLoading: false,
-        autoClose: 2000,
-      });
-    } else {
-      toast.dismiss(id);
+    if (id) {
+      if (message !== 'Cart data fetched') {
+        toast.update(id, {
+          render: message,
+          type: 'success',
+          isLoading: false,
+          autoClose: 2000,
+        });
+      } else {
+        toast.dismiss(id);
+      }
     }
     return response.data;
   } else {
@@ -49,12 +51,12 @@ const handleError = (error, id) => {
 
 class Axios {
   async get(ENDPOINT) {
-    const id = toast.loading('Please wait...');
+    // const id = toast.loading('Please wait...');
     try {
       const response = await apiUrl.get(ENDPOINT);
-      return handleResponse(response, id);
+      return handleResponse(response);
     } catch (error) {
-      handleError(error, id);
+      handleError(error);
     }
   }
 
