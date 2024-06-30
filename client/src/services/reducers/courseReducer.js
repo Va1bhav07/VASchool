@@ -5,7 +5,7 @@ import {
   // INSTRUCTOR_COURSES_REQUEST,
   INSTRUCTOR_COURSES_SUCCESS,
   INSTRUCTOR_COURSES_FAIL,
-  // ALL_COURSES_REQUEST,
+  ALL_COURSES_REQUEST,
   ALL_COURSES_SUCCESS,
   ALL_COURSES_FAIL,
   // COURSE_BY_ID_REQUEST,
@@ -78,11 +78,11 @@ export const courseReducer = (
         isLoading: false,
       };
 
-    // case ALL_COURSES_REQUEST:
-    //   return {
-    //     ...state,
-    //     isLoading: true,
-    //   };
+    case ALL_COURSES_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
 
     case ALL_COURSES_SUCCESS:
       return {
