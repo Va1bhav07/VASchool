@@ -29,11 +29,7 @@ function CourseAction({ course }) {
     <>
       <div className="d-flex flex-row align-items-center mb-1 mt-3 mt-md-0 justify-content-center justify-content-md-start">
         <h4 className="mb-1 me-1">${price}</h4>
-        {/* <span className="text-danger">
-          <s>$20.99</s>
-        </span> */}
       </div>
-      {/* <h6 className="text-success">Free shipping</h6> */}
       <div className="d-flex flex-column mt-0 mt-md-4">
         <button
           className="btn btn-success btn-sm"

@@ -15,7 +15,7 @@ export const useCart = () => {
     courses?.length &&
       !(courses.length === cartData.length) &&
       dispatch(getCartDataAction(courses));
-  }, [authReducer.isLoggedIn, JSON.stringify(courses)]);
+  }, [authReducer.isLoggedIn, cartData.length, courses, dispatch]);
 
   return cartData;
 };

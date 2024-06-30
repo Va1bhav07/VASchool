@@ -26,7 +26,7 @@ function Login() {
     }
   }, [authData.isLoggedIn, navigate]);
 
-  const onFormSubmit = async () => {
+  const onFormSubmit = () => {
     const { email, password } = formDataState;
     if (!email || !password) {
       return console.log('enter all values');

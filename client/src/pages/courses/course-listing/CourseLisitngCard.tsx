@@ -11,6 +11,7 @@ import { IoMdStar, IoMdHeartEmpty } from 'react-icons/io';
 import {
   MdOutlineRemoveShoppingCart,
   MdOutlineShoppingCart,
+  // MdOutlineLanguage,
 } from 'react-icons/md';
 import type { RootState } from '../../../services/reducers/rootReducer';
 import { useMemo } from 'react';
@@ -61,7 +62,14 @@ export function CourseLisitngCard({ course }: CourseLisitngCardProps) {
           onClick={() => handleDetails(course._id)}>
           {course.title}
         </Card.Title>
-        <small className="text-muted fs-12">By: {course.author}</small>
+        <div className="d-flex justify-content-between">
+          <small className="text-muted fs-12">By: {course.author}</small>
+          <small className="text-muted fs-12">
+            {/* <MdOutlineLanguage size={14} />  */}
+            {course.language.toUpperCase()}
+          </small>
+        </div>
+
         <div className="lh-1 mt-3 d-flex align-items-center gap-1 fs-14">
           <span>
             {Array.from({ length: 5 }).map((_, ind) => (

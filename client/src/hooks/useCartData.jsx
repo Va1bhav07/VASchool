@@ -7,14 +7,14 @@ export const useCartData = () => {
   // this will only works for Guest Users
   const dispatch = useDispatch();
   const authData = useSelector((state) => state.authReducer);
-  const userId = useSelector((state) => state.authReducer.userData._id);
   const cartData = useSelector((state) => state.cartReducer.cartData);
-  const decryptedGuestCartData = getDecryptedGuestCartData();
+  const decryptedGuestCartData = getDecryptedGuestCartData() || [];
 
   useEffect(() => {
     console.log('only work for GUEST user :>> ');
     const getCartData = () => {
-      if (decryptedGuestCartData?.length) {
+      const userLogin = localStorage.getItem('userLogin');
+      if (!userLogin) {
         dispatch(setGuestCartDataAction(decryptedGuestCartData));
       }
     };
