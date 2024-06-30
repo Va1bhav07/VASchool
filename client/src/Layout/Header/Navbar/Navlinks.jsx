@@ -40,7 +40,9 @@ function Navlinks() {
             <Nav.Link as={Link} eventKey="myaccount" to="/myaccount">
               My Account
             </Nav.Link>
-            <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+            <Nav.Link eventKey="logout" onClick={handleLogout}>
+              Logout
+            </Nav.Link>
           </>
         )}
 

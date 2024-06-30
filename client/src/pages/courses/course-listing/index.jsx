@@ -1,19 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { FaSliders } from 'react-icons/fa6';
+
 import { CourseLisitngCard } from './CourseLisitngCard';
-
-import { useParams } from 'react-router-dom';
-
-// import { CourseFilter } from '../filter-courses';
-
+import { CourseFilters } from '../courseFilters';
 import { getAllCoursesAction } from '../../../services/actions/courseActions';
 
+const filterCourses = (courses, filterQuery) => {
+  if (Object.keys(filterQuery).length === 0) {
+    return courses; // Return all courses if no filters are applied
+  }
+
+  const { author, ...restFilterQuery } = filterQuery;
+  const newFilterQuery = { ...restFilterQuery, createdBy: author };
+  const filterKeys = Object.keys(newFilterQuery).filter(
+    (key) => newFilterQuery[key]
+  );
+
+  return courses.filter((course) =>
+    filterKeys.every((key) => newFilterQuery[key] === course[key])
+  );
+};
+
 function CourseListing() {
-  const location = useParams();
   const [courses, setCourses] = useState([]);
+  const [searchParams] = useSearchParams();
+  const filterQuery = Object.fromEntries([...searchParams]);
+  const [showMoblieFilter, setShowMoblieFilter] = useState(false);
+
   const dispatch = useDispatch();
   const courseReducer = useSelector(({ courseReducer }) => courseReducer);
   const { allCourses = [], newCoursesAdded = [] } = courseReducer;
@@ -27,66 +45,46 @@ function CourseListing() {
       return;
     }
     !allCourses?.length && dispatch(getAllCoursesAction());
-    // filterData(location);
-  }, [location, allCourses.length, allCourses, dispatch, newCoursesAdded]);
+  }, [dispatch, allCourses, newCoursesAdded]);
 
-  // async function filterData(location) {
-  //   const { language, difficulty, courselength } = location;
-  //   setCourses(allCourses);
-  //   var newArray = '';
-  //   if (language != 'All' && language != undefined) {
-  //     newArray = courses.filter(function (el) {
-  //       return el.language == language;
-  //     });
-  //   }
-  //   if (difficulty != 'All' && difficulty != undefined) {
-  //     newArray = courses.filter(function (el) {
-  //       return el.level == difficulty;
-  //     });
-  //   }
-  //   if (courselength != 'All' && courselength != undefined) {
-  //     if (courselength == 'less than 15 day') {
-  //       newArray = courses.filter(function (el) {
-  //         return (
-  //           Math.ceil(
-  //             Math.abs(new Date() - new Date(el.Publish_date)) /
-  //               (1000 * 60 * 60 * 24)
-  //           ) <= 15
-  //         );
-  //       });
-  //     } else {
-  //       newArray = courses.filter(function (el) {
-  //         return (
-  //           Math.ceil(
-  //             Math.abs(new Date() - new Date(el.Publish_date)) /
-  //               (1000 * 60 * 60 * 24)
-  //           ) <= 30
-  //         );
-  //       });
-  //     }
-  //   }
-  //   if (newArray != '') setCourses(newArray);
-  // }
-  console.log('courses :>> ', courses);
+  const filteredCourses = useMemo(
+    () => filterCourses(courses, filterQuery),
+    [courses, filterQuery]
+  );
+
+  const mobileFilterHandler = () => {
+    setShowMoblieFilter((pre) => !pre);
+  };
+
   return (
     <Container as="section" className="mt-4">
-      <h4 className="text-end">Total : {courses.length} courses</h4>
+      <div
+        className="filterButton rounded d-flex align-items-center justify-content-center position-absolute top-50 end-0 z-3 d-block d-lg-none"
+        role="button"
+        onClick={mobileFilterHandler}>
+        <FaSliders />
+      </div>
+      <h4 className="text-end">Total : {filteredCourses.length} courses</h4>
 
+      {/* <Button
+        variant="primary"
+        onClick={mobileFilterHandler}
+        className="position-absolute top-50 start-100">
+        Filter
+      </Button> */}
       <Row className="mt-3 gx-sm-5">
-        <Col md={3}>
-          <div className="border"></div>
+        <Col lg={3} className="p-0 d-none d-lg-block">
+          <CourseFilters
+            courses={courses}
+            mobileFilterHandler={mobileFilterHandler}
+            showMoblieFilter={showMoblieFilter}
+          />
         </Col>
-        <Col md={9}>
+        <Col xs={12} lg={9}>
           {/* <Container> */}
           <Row xs={1} sm={2} md={3} className="gy-4">
-            {courses.map(function (course) {
+            {filteredCourses.map(function (course) {
               return (
-                // <CourseCard
-                //   key={course._id}
-                //   course={course}
-                //   // border={'0'}
-                //   // cardAttibute={{ className: 'bg-body-tertiary shadow' }}
-                // />
                 <Col key={course._id}>
                   <CourseLisitngCard course={course} />
                 </Col>

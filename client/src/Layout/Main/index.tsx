@@ -26,7 +26,7 @@ function MainContainer({ children }: MainContainerProps) {
   return (
     <div data-bs-theme="dark" className="min-vh-100 d-flex flex-column bg-dark">
       <Header />
-      <main className="d-flex flex-column flex-grow-1 text-white">
+      <main className="d-flex flex-column flex-grow-1 text-light">
         <Suspense fallback={<SpinnerComp className="m-auto" />}>
           {children}
         </Suspense>

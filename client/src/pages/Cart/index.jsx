@@ -14,7 +14,7 @@ const Cart = () => {
   const navigate = useNavigate();
   const { isLoading } = useSelector(({ cartReducer }) => cartReducer);
   const cartData = useCart();
-
+  console.log('isLoading :>> ', isLoading);
   // Calculate total price of all courses in the cart
   const totalPrice = cartData.reduce(
     (total, course) => total + course.price,
