@@ -1,8 +1,7 @@
-// import { useState } from 'react';
 import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import { useColorModeValue } from '@chakra-ui/react';
+import { useMemo } from 'react';
 
-// import AccountSettings from './AccountSetting';
 import AddCourse from './AddCourse';
 import PublishedCourses from './PublishedCourses';
 import MyCourses from './MyCourses';
@@ -12,18 +11,39 @@ type DashboardProps = {
   userData: UserDataProps;
 };
 
-const Dashboard = ({ userData }: DashboardProps) => {
-  const tabs = [];
-  // const [tabIndexState, setTabIndex] = useState(0);
+type TabPanelProps = {
+  title: string;
+  panel: React.ComponentType<{ userData: UserDataProps }>;
+};
 
-  // const handleTabChange = (tab: number) => {
-  //   setTabIndex(tab);
-  // };
+const instructorPanels: TabPanelProps[] = [
+  {
+    title: 'Add Course',
+    panel: AddCourse,
+  },
+  {
+    title: 'Published Courses',
+    panel: PublishedCourses,
+  },
+];
+
+const studentPanels: TabPanelProps[] = [
+  {
+    title: 'My Courses',
+    panel: MyCourses,
+  },
+];
+
+const Dashboard = ({ userData }: DashboardProps) => {
+  const tabs: TabPanelProps[] = [];
 
   if (userData?.userType === 'instructor') {
-    tabs.push('Add Course', 'Published Courses');
+    tabs.push(...instructorPanels);
   }
-  tabs.push('My Coures');
+  tabs.push(...studentPanels);
+
+  const memoizedTabs = useMemo(() => tabs, [userData]);
+
   return (
     <Box
       as="section"
@@ -32,16 +52,11 @@ const Dashboard = ({ userData }: DashboardProps) => {
       bg={useColorModeValue('gray.100', 'brand.700')}
       height={'82vh'}
       rounded="md">
-      <Tabs
-        isLazy
-        // onChange={handleTabChange}
-        display={'flex'}
-        height={'100%'}
-        flexDirection={'column'}>
+      <Tabs isLazy display={'flex'} height={'100%'} flexDirection={'column'}>
         <TabList>
-          {tabs.map((tab) => (
-            <Tab key={tab} fontWeight="semibold">
-              {tab}
+          {memoizedTabs.map((tab) => (
+            <Tab key={tab.title} fontWeight="semibold">
+              {tab.title}
             </Tab>
           ))}
         </TabList>
@@ -52,21 +67,14 @@ const Dashboard = ({ userData }: DashboardProps) => {
             WebkitMask: 'linear-gradient(180deg, white 97%, transparent)',
             mask: 'linear-gradient(180deg, white 97%, transparent)',
           }}>
-          {/* <TabPanel>
-           <AccountSettings userData={userData} /> 
-          </TabPanel>*/}
-          <TabPanel>
-            <AddCourse userData={userData} />
-          </TabPanel>
-          <TabPanel>
-            <PublishedCourses
-              userData={userData}
-              // tabIndexState={tabIndexState}
-            />
-          </TabPanel>
-          <TabPanel>
-            <MyCourses userData={userData} />
-          </TabPanel>
+          {memoizedTabs.map((tab) => {
+            const PanelComp = tab.panel;
+            return (
+              <TabPanel key={tab.title}>
+                <PanelComp userData={userData} />
+              </TabPanel>
+            );
+          })}
         </TabPanels>
       </Tabs>
     </Box>

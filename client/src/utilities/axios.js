@@ -24,7 +24,7 @@ const handleResponse = (response, id) => {
           render: message,
           type: 'success',
           isLoading: false,
-          autoClose: 2000,
+          autoClose: 1300,
         });
       } else {
         toast.dismiss(id);
