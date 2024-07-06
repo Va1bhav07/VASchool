@@ -43,7 +43,7 @@ function Signup() {
     <section className="d-flex justify-content-center align-items-center">
       <CardComp
         border={'0'}
-        className="shadow mt-5 card-comp p-4 bg-body-tertiary">
+        className="shadow mt-5 card-comp p-1 p-sm-4 bg-body-tertiary">
         <Card.Title className="text-center fs-2 mb-4">Sign Up</Card.Title>
         <SignupForm
           handleFormChange={handleFormChange}
