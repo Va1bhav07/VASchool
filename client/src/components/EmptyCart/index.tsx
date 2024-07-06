@@ -13,7 +13,7 @@ export function EmptyCart() {
       <Link
         to="/course-listing"
         className="btn btn-success cart-btn-transform m-3">
-        continue shopping
+        Continue Courses
       </Link>
     </div>
   );

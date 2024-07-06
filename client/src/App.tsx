@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import { Routes, Route } from 'react-router-dom';
 import AboutUs from './pages/About';
 import FAQs from './pages/FAQ';
-import UserProfile from './pages/userProfile/usrProfile';
+// import UserProfile from './pages/userProfile/usrProfile';
 import PrivateRoutes from './routes/private-routes';
 import ProtectedRoutes from './routes/protected-routes';
 import CourseListing from './pages/courses/course-listing';
@@ -15,6 +15,7 @@ import PersistentLogin from './components/PersistentLogin';
 import PersistentCart from './components/PeristentCart';
 import Cart from './pages/Cart';
 import MyAccount from './pages/MyAccount';
+import { Page404 } from './pages/Page404';
 // import Checkout from './pages/Checkout';
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route element={<ProtectedRoutes />}>
             <Route path="/myAccount" element={<MyAccount />} />
-            <Route path="/myAccounts" element={<UserProfile />} />
+            {/* <Route path="/myAccounts" element={<UserProfile />} /> */}
 
             {/* <Route path="/instructor-details" element={<InstructorDetails />} />
             <Route path="/checkout" element={<Checkout />} /> */}
@@ -48,6 +49,7 @@ function App() {
           <Route element={<PrivateRoutes />}>
             {/* routes for private i.e admin pages etc */}
           </Route>
+          <Route path="*" element={<Page404 />} />
         </Route>
       </Route>
     </Routes>
