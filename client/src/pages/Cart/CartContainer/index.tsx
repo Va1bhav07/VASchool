@@ -6,9 +6,8 @@ import type { CartDataItemsProps } from '../../../shared.types';
 
 type CartContainerProps = {
   cartData: CartDataItemsProps;
-  onRemoveFromCart: (id: number) => void; // Function to remove item from cart
   totalPrice: number; // Total price
-  handleCheckout: (id: number) => void; // Function to handle checkout
+  handleCheckout: () => void; // Function to handle checkout
 };
 
 function CartContainer({

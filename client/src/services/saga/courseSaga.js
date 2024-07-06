@@ -15,6 +15,9 @@ import {
   DELETE_COURSE_BY_ID_REQUEST,
   DELETE_COURSE_BY_ID_SUCCESS,
   DELETE_COURSE_BY_ID_FAIL,
+  STUDENT_COURSES_REQUEST,
+  STUDENT_COURSES_SUCCESS,
+  STUDENT_COURSES_FAIL,
 } from '../constants';
 import { apiAxios } from '../../utilities/axios';
 
@@ -54,7 +57,7 @@ function* fetchAllCourses(action) {
   console.log('action :>> ', action);
   try {
     const url = `/api/getCourses`;
-    const courses = yield call(apiAxios.get, url);
+    const courses = yield call(apiAxios.post, url, {}, { showToast: false });
     console.log('courses :>> ', courses);
     if (courses?.data?.length) {
       // this length will check if no course i.e [] then fail condition and no re render will occur
@@ -89,7 +92,7 @@ function* deleteCourseById(action) {
   console.log('deleteCourseById :>> ', action);
   try {
     const url = `/api/deleteCourse/${action?.payload}`;
-    const course = yield call(apiAxios.get, url);
+    const course = yield call(apiAxios.delete, url);
     console.log('course :>> ', course);
     if (course?.success) {
       yield put({
@@ -103,10 +106,34 @@ function* deleteCourseById(action) {
   }
 }
 
+function* fetchStudentCourses(action) {
+  console.log('fetchStudentCourses action :>> ', action);
+  try {
+    const url = `/api/getCourses`;
+    const courses = yield call(
+      apiAxios.post,
+      url,
+      { ids: action.payload },
+      { showToast: false }
+    );
+    console.log('fetchStudentCourses :>> ', courses);
+    if (courses?.data?.length) {
+      // this length will check if no course i.e [] then fail condition and no re render will occur
+      yield put({
+        type: STUDENT_COURSES_SUCCESS,
+        myCourses: courses.data,
+      });
+    } else throw new Error('No courses found');
+  } catch (e) {
+    yield put({ type: STUDENT_COURSES_FAIL, message: e.message });
+  }
+}
+
 export default function* watchFork() {
   yield takeLatest(ADD_COURSE_REQUEST, addCourse);
   yield takeLatest(INSTRUCTOR_COURSES_REQUEST, fetchInstructorCourses);
   yield takeLatest(ALL_COURSES_REQUEST, fetchAllCourses);
   yield takeLatest(COURSE_BY_ID_REQUEST, fetchCourseById);
   yield takeLatest(DELETE_COURSE_BY_ID_REQUEST, deleteCourseById);
+  yield takeLatest(STUDENT_COURSES_REQUEST, fetchStudentCourses);
 }

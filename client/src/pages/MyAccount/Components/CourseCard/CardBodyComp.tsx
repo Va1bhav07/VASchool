@@ -1,5 +1,5 @@
 import { CardBody, Text, Heading, Flex } from '@chakra-ui/react';
-import type { CourseDetailsProps } from '../../../../../shared.types';
+import type { CourseDetailsProps } from '../../../../shared.types';
 
 type CardBodyProps = {
   courseDetails: CourseDetailsProps;

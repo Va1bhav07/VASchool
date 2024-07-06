@@ -61,7 +61,16 @@ const createCourse = async (req, res) => {
 // Get all courses
 const getCourses = async (req, res) => {
   try {
-    const courses = await CoursesModal.find();
+    const { ids } = req.body;
+    let courses;
+    if (ids && ids.length > 0) {
+      // If 'ids' array is provided, find courses by ID
+      courses = await CoursesModal.find({ _id: { $in: ids } });
+      // console.log("courses :>> ", courses);
+    } else {
+      // If no 'ids' are provided, return all courses
+      courses = await CoursesModal.find();
+    }
     res.status(200).json({ success: true, data: courses });
   } catch (error) {
     res.status(500).json({

@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 function CardsAccept() {
   return (
-    <Card className="mb-4 mb-lg-0 bg-body-tertiary" border="0">
+    <Card className="mb-4 mb-lg-0 bg-body-tertiary shadow" border="0">
       <Card.Body>
         <p>
           <strong>We accept</strong>
