@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 import { store } from './services/store';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import './index.css';
 
 const App = React.lazy(() => import('./App.jsx'));
@@ -23,6 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </Layout>
       </BrowserRouter>
       <Analytics />
+      <SpeedInsights />
     </Provider>
   </React.StrictMode>
 );

@@ -5,10 +5,10 @@ import Typewriter from 'typewriter-effect';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import hello from '../../../assets/svg/Hello.gif';
 import { useSize } from '../../../hooks/useSize';
+import { Link } from 'react-router-dom';
 
 function Banner() {
   const { windowSize } = useSize();
@@ -50,11 +50,13 @@ function Banner() {
                 />
               </div>
               <p className="fs-5">Want to be a Frontend Expert?</p>
-              <a href="/course-listing">
-                <Button variant="success" className="p-2">
-                  GET STARTED
-                </Button>
-              </a>
+
+              <Link
+                role="button"
+                to="/course-listing"
+                className="btn btn-success p-2">
+                GET STARTED
+              </Link>
             </Col>
             <Col md={12} lg={6} className="d-none d-md-block">
               <Image

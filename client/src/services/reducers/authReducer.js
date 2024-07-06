@@ -7,6 +7,8 @@ import {
   USER_TOKEN_REQUEST,
 } from '../constants';
 
+import { PLACE_ODER_SUCCESS } from '../constants/checkoutConstants';
+
 const initialState = {
   userData: {},
   isLoggedIn: false,
@@ -14,7 +16,10 @@ const initialState = {
   isLoading: true,
 };
 
-export const authReducer = (state = initialState, { type, user, message }) => {
+export const authReducer = (
+  state = initialState,
+  { type, user, message, courseIds }
+) => {
   switch (type) {
     case USER_LOGIN_SUCCESS:
       return {
@@ -48,16 +53,25 @@ export const authReducer = (state = initialState, { type, user, message }) => {
         message,
         isLoading: false,
       };
+    case USER_TOKEN_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case PLACE_ODER_SUCCESS:
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          myCoursesIds: [...(state.userData?.myCoursesIds || []), ...courseIds],
+        },
+      };
+
     case USER_LOGOUT_SUCCESS:
       return {
         ...initialState,
         isLoading: false,
         message: user?.message || '',
-      };
-    case USER_TOKEN_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
       };
     default:
       return {

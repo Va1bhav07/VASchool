@@ -1,8 +1,23 @@
 import {
+  PLACE_ODER_REQUEST,
+  SET_ODER_PLACED_TO_INIT,
   SET_CHECKOUT_COURSES,
   REMOVE_FROM_CHECKOUT,
   REMOVE_CHECKOUT_COURSES,
 } from '../constants/checkoutConstants';
+
+export const placeOderRequestAction = (courseIds) => {
+  return {
+    type: PLACE_ODER_REQUEST,
+    payload: courseIds,
+  };
+};
+
+export const setOderplaceToInit = () => {
+  return {
+    type: SET_ODER_PLACED_TO_INIT,
+  };
+};
 
 export const setCheckoutCoursesAction = (courses) => {
   return {

@@ -21,6 +21,9 @@ const userSchema = new Schema({
     type: String,
     default: "student",
   },
+  myCoursesIds: {
+    type: Array,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

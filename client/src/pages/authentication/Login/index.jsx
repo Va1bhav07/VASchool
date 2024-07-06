@@ -5,7 +5,7 @@ import { useFormHook } from '../../../components/Form';
 import LoginForm from './LoginForm';
 import SigninupLink from '../signinupLink';
 import '../authentication.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { loginAction } from '../../../services/actions/authActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDecryptedGuestCartData } from '../../../utilities/cartUtilities';
@@ -16,15 +16,21 @@ const initialFvalue = {
 
 function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const authData = useSelector((state) => state.authReducer);
 
   const { formDataState, handleFormChange } = useFormHook(initialFvalue);
+  const redirectLocation = location.state?.from;
+
   useEffect(() => {
     if (authData.isLoggedIn) {
+      if (redirectLocation) {
+        return navigate(redirectLocation);
+      }
       navigate('/', { replace: true });
     }
-  }, [authData.isLoggedIn, navigate]);
+  }, [authData.isLoggedIn, redirectLocation, navigate]);
 
   const onFormSubmit = () => {
     const { email, password } = formDataState;

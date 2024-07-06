@@ -24,7 +24,7 @@ router.get("/api/getInstructors", instrctutorController.GetInstructors);
 router.post("/api/instructorData", instrctutorController.InstructorDetails);
 
 // ============== Course Api ===============
-router.get("/api/getCourses", courseController.getCourses);
+router.post("/api/getCourses", courseController.getCourses);
 router.get(
   "/api/getPublishedCourses/:createdBy",
   courseController.getCourseByInstructorId
@@ -37,7 +37,7 @@ router.get(
 // );
 router.post("/api/createCourse", courseController.createCourse);
 router.get("/api/getCourse/:id", courseController.getCourseById);
-router.get("/api/deleteCourse/:id", courseController.deleteCourseById);
+router.delete("/api/deleteCourse/:id", courseController.deleteCourseById);
 
 router.post("/api/admin-login", authController.AdminLogin);
 
@@ -49,5 +49,6 @@ router.post("/api/addGuestCartToUser", cartController.addGuestCartToUser);
 
 // ================= Checkout Api =================
 router.post("/checkout", checkoutController.EnrollUser);
+router.post("/api/placeOder", verifyJWT, checkoutController.placeOder);
 
 module.exports = router;

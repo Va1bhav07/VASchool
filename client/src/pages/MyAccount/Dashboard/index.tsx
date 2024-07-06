@@ -5,6 +5,7 @@ import { useColorModeValue } from '@chakra-ui/react';
 // import AccountSettings from './AccountSetting';
 import AddCourse from './AddCourse';
 import PublishedCourses from './PublishedCourses';
+import MyCourses from './MyCourses';
 import type { UserDataProps } from '../../../shared.types';
 
 type DashboardProps = {
@@ -22,7 +23,7 @@ const Dashboard = ({ userData }: DashboardProps) => {
   if (userData?.userType === 'instructor') {
     tabs.push('Add Course', 'Published Courses');
   }
-
+  tabs.push('My Coures');
   return (
     <Box
       as="section"
@@ -32,7 +33,7 @@ const Dashboard = ({ userData }: DashboardProps) => {
       height={'82vh'}
       rounded="md">
       <Tabs
-        // isLazy
+        isLazy
         // onChange={handleTabChange}
         display={'flex'}
         height={'100%'}
@@ -62,6 +63,9 @@ const Dashboard = ({ userData }: DashboardProps) => {
               userData={userData}
               // tabIndexState={tabIndexState}
             />
+          </TabPanel>
+          <TabPanel>
+            <MyCourses userData={userData} />
           </TabPanel>
         </TabPanels>
       </Tabs>

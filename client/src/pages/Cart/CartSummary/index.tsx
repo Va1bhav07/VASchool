@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 type CartSummaryProps = {
   totalPrice: number;
-  handleCheckout: (id: number) => void; // Function to handle checkout
+  handleCheckout: () => void; // Function to handle checkout
 };
 
 function CartSummary({ totalPrice, handleCheckout }: CartSummaryProps) {
@@ -19,10 +19,10 @@ function CartSummary({ totalPrice, handleCheckout }: CartSummaryProps) {
             Products
             <span>${totalPrice}</span>
           </ListGroup.Item>
-          {/* <ListGroup.Item className="d-flex justify-content-between align-items-center px-0">
-            Shipping
-            <span>Gratis</span>
-          </ListGroup.Item> */}
+          <ListGroup.Item className="d-flex justify-content-between align-items-center px-0 bg-transparent">
+            Discount
+            <span>100%</span>
+          </ListGroup.Item>
           <ListGroup.Item className="d-flex justify-content-between align-items-center border-0 px-0 mb-3 bg-transparent">
             <div>
               <strong>Total amount</strong>
@@ -31,15 +31,15 @@ function CartSummary({ totalPrice, handleCheckout }: CartSummaryProps) {
               </strong>
             </div>
             <span>
-              <strong>${totalPrice}</strong>
+              <strong>
+                <del>${totalPrice}</del> FREE
+              </strong>
             </span>
           </ListGroup.Item>
         </ListGroup>
 
-        <Button
-          className="btn btn-success w-100 fs-5"
-          onClick={() => handleCheckout(1)}>
-          Go to checkout
+        <Button className="btn btn-success w-100 fs-5" onClick={handleCheckout}>
+          Place Order
         </Button>
       </Card.Body>
     </Card>

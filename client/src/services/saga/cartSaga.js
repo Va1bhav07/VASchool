@@ -16,9 +16,14 @@ function* fetchUserCourses(action) {
   try {
     console.log('action :>> ', action);
     const url = '/api/getCartData';
-    const response = yield call(apiAxios.post, url, {
-      courseIds: action.payload,
-    });
+    const response = yield call(
+      apiAxios.post,
+      url,
+      {
+        courseIds: action.payload,
+      },
+      { showToast: false }
+    );
     if (response?.cartData?.length) {
       const { cartData } = response;
       yield put({ type: CART_DATA_SUCCESS, cartData });
