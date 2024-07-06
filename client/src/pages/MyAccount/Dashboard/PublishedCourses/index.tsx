@@ -11,7 +11,14 @@ import type {
   CourseDetailsProps,
 } from '../../../../shared.types';
 import type { RootState } from '../../../../services/reducers/rootReducer';
-import { VStack, StackDivider, Spinner, Box } from '@chakra-ui/react';
+import {
+  VStack,
+  StackDivider,
+  Spinner,
+  Box,
+  useDisclosure,
+} from '@chakra-ui/react';
+import { AlertDialogComp } from '../../Components/AlertDialog';
 
 type PublishedCoursesProps = {
   userData: UserDataProps;
@@ -25,6 +32,8 @@ function PublishedCourses({ userData }: PublishedCoursesProps) {
   const [publishedCoursesState, setPublishedCourses] = useState<
     CourseDetailsProps[]
   >([]);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [courseIdDelState, setCourseIdDel] = useState<string>('');
 
   const courses = useSelector((state: RootState) => state.courseReducer);
   const { instructorCourses = [], newCoursesAdded = [], isLoading } = courses;
@@ -42,7 +51,14 @@ function PublishedCourses({ userData }: PublishedCoursesProps) {
   }, [dispatch, _id, instructorCourses, newCoursesAdded]);
 
   const onCourseDelete = (id: string) => {
-    dispatch(deleteCourseByIdAction(id));
+    onOpen();
+    setCourseIdDel(id);
+  };
+
+  const confirmDeleteHandler = () => {
+    dispatch(deleteCourseByIdAction(courseIdDelState));
+    setCourseIdDel('');
+    onClose();
   };
 
   if (isLoading) {
@@ -79,6 +95,13 @@ function PublishedCourses({ userData }: PublishedCoursesProps) {
           />
         );
       })}
+
+      <AlertDialogComp
+        isOpen={isOpen}
+        onClose={onClose}
+        confirmDeleteHandler={confirmDeleteHandler}
+        alertMsg="You want to permanently delete this course?"
+      />
     </VStack>
   );
 }

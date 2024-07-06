@@ -1,13 +1,10 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import {
-  placeOderRequestAction,
-  setOderplaceToInit,
-} from '../../services/actions/checkoutActions';
+import { placeOderRequestAction } from '../../services/actions/checkoutActions';
 import { useCart } from '../../hooks/useCart';
 import CartContainer from './CartContainer';
 import { EmptyCart } from '../../components/EmptyCart';
+import { OderComplete } from '../../components/OrderComplete';
 import Container from 'react-bootstrap/Container';
 import { SpinnerComp } from '../../components/Spinner';
 import type { CartDataItemProps } from '../../shared.types';
@@ -37,13 +34,6 @@ const Cart = () => {
     0
   );
 
-  useEffect(() => {
-    if (isOderPlaced) {
-      dispatch(setOderplaceToInit());
-      navigate('/myaccount', { state: { oderComplete: true } });
-    }
-  }, [isOderPlaced]);
-
   const handleCheckout = () => {
     if (!isLoggedIn) {
       return navigate('/login', { state: { from: location } });
@@ -53,6 +43,14 @@ const Cart = () => {
 
   if (isLoading) {
     return <SpinnerComp className="m-auto" />;
+  }
+
+  if (isOderPlaced) {
+    return (
+      <Container className="text-center m-auto">
+        <OderComplete />
+      </Container>
+    );
   }
 
   if (!cartData?.length) {

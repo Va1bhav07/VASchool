@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Button,
-  useDisclosure,
   AlertDialog,
   AlertDialogBody,
   AlertDialogFooter,
@@ -11,15 +10,27 @@ import {
   AlertDialogCloseButton,
 } from '@chakra-ui/react';
 
-export function AlertDialogComp() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+type AlertDialogCompProps = {
+  isOpen: boolean;
+  alertMsg: string;
+  onClose: () => void;
+  confirmDeleteHandler: () => void;
+};
+
+export function AlertDialogComp({
+  isOpen,
+  onClose,
+  alertMsg,
+  confirmDeleteHandler,
+}: AlertDialogCompProps) {
+  // const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef(null);
 
   return (
     <>
-      <Button colorScheme="red" onClick={onOpen}>
+      {/* <Button colorScheme="red" onClick={onOpen}>
         Delete Customer
-      </Button>
+      </Button> */}
 
       <AlertDialog
         isOpen={isOpen}
@@ -31,15 +42,16 @@ export function AlertDialogComp() {
               Delete Customer
             </AlertDialogHeader>
             <AlertDialogCloseButton />
-            <AlertDialogBody>
-              Are you sure? You can't undo this action afterwards.
-            </AlertDialogBody>
+            <AlertDialogBody>{alertMsg}</AlertDialogBody>
 
             <AlertDialogFooter>
               <Button ref={cancelRef} onClick={onClose}>
                 Cancel
               </Button>
-              <Button colorScheme="red" onClick={onClose} ml={3}>
+              <Button
+                colorScheme="red"
+                onClick={() => confirmDeleteHandler()}
+                ml={3}>
                 Delete
               </Button>
             </AlertDialogFooter>

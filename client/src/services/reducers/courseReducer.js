@@ -15,6 +15,7 @@ import {
   DELETE_COURSE_BY_ID_FAIL,
   STUDENT_COURSES_SUCCESS,
   STUDENT_COURSES_FAIL,
+  USER_LOGOUT_SUCCESS,
 } from '../constants';
 
 const initialState = {
@@ -142,6 +143,12 @@ export const courseReducer = (
         ...state,
         isLoading: false,
         message,
+      };
+
+    case USER_LOGOUT_SUCCESS:
+      return {
+        ...initialState,
+        message: message || '',
       };
 
     default:

@@ -16,10 +16,10 @@ const isStatusInRange = (status, start, end) =>
 const handleResponse = (response, id) => {
   console.log(response);
   if (isStatusInRange(response.status, 200, 299)) {
-    const message = response?.data?.message || 'Request successful';
+    const message = response?.data?.message;
     // toast.success(message);
     if (id) {
-      if (message !== 'Cart data fetched') {
+      if (message) {
         toast.update(id, {
           render: message,
           type: 'success',
@@ -60,8 +60,10 @@ class Axios {
     }
   }
 
-  async post(ENDPOINT, data) {
-    const id = toast.loading('Please wait...');
+  async post(ENDPOINT, data, options = {}) {
+    const { showToast = true } = options;
+    let id;
+    if (showToast) id = toast.loading('Please wait...');
     try {
       const response = await apiUrl.post(`${ENDPOINT}`, data);
       return handleResponse(response, id);

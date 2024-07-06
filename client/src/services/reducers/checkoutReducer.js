@@ -6,6 +6,7 @@ import {
   REMOVE_CHECKOUT_COURSES,
   PLACE_ODER_FAIL,
 } from '../constants/checkoutConstants';
+import { USER_LOGOUT_SUCCESS } from '../constants/index';
 
 const initialState = {
   checkoutCoursesData: [],
@@ -49,6 +50,12 @@ export const checkoutReducer = (state = initialState, action) => {
     case REMOVE_CHECKOUT_COURSES:
       return {
         ...initialState,
+      };
+
+    case USER_LOGOUT_SUCCESS:
+      return {
+        ...initialState,
+        message: action?.message || '',
       };
     default:
       return state;

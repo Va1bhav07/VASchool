@@ -15,8 +15,10 @@ const placeOder = async (req, res) => {
       });
     }
 
-    await UserModel.findByIdAndUpdate(userId, { myCoursesIds: courseIds });
-    await CartModel.findOneAndUpdate({ user: userId }, { myCoursesIds: [] });
+    await UserModel.findByIdAndUpdate(userId, {
+      $addToSet: { myCoursesIds: { $each: courseIds } },
+    });
+    await CartModel.findOneAndUpdate({ user: userId }, { courses: [] });
     return res.status(200).json({
       success: true,
       message: "Courses has been added successfully!",

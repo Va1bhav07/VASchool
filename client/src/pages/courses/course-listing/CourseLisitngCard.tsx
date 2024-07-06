@@ -40,6 +40,9 @@ export function CourseLisitngCard({ course }: CourseLisitngCardProps) {
   );
 
   const handleDetails = (id: string) => {
+    if (isItemPurchased) {
+      return navigate('/myaccount');
+    }
     navigate('/course-details/' + id);
   };
 

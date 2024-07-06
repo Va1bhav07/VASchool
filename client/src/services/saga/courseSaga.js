@@ -57,7 +57,7 @@ function* fetchAllCourses(action) {
   console.log('action :>> ', action);
   try {
     const url = `/api/getCourses`;
-    const courses = yield call(apiAxios.post, url);
+    const courses = yield call(apiAxios.post, url, {}, { showToast: false });
     console.log('courses :>> ', courses);
     if (courses?.data?.length) {
       // this length will check if no course i.e [] then fail condition and no re render will occur
@@ -110,7 +110,12 @@ function* fetchStudentCourses(action) {
   console.log('fetchStudentCourses action :>> ', action);
   try {
     const url = `/api/getCourses`;
-    const courses = yield call(apiAxios.post, url, { ids: action.payload });
+    const courses = yield call(
+      apiAxios.post,
+      url,
+      { ids: action.payload },
+      { showToast: false }
+    );
     console.log('fetchStudentCourses :>> ', courses);
     if (courses?.data?.length) {
       // this length will check if no course i.e [] then fail condition and no re render will occur

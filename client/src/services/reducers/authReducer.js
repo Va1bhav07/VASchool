@@ -53,12 +53,6 @@ export const authReducer = (
         message,
         isLoading: false,
       };
-    case USER_LOGOUT_SUCCESS:
-      return {
-        ...initialState,
-        isLoading: false,
-        message: user?.message || '',
-      };
     case USER_TOKEN_REQUEST:
       return {
         ...state,
@@ -71,6 +65,13 @@ export const authReducer = (
           ...state.userData,
           myCoursesIds: [...(state.userData?.myCoursesIds || []), ...courseIds],
         },
+      };
+
+    case USER_LOGOUT_SUCCESS:
+      return {
+        ...initialState,
+        isLoading: false,
+        message: user?.message || '',
       };
     default:
       return {
