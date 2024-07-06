@@ -64,7 +64,7 @@ function CourseListing() {
   return (
     <Container as="section" className="mt-4">
       <div
-        className="filterButton rounded d-flex align-items-center justify-content-center position-absolute top-50 end-0 z-3 d-block d-lg-none"
+        className="filterButton rounded d-flex align-items-center justify-content-center position-fixed top-50 end-0 z-3 d-block d-lg-none"
         role="button"
         onClick={mobileFilterHandler}>
         <FaSliders />
