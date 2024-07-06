@@ -10,8 +10,20 @@ import {
 } from '@chakra-ui/react';
 import { menuItems } from './menuItems';
 import { Link } from 'react-router-dom';
+import { MdOutlineLogout } from 'react-icons/md';
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutAction } from '../../../../../../services/actions/authActions';
+import type { RootState } from '../../../../../../services/reducers/rootReducer';
 
 function MenuComp() {
+  const dispatch = useDispatch();
+  const { userData } = useSelector(({ authReducer }: RootState) => authReducer);
+  const { fullName = '' } = userData;
+
+  const handleLogout = () => {
+    dispatch(logoutAction());
+  };
+
   return (
     <Menu>
       <MenuButton
@@ -30,12 +42,13 @@ function MenuComp() {
         <Center>
           <Avatar
             size={'2xl'}
+            name={fullName}
             src={'https://api.dicebear.com/9.x/pixel-art/svg'}
           />
         </Center>
         <br />
         <Center>
-          <p>Username</p>
+          <p>{fullName}</p>
         </Center>
         <MenuDivider />
         {menuItems.map((item, ind) => (
@@ -43,6 +56,13 @@ function MenuComp() {
             {item.text}
           </MenuItem>
         ))}
+        <MenuItem
+          justifyContent="space-between"
+          alignItems="center"
+          onClick={handleLogout}>
+          Logout
+          <MdOutlineLogout size={16} />
+        </MenuItem>
       </MenuList>
     </Menu>
   );

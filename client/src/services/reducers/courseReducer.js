@@ -13,6 +13,8 @@ import {
   COURSE_BY_ID_FAIL,
   DELETE_COURSE_BY_ID_SUCCESS,
   DELETE_COURSE_BY_ID_FAIL,
+  STUDENT_COURSES_SUCCESS,
+  STUDENT_COURSES_FAIL,
 } from '../constants';
 
 const initialState = {
@@ -35,6 +37,7 @@ export const courseReducer = (
     allCourses,
     newCourse,
     courseId,
+    myCourses,
   }
 ) => {
   switch (type) {
@@ -128,6 +131,19 @@ export const courseReducer = (
         message,
         isLoading: false,
       };
+    case STUDENT_COURSES_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        myCourses,
+      };
+    case STUDENT_COURSES_FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        message,
+      };
+
     default:
       return {
         ...state,

@@ -11,6 +11,7 @@ import { IoMdStar, IoMdHeartEmpty } from 'react-icons/io';
 import {
   MdOutlineRemoveShoppingCart,
   MdOutlineShoppingCart,
+  MdOutlinePlayCircle,
   // MdOutlineLanguage,
 } from 'react-icons/md';
 import type { RootState } from '../../../services/reducers/rootReducer';
@@ -24,11 +25,18 @@ export function CourseLisitngCard({ course }: CourseLisitngCardProps) {
   const navigate = useNavigate();
   const { handleAddToCart, handleRemoveFromCart } = useCartHandler();
   const cartReducer = useSelector(({ cartReducer }: RootState) => cartReducer);
+  const { userData } = useSelector(({ authReducer }: RootState) => authReducer);
+
   const { cartInfo = {} } = cartReducer;
+  const { myCoursesIds = [] } = userData;
 
   const isItemInCart = useMemo(
     () => cartInfo?.courses?.includes(course._id),
     [cartInfo?.courses, course._id]
+  );
+  const isItemPurchased = useMemo(
+    () => myCoursesIds?.includes(course._id),
+    [myCoursesIds, course._id]
   );
 
   const handleDetails = (id: string) => {
@@ -36,6 +44,9 @@ export function CourseLisitngCard({ course }: CourseLisitngCardProps) {
   };
 
   const handleCartAction = (course: CourseDetailsProps) => {
+    if (isItemPurchased) {
+      return navigate('/myaccount');
+    }
     isItemInCart ? handleRemoveFromCart(course) : handleAddToCart(course);
   };
 
@@ -92,7 +103,12 @@ export function CourseLisitngCard({ course }: CourseLisitngCardProps) {
             className="d-flex align-items-center gap-1"
             role="button"
             onClick={() => handleCartAction(course)}>
-            {!isItemInCart ? (
+            {isItemPurchased ? (
+              <>
+                <MdOutlinePlayCircle className="text-info" />
+                Start Learning
+              </>
+            ) : !isItemInCart ? (
               <>
                 <MdOutlineShoppingCart className="text-success" /> Add to cart
               </>

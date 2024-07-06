@@ -5,6 +5,7 @@ export type UserDataProps = {
   password: string;
   userType: string;
   createdAt: string;
+  myCoursesIds: string[];
 };
 
 //  Reducers

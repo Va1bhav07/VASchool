@@ -13,6 +13,7 @@ import {
   ADD_CART_INFO_FAIL,
   USER_LOGOUT_SUCCESS,
 } from '../constants';
+import { PLACE_ODER_SUCCESS } from '../constants/checkoutConstants';
 
 const initialState = {
   cartInfo: {},
@@ -105,6 +106,12 @@ export const cartReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         message: action.message,
+      };
+
+    case PLACE_ODER_SUCCESS:
+      return {
+        ...initialState,
+        isLoading: false,
       };
 
     case USER_LOGOUT_SUCCESS:

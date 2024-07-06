@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import NoCourse from './NoCourse';
+import { NoCourse } from './NoCourse';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchCourseAction,
   deleteCourseByIdAction,
 } from '../../../../services/actions/courseActions';
-import { CourseCard } from './CourseCard';
+import { CourseCard } from '../../Components/CourseCard';
 import type {
   UserDataProps,
   CourseDetailsProps,

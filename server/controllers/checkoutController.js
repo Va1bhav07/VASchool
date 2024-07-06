@@ -1,6 +1,33 @@
-const Courses = require("../models/coursesModal");
 const PurchasedCoursesModel = require("../models/purchasedCoursesModel");
 const UserModel = require("../models/userModel");
+const CartModel = require("../models/cartModel");
+
+const placeOder = async (req, res) => {
+  try {
+    const { courseIds = [] } = req.body;
+    const decodedUserData = req.user;
+    const userId = decodedUserData._id;
+
+    if (!userId || !courseIds.length) {
+      return res.status(400).json({
+        success: false,
+        message: "No user or courses found in the request",
+      });
+    }
+
+    await UserModel.findByIdAndUpdate(userId, { myCoursesIds: courseIds });
+    await CartModel.findOneAndUpdate({ user: userId }, { myCoursesIds: [] });
+    return res.status(200).json({
+      success: true,
+      message: "Courses has been added successfully!",
+    });
+  } catch (error) {
+    console.error("Error placing order:", error);
+    return res
+      .status(501)
+      .json({ success: false, message: "Internal server error" });
+  }
+};
 
 const EnrollUser = async (req, res) => {
   try {
@@ -81,4 +108,4 @@ const EnrollUser = async (req, res) => {
   }
 };
 
-module.exports = { EnrollUser };
+module.exports = { placeOder, EnrollUser };
