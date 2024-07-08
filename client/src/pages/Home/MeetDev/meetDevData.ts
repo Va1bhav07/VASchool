@@ -6,7 +6,7 @@ export const meetDevData = {
   name: 'Vaibhav Arora',
   title: 'Front End Developer | React JS | Software Engineer',
   desc: `Vaibhav Arora is an experienced Intermediate Front End Software Developer with a 
-  strong background in Computer Science. With over 3 years in the industry, he has worked on 
+  strong background in Computer Science. With over 5 years in the industry, he has worked on 
   high-impact projects for companies like Publicis Sapient and Vinove Software & Services, specializing 
   in React, TypeScript, Next.js, and Node.js. Vaibhav excels in developing scalable front-end interfaces, 
   mentoring junior developers, and implementing best practices for RESTful APIs and GraphQL.
