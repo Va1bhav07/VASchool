@@ -25,7 +25,6 @@ function* addCourse(action) {
   try {
     const url = '/api/createCourse';
     const newCourse = yield call(apiAxios.post, url, action.payload);
-    console.log('createCourse :>> ', newCourse);
     if (newCourse?.success) {
       yield put({ type: ADD_COURSE_SUCCESS, newCourse: newCourse.data });
     } else throw new Error('error in addCourse');
@@ -35,12 +34,10 @@ function* addCourse(action) {
 }
 
 function* fetchInstructorCourses(action) {
-  console.log('action :>> ', action);
   const createdBy = action?.payload;
   try {
     const url = `/api/getPublishedCourses/${createdBy}`;
     const courses = yield call(apiAxios.get, url);
-    console.log('courses :>> ', courses);
     if (courses?.data?.length) {
       // this length will check if no course i.e [] then fail condition and no re render will occur
       yield put({
@@ -53,12 +50,10 @@ function* fetchInstructorCourses(action) {
   }
 }
 
-function* fetchAllCourses(action) {
-  console.log('action :>> ', action);
+function* fetchAllCourses() {
   try {
     const url = `/api/getCourses`;
     const courses = yield call(apiAxios.post, url, {}, { showToast: false });
-    console.log('courses :>> ', courses);
     if (courses?.data?.length) {
       // this length will check if no course i.e [] then fail condition and no re render will occur
       yield put({
@@ -72,11 +67,9 @@ function* fetchAllCourses(action) {
 }
 
 function* fetchCourseById(action) {
-  console.log('fetchCourseByIdaction :>> ', action);
   try {
     const url = `/api/getCourse/${action?.payload}`;
     const course = yield call(apiAxios.get, url);
-    console.log('course :>> ', course);
     if (course?.data?._id) {
       yield put({
         type: COURSE_BY_ID_SUCCESS,
@@ -89,11 +82,9 @@ function* fetchCourseById(action) {
 }
 
 function* deleteCourseById(action) {
-  console.log('deleteCourseById :>> ', action);
   try {
     const url = `/api/deleteCourse/${action?.payload}`;
     const course = yield call(apiAxios.delete, url);
-    console.log('course :>> ', course);
     if (course?.success) {
       yield put({
         type: DELETE_COURSE_BY_ID_SUCCESS,
@@ -107,7 +98,6 @@ function* deleteCourseById(action) {
 }
 
 function* fetchStudentCourses(action) {
-  console.log('fetchStudentCourses action :>> ', action);
   try {
     const url = `/api/getCourses`;
     const courses = yield call(
@@ -116,7 +106,6 @@ function* fetchStudentCourses(action) {
       { ids: action.payload },
       { showToast: false }
     );
-    console.log('fetchStudentCourses :>> ', courses);
     if (courses?.data?.length) {
       // this length will check if no course i.e [] then fail condition and no re render will occur
       yield put({
