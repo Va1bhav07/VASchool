@@ -86,17 +86,21 @@ function CourseListing() {
           />
         </Col>
         <Col xs={12} lg={9}>
-          {/* <Container> */}
-          <Row xs={1} sm={2} md={3} className="gy-4">
-            {filteredCourses.map(function (course) {
-              return (
-                <Col key={course._id}>
-                  <CourseLisitngCard course={course} />
-                </Col>
-              );
-            })}
-          </Row>
-          {/* </Container> */}
+          {filteredCourses?.length ? (
+            <Row xs={1} sm={2} md={3} className="gy-4">
+              {filteredCourses.map(function (course) {
+                return (
+                  <Col key={course._id}>
+                    <CourseLisitngCard course={course} />
+                  </Col>
+                );
+              })}
+            </Row>
+          ) : (
+            <div className="h-100 d-flex align-items-center justify-content-center">
+              <h3 className="text-body-secondary">Sorry, No Course Found</h3>
+            </div>
+          )}
         </Col>
       </Row>
     </Container>

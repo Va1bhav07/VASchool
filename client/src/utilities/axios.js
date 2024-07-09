@@ -14,7 +14,6 @@ const isStatusInRange = (status, start, end) =>
   status >= start && status <= end;
 
 const handleResponse = (response, id) => {
-  console.log(response);
   if (isStatusInRange(response.status, 200, 299)) {
     const message = response?.data?.message;
     // toast.success(message);
