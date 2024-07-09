@@ -5,10 +5,11 @@ import Typewriter from 'typewriter-effect';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
-import hello from '../../../assets/svg/Hello.gif';
+// import Image from 'react-bootstrap/Image';
+// import hello from '../../../assets/svg/Hello.gif';
 import { useSize } from '../../../hooks/useSize';
 import { Link } from 'react-router-dom';
+import { PC } from './PC';
 
 function Banner() {
   const { windowSize } = useSize();
@@ -24,23 +25,22 @@ function Banner() {
           className="position-absolute top-50 start-50 translate-center w-100">
           <Row className="no-select align-items-center">
             <Col md={12} lg={6} className="text-center text-lg-end ">
-              <div className="type-writer fw-bold primary-text-color">
+              <div className="type-writer fw-bold primary-text-color d-flex justify-content-end">
                 <Typewriter
-                  onInit={(typewriter) => {
-                    typewriter
-                      .typeString('Namaste Dev!')
-                      .pauseFor(2500)
-                      .deleteAll()
-                      .typeString('Best Learning!')
-                      .pauseFor(2500)
-                      .deleteChars(9)
-                      .typeString('Courses!')
-                      .pauseFor(2500)
-
-                      .start();
-                  }}
                   options={{
-                    // strings: ["Namaste Dev", "Best Learning!",],
+                    strings: [
+                      'Namaste',
+                      'Hello',
+                      'Bonjour',
+                      'Sat Sri Akal',
+                      'Nomoshkar',
+                      'Aadab',
+                      'Vanakkam',
+                      'Khamma Gani',
+                      'Radhe Radhe',
+                      'Hola',
+                      'Shalom',
+                    ],
                     autoStart: true,
                     loop: true,
                     // skipAddStyles: true,
@@ -48,6 +48,7 @@ function Banner() {
                     // cursorClassName: "Typewriter__cursor fs-1 fw-bold",
                   }}
                 />
+                <span className="dev-string">Dev!</span>
               </div>
               <p className="fs-5">Want to be a Frontend Expert?</p>
 
@@ -58,14 +59,8 @@ function Banner() {
                 GET STARTED
               </Link>
             </Col>
-            <Col md={12} lg={6} className="d-none d-md-block">
-              <Image
-                src={hello}
-                alt="namaste"
-                className=""
-                width={200}
-                height={200}
-              />
+            <Col md={12} lg={4} className="d-none d-md-block">
+              <PC />
             </Col>
           </Row>
         </Container>
