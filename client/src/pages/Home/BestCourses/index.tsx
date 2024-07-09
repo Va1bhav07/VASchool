@@ -40,7 +40,7 @@ function BestCourses() {
   return (
     <Container as={'section'} className="text-center my-4">
       <h1 className="fs-1 fw-bold p-3">Our Best Courses</h1>
-      <Row xs={1} md={3} className="g-0 g-md-4 g-lg-5 justify-content-center">
+      <Row xs={1} md={2} lg={3} className="g-0 g-md-4 g-lg-5">
         {isLoading &&
           Array.from({ length: 3 }).map((_, ind) => (
             <Col key={ind} className="mb-3">
