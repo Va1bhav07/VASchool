@@ -41,7 +41,7 @@ export function CourseInfo({ courseDetails }: CourseInfoProps) {
         <br />
         <CourseBuy price={price} onAddToCart={onAddToCart} />
       </Col>
-      <Col xs={9} md={6}>
+      <Col>
         <CourseImage courseImg={thumbnail} />
       </Col>
     </Row>

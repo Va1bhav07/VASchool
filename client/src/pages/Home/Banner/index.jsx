@@ -25,7 +25,7 @@ function Banner() {
           className="position-absolute top-50 start-50 translate-center w-100">
           <Row className="no-select align-items-center">
             <Col md={12} lg={6} className="text-center text-lg-end ">
-              <div className="type-writer fw-bold primary-text-color d-flex justify-content-center justify-lg-content-end">
+              <div className="type-writer fw-bold primary-text-color d-flex justify-content-center justify-content-lg-end">
                 <Typewriter
                   options={{
                     strings: [
