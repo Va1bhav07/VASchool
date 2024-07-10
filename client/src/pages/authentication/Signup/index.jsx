@@ -30,7 +30,6 @@ function Signup() {
   }, [authReducer.isLoggedIn, navigate]);
 
   const onFormSubmit = async () => {
-    console.log('fro :>> ', formDataState);
     const { fullName, email, password } = formDataState;
     if (!email || !password || !fullName) {
       return console.log('enter all values');

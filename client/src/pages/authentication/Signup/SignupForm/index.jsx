@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FormComp } from '../../../../components/Form';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { PasswordMeter } from '../../../../components/PasswordMeter';
 
 function SignupForm({ onFormSubmit, handleFormChange }) {
+  const [passwordState, setPassword] = useState('');
   return (
     <FormComp onFormSubmit={onFormSubmit} handleFormChange={handleFormChange}>
       <Row className="mb-3">
@@ -47,10 +49,14 @@ function SignupForm({ onFormSubmit, handleFormChange }) {
             placeholder="Enter password"
             autoComplete="on"
             name="password"
+            onChange={(e) => setPassword(e.target.value)}
+            // minLength={8}
+            // pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
           />
           <Form.Control.Feedback type="invalid">
-            Please Enter Password.
+            Please enter a password (e.g., Abcd@123).
           </Form.Control.Feedback>
+          <PasswordMeter password={passwordState} />
         </Form.Group>
       </Row>
 
