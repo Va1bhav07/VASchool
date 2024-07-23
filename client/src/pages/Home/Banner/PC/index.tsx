@@ -46,7 +46,7 @@ export function PC() {
                     <div className="contfoot"></div>
                   </div>
                 </div>
-                {/* <div ></div> */}
+                {/* <div className="clearfix"></div> */}
               </div>
               <div className="infoot"></div>
             </div>
@@ -56,112 +56,112 @@ export function PC() {
           <div className="line">
             <div className="item var"></div>
             <div className="item cont"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line">
             <div className="item min var"></div>
             <div className="item min fun"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line">
             <div className="item min var"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line">
             <div className="item var"></div>
             <div className="item atr"></div>
             <div className="item cont"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab1">
             <div className="item min atr"></div>
             <div className="item lrg fun"></div>
             <div className="item min fun"></div>
             <div className="item lrg cont"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab1">
             <div className="item lrg atr"></div>
             <div className="item min fun"></div>
             <div className="item min cont"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab1">
             <div className="item atr"></div>
             <div className="item min fun"></div>
             <div className="item atr"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab1">
             <div className="item min atr"></div>
             <div className="item min cont"></div>
             <div className="item lrg atr"></div>
             <div className="item  fun"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab1">
             <div className="item min atr"></div>
             <div className="item lrg fun"></div>
             <div className="item lrg cont"></div>
             <div className="item min fun"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab1">
             <div className="item min var"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab1">
             <div className="item min var"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab2">
             <div className="item min var"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab2">
             <div className="item min atr"></div>
             <div className="item min fun"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab3">
             <div className="item min atr"></div>
             <div className="item min fun"></div>
             <div className="item lrg fun"></div>
             <div className="item lrg cont"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab3">
             <div className="item min atr"></div>
             <div className="item min fun"></div>
             <div className="item lrg atr"></div>
             <div className="item lrg cont"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab4">
             <div className="item min fun"></div>
             <div className="item lrg atr"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab1">
             <div className="item atr"></div>
             <div className="item var"></div>
             <div className="item cont"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab3">
             <div className="item min var"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line tab4">
             <div className="item min atr"></div>
             <div className="item min fun"></div>
             <div className="item lrg atr"></div>
             <div className="item lrg cont"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
           <div className="line">
             <div className="item min var"></div>
-            <div></div>
+            <div className="clearfix"></div>
           </div>
         </div>
       </div>
