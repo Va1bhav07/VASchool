@@ -10,7 +10,7 @@
 }
 
 @media (max-width: 768px) {
-  .tag-list {
+  .topic-tag-list {
     width: 90vw !important;
   }
 }
