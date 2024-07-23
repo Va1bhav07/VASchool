@@ -32,7 +32,7 @@ function KeywordsSlider({
           data.map((val, ind) => (
             <div
               key={ind}
-              className="shadow rounded p-2 bg-body-secondary d-flex align-items-center tag">
+              className="shadow rounded p-2 bg-body-secondary d-flex align-items-center">
               {val}
             </div>
           ))}

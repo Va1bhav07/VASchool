@@ -49,6 +49,6 @@ router.post("/api/addGuestCartToUser", cartController.addGuestCartToUser);
 
 // ================= Checkout Api =================
 router.post("/checkout", checkoutController.EnrollUser);
-router.post("/api/placeOder", verifyJWT, checkoutController.placeOder);
+router.post("/api/placeOder", checkoutController.placeOder);
 
 module.exports = router;
