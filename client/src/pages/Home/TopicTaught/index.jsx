@@ -37,7 +37,7 @@ function TopicTaught() {
         </p>
       </header>
       <div
-        className="py-4 w-75 d-flex flex-column gap-3 overflow-hidden tag-list"
+        className="py-4 w-75 d-flex flex-column gap-3 overflow-hidden topic-tag-list"
         style={{ maxWidth: '90vw' }}>
         {shuffledKeywords.map((shuffledKeyword, index) => (
           <KeywordsSlider
