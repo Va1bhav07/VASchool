@@ -11,11 +11,12 @@ function* placeOder({ payload }) {
   try {
     const url = '/api/placeOder';
     const response = yield call(apiAxios.post, url, {
-      courseIds: payload,
+      courseIds: payload?.courseIds,
+      userId: payload?.userId,
     });
     if (response?.success) {
       // const { cartData } = response;
-      yield put({ type: PLACE_ODER_SUCCESS, courseIds: payload });
+      yield put({ type: PLACE_ODER_SUCCESS, courseIds: payload?.courseIds });
     } else throw new Error('error in placeOder');
   } catch (e) {
     yield put({ type: PLACE_ODER_FAIL, message: e.message });

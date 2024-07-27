@@ -19,7 +19,7 @@ const Cart = () => {
     ({ cartReducer }: RootState) => cartReducer
   );
   const courseIds = cartInfo?.courses;
-  const { isLoggedIn } = useSelector(
+  const { isLoggedIn, userData } = useSelector(
     ({ authReducer }: RootState) => authReducer
   );
   const { isOderPlaced } = useSelector(
@@ -38,7 +38,7 @@ const Cart = () => {
     if (!isLoggedIn) {
       return navigate('/login', { state: { from: location } });
     }
-    dispatch(placeOderRequestAction(courseIds));
+    dispatch(placeOderRequestAction({ courseIds, userId: userData?._id }));
   };
 
   if (isLoading) {

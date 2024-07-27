@@ -6,10 +6,10 @@ import {
   REMOVE_CHECKOUT_COURSES,
 } from '../constants/checkoutConstants';
 
-export const placeOderRequestAction = (courseIds) => {
+export const placeOderRequestAction = (coursesData) => {
   return {
     type: PLACE_ODER_REQUEST,
-    payload: courseIds,
+    payload: coursesData,
   };
 };
 
