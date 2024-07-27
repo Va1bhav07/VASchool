@@ -4,9 +4,9 @@ const CartModel = require("../models/cartModel");
 
 const placeOder = async (req, res) => {
   try {
-    const { courseIds = [] } = req.body;
-    const decodedUserData = req.user;
-    const userId = decodedUserData._id;
+    const { courseIds = [], userId } = req.body;
+    // const decodedUserData = req.user;
+    // const userId = decodedUserData._id;
 
     if (!userId || !courseIds.length) {
       return res.status(400).json({
