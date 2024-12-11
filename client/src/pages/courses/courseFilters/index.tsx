@@ -7,7 +7,7 @@ import { MobileCourseFilter } from './MobileCourseFilter';
 type CourseFiltersProps = {
   courses: CourseDetailsProps[];
   mobileFilterHandler: () => void;
-  showMoblieFilter: boolean;
+  showMobileFilter: boolean;
 };
 
 const initialFilterUI: filterUIProps = {
@@ -35,7 +35,7 @@ const languages = new Set<string>();
 export function CourseFilters({
   courses,
   mobileFilterHandler,
-  showMoblieFilter,
+  showMobileFilter,
 }: CourseFiltersProps) {
   const [filterState, setFilter] = useState<filterUIProps>(initialFilterUI);
   // console.log(' authors,levels,languages :>> ', authors, levels, languages);
@@ -78,7 +78,7 @@ export function CourseFilters({
     <>
       <MobileCourseFilter
         mobileFilterHandler={mobileFilterHandler}
-        showMoblieFilter={showMoblieFilter}>
+        showMobileFilter={showMobileFilter}>
         <FilterForm
           filterState={filterState}
           mobileFilterHandler={mobileFilterHandler}
