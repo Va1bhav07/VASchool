@@ -32,26 +32,14 @@ export type CourseDetailsProps = {
   title: string;
   language: string;
   level: string;
-  price: 456;
-  description: string;
-  videoUrl: string;
-  thumbnail: string;
-  createdAt: string;
-};
-
-export type CartDataItemProps = {
-  _id: string;
-  createdBy: string;
-  author: string;
-  title: string;
-  language: string;
-  level: string;
   price: number;
   description: string;
   videoUrl: string;
   thumbnail: string;
   createdAt: string;
 };
+
+export type CartDataItemProps = CourseDetailsProps;
 
 export type CartDataItemsProps = CartDataItemProps[];
 
@@ -78,8 +66,8 @@ export type filterUIProps = {
   };
 };
 
-export type appliedFilterProps = {
-  author: string;
-  level: string;
-  language: string;
+export type AppliedFilterProps = {
+  author?: string;
+  level?: string;
+  language?: string;
 };

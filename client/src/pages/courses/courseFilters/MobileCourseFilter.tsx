@@ -4,19 +4,19 @@ import type { OffcanvasProps } from 'react-bootstrap/Offcanvas';
 type MobileCourseFilterProps = OffcanvasProps & {
   children: React.ReactNode;
   mobileFilterHandler: () => void;
-  showMoblieFilter: boolean;
+  showMobileFilter: boolean;
 };
 
 export function MobileCourseFilter({
   children,
   mobileFilterHandler,
-  showMoblieFilter,
+  showMobileFilter,
   ...props
 }: MobileCourseFilterProps) {
   return (
     <Offcanvas
       data-bs-theme="dark"
-      show={showMoblieFilter}
+      show={showMobileFilter}
       onHide={mobileFilterHandler}
       placement="end"
       {...props}>
