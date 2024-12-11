@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { FaSliders } from 'react-icons/fa6';
 
-import { CourseLisitngCard } from './CourseLisitngCard';
+import { CourseListingCard } from './CourseListingCard';
 import { CourseFilters } from '../courseFilters';
 import { getAllCoursesAction } from '../../../services/actions/courseActions';
 import { SpinnerComp } from '../../../components/Spinner';
@@ -91,7 +91,7 @@ function CourseListing() {
               {filteredCourses.map(function (course) {
                 return (
                   <Col key={course._id}>
-                    <CourseLisitngCard course={course} />
+                    <CourseListingCard course={course} />
                   </Col>
                 );
               })}
