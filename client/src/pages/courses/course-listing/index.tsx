@@ -46,7 +46,6 @@ const filterCourses = (
   const filterKeys = Object.keys(newFilterQuery).filter(
     (key) => newFilterQuery[key as keyof FilterQuery]
   );
-  console.log('filterKeys', filterKeys);
   const filterdCourse = courses.filter((course) =>
     filterKeys.every(
       (key) =>
@@ -54,7 +53,6 @@ const filterCourses = (
         course[key as keyof CourseDetailsProps]
     )
   );
-  console.log('filterdCourse', filterdCourse);
   return filterdCourse;
 };
 
