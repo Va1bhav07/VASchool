@@ -17,9 +17,9 @@ import type {
 import type { RootState } from '../../../services/reducers/rootReducer';
 
 /**
- * Type definitions for the course and filter query objects.
+ * Type definitions for the filter query object.
+ * This is the structure of the query parameters used to filter courses.
  */
-
 type FilterQuery = {
   createdBy?: string;
   level?: string;
@@ -37,25 +37,30 @@ const filterCourses = (
   courses: CourseDetailsProps[],
   filterQuery: AppliedFilterProps
 ): CourseDetailsProps[] => {
+  // If no filters are applied, return the full list of courses
   if (Object.keys(filterQuery).length === 0) {
-    return courses; // Return all courses if no filters are applied
+    return courses;
   }
 
+  // Extract the author from filterQuery and add it as 'createdBy'
   const { author, ...restFilterQuery } = filterQuery;
   const newFilterQuery: FilterQuery = { ...restFilterQuery, createdBy: author };
+
+  // Get the keys that have non-falsy values in the filter query
   const filterKeys = Object.keys(newFilterQuery).filter(
     (key) => newFilterQuery[key as keyof FilterQuery]
   );
-  console.log('filterKeys', filterKeys);
-  const filterdCourse = courses.filter((course) =>
+
+  // Filter courses by checking if every filter key matches the corresponding course property
+  const filteredCourses = courses.filter((course) =>
     filterKeys.every(
       (key) =>
         newFilterQuery[key as keyof FilterQuery] ===
         course[key as keyof CourseDetailsProps]
     )
   );
-  console.log('filterdCourse', filterdCourse);
-  return filterdCourse;
+
+  return filteredCourses;
 };
 
 /**
@@ -100,8 +105,9 @@ function CourseListing() {
     setShowMobileFilter((prev) => !prev);
   };
 
+  // Show loading spinner while courses are being fetched
   if (isLoading) {
-    return <SpinnerComp className="m-auto" />; // Show loading spinner
+    return <SpinnerComp className="m-auto" />;
   }
 
   return (
